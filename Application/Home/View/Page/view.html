@@ -1,0 +1,23 @@
+<extend name="Public:common"/>
+<block name="main">
+
+<!-- 公告详情 -->
+<div class="gallery">
+  <div class="container">
+      <div class="col-md-6 col-md-offset-3">
+        <h3><strong>{$model.title}</strong></h3><hr/>
+        <div class="row">
+			 <?php 
+			 $html = $model;
+			 foreach($model as $value);
+			 echo html_entity_decode($value);
+			 ?>
+	    </div>
+		<div class="row">
+			<hr/>
+			<a href="{:U('page/index')}">返回列表</a>
+		</div>
+
+  </div>
+</div>
+</block>

@@ -1,0 +1,50 @@
+<extend name="Public:common"/>
+<block name="main">
+<div class="gallery">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2><strong>贡献榜</strong></h2>
+		<hr/>
+		<h5 ><strong>感谢各位安全专家长期关注我们的安全，帮助提高集团安全水平，在此向下面列表中的所有安全专家致以最崇高的敬意！</strong></h5><br/>
+        <table class="table table-hover">
+        <thead>
+            <tr>
+               <th>姓名</th>
+               <th>积分</th>
+               <th>等级</th>
+            </tr>
+        </thead>
+		<tbody>
+		<foreach name="user" item="v">
+            <tr>
+               <td>{$v['username']}</td>
+               <td>{$v['jifen']}</td>
+               <td>     
+			   <if condition="$v.jifen lt 100"><span class="label label-success">实习白帽子</span>
+			   <elseif condition="$v.jifen eq 100" /><span class="label label-success">实习白帽子</span>
+               <elseif condition="$v.jifen gt 100 && $v.jifen lt 500" /><span class="label label-info">普通白帽子</span>
+			   <elseif condition="$v.jifen eq 500" /><span class="label label-info">普通白帽子</span>
+			   <elseif condition="$v.jifen gt 500" /><span class="label label-warning">核心白帽子</span>
+               </if>
+			   </td>
+               </tr>
+	    </foreach>
+            <!--<tr>
+               <td>Sachin</td>
+               <td>50</td>
+               <td>普通白帽子</td>
+            </tr>
+            <tr>
+               <td>Uma</td>
+               <td>5</td>
+               <td>实习白帽子</td>
+            </tr>-->
+        </tbody>
+        </table>
+		</div>
+    </div>
+  </div>
+</div>
+
+</block>

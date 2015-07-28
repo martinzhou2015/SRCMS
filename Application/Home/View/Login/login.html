@@ -1,0 +1,49 @@
+<extend name="Public:common" />
+<block name="main">
+
+<div class="callout">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+	    <br/>
+		<br/>
+	    <br/>
+		<br/>
+        <h3><strong>我们希望能够借助集体的力量提升我们的安全水平</strong></h3>
+        <br>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4 text-center">
+         <div class="panel panel-default">
+         <div class="panel-heading text-center"><h3><strong>登录平台</strong></h3></div>
+         <div class="panel-body text-center">         
+		 <?php if ($_SESSION['userid'] == null): ?>
+			<form action="{:U('login/login')}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label" style="color:#444444">邮箱</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstname" placeholder="请输入登录邮箱">
+                </div>
+                     </div>
+                <div class="form-group">
+                     <label for="lastname" class="col-sm-2 control-label text-info" style="color:#444444">密码</label>
+                <div class="col-sm-10">
+                     <input type="text" class="form-control" id="lastname" placeholder="请输入密码">
+                </div>
+                </div>
+               <hr/>
+			    <button type="submit" class="btn btn-default">登录</button>
+         </form>
+         <?php else: ?>
+	     <p>Welcome,<?php echo $_SESSION['username'] ?>  |  <a href="{:U('login/logout')}">退出登陆</a></p>
+         <?php endif ?>
+          </div>
+         </div>
+ 	</div>
+	</div>
+</div>
+
+</body>
+</html>
+</block>

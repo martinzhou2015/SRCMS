@@ -1,0 +1,139 @@
+<include file="Public/header" title="后台主页" />
+<div id="page-wrapper">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <b><h2>您好！欢迎登陆应急响应中心后台</h2></b>
+                <p>注意:请定期修改您的后台密码，保证安全性！</p>
+				<p>您可以进行以下操作：</p>
+				<ul>
+				<li>1.漏洞审核</li>
+				<li>2.博客更新</li>
+				<li>3.礼品库更新</li>
+				<li>3.用户管理</li>
+				</u/>
+				<div class="clearfix"></div>
+            </div>
+        </div>
+    </div><!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa  fa-comment fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-heading">{$post}</p>
+                            <p class="announcement-text">漏洞报告</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="{:U('post/index')}"><i class="fa fa-edit"></i>审核漏洞</a>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="{:U('post/index')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-users fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-heading">{$user}</p>
+                            <p class="announcement-text">用户</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="{:U('member/index')}"><i class="fa fa-edit"></i>管理用户</a>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="{:U('member/index')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-edit fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-heading">{$page}</p>
+                            <p class="announcement-text">公告</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="{:U('page/index')}"><i class="fa fa-edit"></i>管理公告</a>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="{:U('page/index')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <i class="fa fa-link fa-5x"></i>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <p class="announcement-heading">{$links}</p>
+                            <p class="announcement-text">礼品库</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="{:U('links/index')}"><i class="fa fa-edit"></i>管理礼品</a>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="{:U('links/index')}"><i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div><!-- /.row -->
+
+    <!-- /.row -->
+
+    <!-- /.row -->
+
+</div>
+
+<include file="Public/footer" />

@@ -1,0 +1,44 @@
+<extend name="Public:common" />
+<block name="main">
+
+<div class="gallery">
+   <div class="col-md-offset-2">
+   <h2><strong>漏洞列表</strong></h2>
+    <hr style="width:80%" class="col-md-offset-0"/>
+    <h5><strong>您可以通过本页面查询每个漏洞的漏洞状态，如有异议请及时与对应工作人员联系。</strong></h5><br/>
+	
+    <table class="table table-hover table-striped" style="width:80%" >
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>标题</th>
+                <th>类型</th>
+                <th>发布时间</th>
+                <th>作者</th>
+                <th>分类</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="model" item="v">
+            <tr>
+                <td>{$v.id}</td>
+                <td>{$v.title}</td>
+                <td>
+                    <if condition="$v.type eq 1"><span class="label label-success">审核中</span>
+                    <elseif condition="$v.type eq 2" /><span class="label label-info">已忽略</span>
+                    <elseif condition="$v.type eq 3" /><span class="label label-primary">已确认</span>
+                    <elseif condition="$v.type eq 4" /><span class="label label-warning">已修复</span>
+                    </if>
+                </td>
+                <td>{$v.time|date="Y/m/d H:i:s",###}</td>
+                <td>{$v.username}</td>
+                <td>{$v.category_title}</td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    <div class="clearfix"></div>
+    {$page}
+    
+</div>
+</block>

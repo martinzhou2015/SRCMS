@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>应急响应中心</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+
+<div class="navbar navbar-fixed-top navbar-bold" data-spy="affix" data-offset-top="1000">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="__ROOT__/index.php" class="navbar-brand">应急响应中心</a>
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+	    <li><a href="{:U('index/index')}">个人中心</a></li>
+		<!--<li><a href="{:U('post/index')}">漏洞列表</a></li>
+		<li><a href="{:U('post/add')}">报告漏洞</a></li>
+        <li><a href="__ROOT__/index.php?m=&c=page&a=index">公告</a></li>
+        <li><a href="__ROOT__/index.php?m=&c=hall&a=index">贡献榜</a></li>
+		<li><a href="__ROOT__/index.php?m=&c=gift&a=index">礼品库</a></li>-->
+      </ul>
+    </div>
+   </div>
+</div>
+
+<div class="gallery">
+   <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+		<br/>
+            <h3>注册平台</h3><hr/>
+    
+	<form action="{:U('reg/add')}" method="post">
+	<div class="form-group">
+		<label>用户名</label>
+		<input class="form-control" type="text" name="username" placeholder="请输入用户名">
+	</div>
+	<div class="form-group">
+		<label>邮箱</label>
+		<input class="form-control" type="text" name="email" placeholder="请输入邮箱">
+	</div>
+	<div class="form-group">
+		<label>密码</label>
+		<input class="form-control" type="password" name="password" placeholder="请输入密码">
+	</div>
+	<div class="form-group">
+		<label>确认密码</label>
+		<input class="form-control" type="password" name="repassword" placeholder="请再次输入密码">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-success" type="submit" >注册</button>
+	</div>
+    <a href="{:U('login/index')}" style="float:left;">已有账号？点击登陆</a>
+
+    </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        <hr>
+        <p>Copyright © <?php echo date("Y")?></i> at <a href="http://www.bootply.com"> Demo Company.</a>All Rights Reserved</p>
+		<p>演示站点 版权所有</p>
+		<p>Powered By SRCMS</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<ul class="nav pull-right scroll-down">
+  <li><a href="#" title="Scroll down"><i class="icon-chevron-down icon-3x"></i></a></li>
+</ul>
+<ul class="nav pull-right scroll-top">
+  <li><a href="#" title="Scroll to top"><i class="icon-chevron-up icon-3x"></i></a></li>
+</ul>
+
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+		<script src="__PUBLIC__/Home/js/scripts.js"></script>
+	</body>
+</html>

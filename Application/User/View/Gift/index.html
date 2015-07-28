@@ -1,0 +1,24 @@
+<extend name="Public:common"/>
+<block name="main">
+
+<div class="gallery">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2><strong>礼品库</strong></h2>
+        <hr/>
+      </div>
+     </div>
+     
+    <div class="row">
+        <ul class="col-sm-7 col-sm-offset-3 list-inline">
+		<foreach name="gift" item="v">
+        <li class="panel panel-default" style="width:190px;height:180px;margin:5px 5px 5px 5px;text-align:center;"><br/><img src="{$v.url}" style="width:100px;height:100px;"/><br/>{$v.title}<br/><a href="http://www.baidu.com"><button class="btn btn-default text-align" >兑换</button></a></li>
+		</foreach>
+        <!--<li class="panel panel-default" style="width:200px;height:180px;text-align:center;"><br/><img src="__PUBLIC__/Home/pic/iphone.jpg" style="width:100px;height:100px;"/><br/>iPhone6<br/><button class="btn btn-default text-align" >兑换</button></li>
+		<li class="panel panel-default" style="width:200px;height:180px;text-align:center;"><br/><img src="__PUBLIC__/Home/pic/iphone.jpg" style="width:100px;height:100px;"/><br/>iPhone6<br/><button class="btn btn-default text-align" >兑换</button></li>-->
+        </ul>
+	</div>
+</div>
+</block>
+
+

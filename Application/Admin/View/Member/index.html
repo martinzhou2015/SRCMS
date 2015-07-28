@@ -1,0 +1,60 @@
+<include file="Public/header" title="用户列表" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{:U('member/add')}" class="btn btn-success">添加用户</a>
+        </div>
+        <div class="col-md-6">
+            <form action="{:U('member/index')}" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" name="key" placeholder="输入用户名或者邮箱关键词搜索">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <td>编号</td>
+                <td>用户名</td>
+                <td>邮箱</td>
+                <td>注册时间</td>
+                <td>上次登陆</td>
+                <td>登陆IP</td>
+                <td>类型</td>
+                <td>状态</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="member" item="v">
+            <tr>
+                <td>{$v.id}</td>
+                <td>{$v.username}</td>
+                <td>{$v.email}</td>
+                <td>{$v.create_at|date="Y/m/d H:i:s",###}</td>
+                <td>{$v.update_at|date="Y/m/d H:i:s",###}</td>
+                <td>{$v.login_ip}</td>
+                <td>
+                    <if condition="$v.type eq 1"> <span class="label label-success">会员</span>
+                    <elseif condition="$v.type eq 2"/><span class="label label-danger">管理员</span>
+                    </if>
+                </td> 
+                <td><if condition="$v.status eq 1">正常<else/><span style="color:red">禁用</span></if></td>
+                <if condition="$v.status eq 1">	
+                	<td><a href="{:U('member/update?id=')}{$v.id}">编辑</a> | <a href="{:U('member/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('禁用后用户将不能登陆后台!\n\n请确认!!!');">禁用</a></td>
+            	<else/>
+            		<td><a href="{:U('member/update?id=')}{$v.id}">编辑</a> | <a href="{:U('member/delete?id=')}{$v.id}" style="color:#50AD1E;">启用</a></td>
+            	</if>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+</div>
+
+<include file="Public/footer" />
