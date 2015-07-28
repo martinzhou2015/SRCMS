@@ -67,8 +67,9 @@ class PostController extends BaseController
      * @param  [type] $id [文章ID]
      * @return [type]     [description]
      */
-    public function update($id)
+    public function update()
     {
+		$id = I('get.id',0,'intval');
         //默认显示添加表单
         if (!IS_POST) {
             $model = M('post')->where('id='.$id)->find();
@@ -94,8 +95,9 @@ class PostController extends BaseController
      * @param  [type] $id [description]
      * @return [type]     [description]
      */
-    public function delete($id)
+    public function delete()
     {
+		$id = I('get.id',0,'intval');
         $model = M('post');
         $result = $model->where("id=".$id)->delete();
         if($result){
@@ -112,8 +114,8 @@ class PostController extends BaseController
      */
     public function jifen()
     {
-		$user_id = I('post.user_id');
-		$amount = I('post.amount');
+		$user_id = I('post.user_id',0,'intval');
+		$amount = I('post.amount',0,'intval');
 		$model = M('member');
         $result = $model->where('id='.$user_id)->setInc('jifen',$amount);
         if($result){

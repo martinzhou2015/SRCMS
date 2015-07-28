@@ -91,7 +91,7 @@ class SettingController extends BaseController
     public function delete($id)
     {
         $model = M('setting');
- 
+
         //验证通过
         $result = $model->delete($id);
         if($result){

@@ -60,9 +60,10 @@ class PageController extends BaseController
      * @param  [type] $id [单页ID]
      * @return [type]     [description]
      */
-    public function update($id)
+    public function update()
     {
-        //默认显示添加表单
+        $id = I('get.id',0,'intval');
+		//默认显示添加表单
         if (!IS_POST) {
             $model = M('page')->where('id='.$id)->find();
             $this->assign('page',$model);
@@ -86,8 +87,9 @@ class PageController extends BaseController
      * @param  [type] $id [description]
      * @return [type]     [description]
      */
-    public function delete($id)
+    public function delete()
     {
+		$id = I('get.id',0,'intval');
         $model = M('page');
         $result = $model->where("id=".$id)->delete();
         if($result){

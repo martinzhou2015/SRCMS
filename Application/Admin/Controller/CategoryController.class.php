@@ -90,8 +90,9 @@ class CategoryController extends BaseController
      * @param  [type] $id [description]
      * @return [type]     [description]
      */
-    public function delete($id)
+    public function delete()
     {
+		$id = I('get.id',0,'intval');
         $model = M('category');
         //查询属于这个分类的文章
         $posts = M('post')->where('cate_id='.$id)->select();

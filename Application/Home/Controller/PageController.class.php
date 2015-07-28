@@ -34,7 +34,8 @@ class PageController extends Controller{
     }
 
 
-    public function view($id){
+    public function view(){
+		$id = I('get.id',0,'intval');    //对传入数字参数做整数校验，规避SQLinjection漏洞
         $model = M('page')->where('id='.$id)->find();
         $this->assign('model',$model);
         $this->display();
