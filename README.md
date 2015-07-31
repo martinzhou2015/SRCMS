@@ -1,2 +1,14 @@
 # SRCMS
 SRCMS(轻响应)企业应急响应中心开发框架模版
+开发者/Author: Martin Zhou（E-Mail:1009465756@qq.com）
+
+
+##框架首次运行配置说明：
+由于项目官网DNS域名解析正在更新，所以暂时无法提供在线的Demo站点，您可以通过在本地或者是服务器搭建运行环境体验SRCMS（轻响应）。由于SRCMS整体基于ThinkPHP框架开发，所以在进行下面的步骤之前，请您确保本地或服务器有运行PHP程序的环境，接下来您需要：
+1.通过SRCMS（轻响应）Github托管页面（https://github.com/martinzhou2015/SRCMS/）将项目源代码下载
+2. 项目根目录的DB目录下存储着Demo数据库，您需要在phpmyadmin建立一个名为tpadmin的数据库，然后将整个tpadmin.sql导入刚刚创建的数据库。
+接下来您就可以通过在浏览器内输入 相应地址体验SRCMS（轻响应）了。
+
+
+##框架BUG提交说明
+如果您在使用本框架或是二次开发中发现任何SRCMS的问题，都欢迎通过Github将问题issue给我
