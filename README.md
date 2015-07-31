@@ -1,6 +1,6 @@
 # SRCMS
-SRCMS(轻响应)企业应急响应中心开发模版
-开发者/Author: Martin Zhou（E-Mail:1009465756@qq.com)
+SRCMS(轻响应)企业应急响应中心开发模版<br>
+开发者/Author: Martin Zhou（E-Mail:1009465756@qq.com)<br>
 官方QQ群:132108046<br>
 程序Demo：http://1.srcmsdemo.sinaapp.com/demo/index.php
 
