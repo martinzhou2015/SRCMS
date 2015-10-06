@@ -42,29 +42,20 @@
    <div class="row">
         <div class="col-md-4 col-md-offset-4">
 		<br/>
-            <h3>注册平台</h3><hr/>
+            <h3>找回密码</h3><hr/>
     
-	<form action="{:U('reg/add')}" method="post">
+	<form action="{:U('forget/find')}" method="post">
 	<div class="form-group">
 		<label>用户名</label>
 		<input class="form-control" type="text" name="username" placeholder="请输入用户名">
 	</div>
-	<div class="form-group">
+    <div class="form-group">
 		<label>邮箱</label>
 		<input class="form-control" type="text" name="email" placeholder="请输入邮箱">
 	</div>
 	<div class="form-group">
-		<label>密码</label>
-		<input class="form-control" type="password" name="password" placeholder="请输入密码">
+		<button class="btn btn-success" type="submit" >找回密码</button>
 	</div>
-	<div class="form-group">
-		<label>确认密码</label>
-		<input class="form-control" type="password" name="repassword" placeholder="请再次输入密码">
-	</div>
-	<div class="form-group">
-		<button class="btn btn-success" type="submit" >注册</button>
-	</div>
-    <a href="{:U('login/index')}" style="float:left;">已有账号？点击登陆</a>
 
     </form>
         </div>
@@ -82,7 +73,7 @@
           <li><i class="icon-pinterest icon-2x"></i></li>
         </ul>
         <hr>
-        <p>Copyright © <?php echo date("Y")?></i> at <a href="http://www.src.pw"> Demo Company.</a>All Rights Reserved</p>
+        <p>Copyright © <?php echo date("Y")?></i> at <a href="http://www.bootply.com"> Demo Company.</a>All Rights Reserved</p>
 		<p>演示站点 版权所有</p>
 		<p>Powered By SRCMS</p>
       </div>

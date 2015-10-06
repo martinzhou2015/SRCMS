@@ -1,13 +1,10 @@
 /* -- custom css for Bootstrap 3.x --*/
 
-/* move special fonts to HTML head for better performance */
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600');
-
 html,
 body {
   height: 100%;
   width: 100%;
-  font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family:微软雅黑;
 }
 
 /* fix bs3 horizontal scrollbar bug */
@@ -65,7 +62,7 @@ img.grayscale {
 
 .navbar-bold {
   background-color:#11cc45;
-  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family:微软雅黑;
 }
 
 .navbar-bold li a:hover, .navbar-bold li.active {
@@ -85,7 +82,7 @@ img.grayscale {
   color:#fff;
   margin-left:-5px;
   margin-bottom:5px;
-  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family:微软雅黑;
 }
 
 .header .lead {
@@ -95,7 +92,7 @@ img.grayscale {
 
 .header {
   height: 80%;
-  background: #11cc45 url('http://www.bootply.com/assets/example/pt_squares_lg.png') repeat center center fixed;
+  background: #11cc45 url('http://2.srcmsdemo.sinaapp.com/pt_squares_lg.png') repeat center center fixed;
 }
 
 .blurb {
@@ -108,7 +105,7 @@ img.grayscale {
 }
 
 .bright {
-  background: #7fbbda url('http://www.bootply.com/assets/example/bg_suburb.jpg') no-repeat center center fixed; 
+  background: #7fbbda url('http://2.srcmsdemo.sinaapp.com/bg_suburb.jpg') no-repeat center center fixed; 
   color:#fff;
 }
 
@@ -143,7 +140,7 @@ img.grayscale {
   padding-top:7%;
   height: 100%;
   width: 100%;
-  background: url('http://www.bootply.com/assets/example/bg_suburb.jpg') no-repeat center center fixed; 
+  background: url('http://2.srcmsdemo.sinaapp.com/bg_suburb.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

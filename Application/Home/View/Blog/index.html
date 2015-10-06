@@ -1,0 +1,35 @@
+<extend name="Public:common"/>
+<block name="main">
+
+<!-- 博客列表 -->
+<div class="gallery">
+  <div class="container">
+      <div class="col-md-6 col-md-offset-3">
+        <h2><strong>团队博客</strong></h2><br/>
+		<table class="table table-hover table-striped">
+		<tbody>
+		<foreach name="model" item="v">
+            <div>
+                <td>
+				<span class="label label-info">{$v.name}</span>&nbsp;&nbsp;&nbsp;<a href="__ROOT__/index.php?m=&c=blog&a=view&id={$v.id}">{$v.title}</a>
+			 </tr>
+        </foreach>
+		</tbody>
+		</table>
+	    </div>
+  </div>
+</div>
+
+<!--分页
+<div class="row" align="center">
+    <ul class="pagination pagination-lg">
+      <li><a href="#">&laquo;</a></li>
+      <li><a href="#">1</a></li>
+      <li  class="disabled"><a href="#" >2</a></li>
+      <li  class="disabled"><a href="#">3</a></li>
+      <li  class="disabled"><a href="#">4</a></li>
+      <li  class="disabled"><a href="#">5</a></li>
+      <li  class="disabled"><a href="#">&raquo;</a></li>
+    </ul>
+</div>-->
+</block>

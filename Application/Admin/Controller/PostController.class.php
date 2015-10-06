@@ -124,4 +124,31 @@ class PostController extends BaseController
             $this->error("添加积分失败");
         }
     }
+	
+	/**
+     * 分发漏洞报告
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function send()
+    {
+		import('ORG.Net.Mail');
+		$id = I('get.id',0,'intval');
+		$email = I('post.email');
+		$title = I('post.title');
+		$tips = I('post.tips');
+        if (!IS_POST) {
+			$model = M('post')->where('id='.$id)->find();
+            $this->assign('post',$model);
+            $this->display();
+        }
+        if (IS_POST) {
+            $result = SendMail($email,$title,$tips,'应急响应中心');
+            if($result){
+            $this->success("发送成功", U('post/index'));
+            }else{
+            $this->error("发送失败");
+                  }      
+        }
+	}
 }

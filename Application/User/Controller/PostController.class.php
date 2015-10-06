@@ -9,7 +9,7 @@ use Think\Controller;
  * @version 1.0
  */
  
-class PostController extends Controller
+class PostController extends BaseController
 {
     /**
      * 漏洞报告列表

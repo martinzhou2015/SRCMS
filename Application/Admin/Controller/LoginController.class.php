@@ -43,6 +43,12 @@ class LoginController extends Controller {
         if($member->save($data)){
             session('adminId',$user['id']);
             session('username',$user['username']);
+			//发送验证码邮件
+            import('ORG.Net.Mail');
+			$ip = get_client_ip();
+			$time = date("Y-m-d h:i:sa");
+            $con='您好,您的后台管理账户 '.$username.' 于 '.$time.' 被登录，登录IP地址为 '.$ip.' 如果该操作非您本人操作，可能帐号信息已经被泄露，请您及时修改密码。 ';  
+            SendMail('1009465756@qq.com','应急响应中心后台登录提示',$con,'应急响应中心'); 	//使用时注意将1009465756@qq.com修改为您的邮箱帐号
             $this->success("登陆成功",U('Index/index'));
         }
         //定向之后台主页

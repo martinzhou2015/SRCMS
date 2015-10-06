@@ -25,16 +25,51 @@
 
 <div class="callout" id="sec2">
   <div class="vert">
+    <br/>
+	<br/>
     <div class="col-md-12 text-center"><h2><strong>贡献榜</strong></h2></div>
     <div class="col-md-12 text-center">&nbsp;</div>
     <div class="col-md-8 col-md-offset-2 text-center">
+	<br/>
       <div class="row hidden-xs">
-       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/12.jpg"></div>
-       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/95.jpg"></div>
-       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/67.jpg"></div>
-       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/27.jpg"></div>
-       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/15.jpg"></div>  
-       <div class="col-sm-2"><img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/18.jpg"></div>
+	  <foreach name="hall" item="h">
+       <div class="col-sm-2">
+	   <img class="img-circle grayscale" src="{$h.url}">
+	   <h3>
+	   {$h.name}
+	   </h3>
+	   </div>
+	   </foreach>
+       <!--<div class="col-sm-2">
+	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/95.jpg">
+	   <h3>
+	   David
+	   </h3>
+	   </div>
+       <div class="col-sm-2">
+	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/67.jpg">
+	   <h3>
+	   Lily
+	   </h3>
+	   </div>
+       <div class="col-sm-2">
+	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/27.jpg">
+	   <h3>
+	   Martin
+	   </h3>
+	   </div>
+       <div class="col-sm-2">
+	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/15.jpg">
+	   <h3>
+	   Kelly
+	   </h3>
+	   </div>  
+       <div class="col-sm-2">
+	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/18.jpg">
+	   <h3>
+	   Sam
+	   </h3>
+	   </div>-->
       </div>
     </div>
   </div>
@@ -54,6 +89,4 @@
     </div>
   </div>
 </div>
-
-
 </block>

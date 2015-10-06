@@ -15,7 +15,9 @@ class IndexController extends Controller{
 
     public function index(){
 		$model = M('page')->limit(5)->select();
+		$hall = M('hall')->limit(6)->select();
         $this->assign('model',$model);
+		$this->assign('hall',$hall);
         $this->display();
     }
 }
