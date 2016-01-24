@@ -3,10 +3,10 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 2015-07-27
- * @copyright ©2105-2018 SRCMS
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
  * @homepage http://www.src.pw
- * @version 1.0
+ * @version 1.5
  */
  
 class PostController extends BaseController
@@ -29,7 +29,7 @@ class PostController extends BaseController
         
 		$id = session('userId');
         $count  = $model->where($where)->where('user_id='.$id)->count();// 查询满足要求的总记录数
-        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(15)
         $show = $Page->show();// 分页显示输出
         $post = $model->limit($Page->firstRow.','.$Page->listRows)->where($where)->order('post.id DESC')->where('user_id='.$id)->select();
         $this->assign('model', $post);
@@ -63,5 +63,17 @@ class PostController extends BaseController
                 }
             }
         }
+    }
+	
+    /**
+	*查看漏洞报告
+	*/
+	public function view(){
+		$id = session('userId');
+		$rid = I('get.rid',0,'intval');
+	    $model = M("Post");
+        $post = $model->where('user_id='.$id)->where('id='.$rid)->find();
+        $this->assign('model', $post);
+        $this->display();
     }
 }

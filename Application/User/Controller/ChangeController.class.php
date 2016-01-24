@@ -3,10 +3,10 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 2015-08-03
- * @copyright ©2105-2018 SRCMS
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
  * @homepage http://www.src.pw
- * @version 1.0
+ * @version 1.5
  */
 
 

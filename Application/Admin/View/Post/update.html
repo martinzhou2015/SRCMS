@@ -23,7 +23,41 @@
         </div>
         <div class="form-group">
             <label for="post-content">报告内容</label>
-            <script id="post-content" name="content" type="text/plain">{$post.content|htmlspecialchars_decode}</script>
+            <script id="post-content" name="content" type="text/plain">{$post.content|htmlspecialchars_decode|waf}</script>
+        </div>
+		<div class="form-group">
+            <label for="post-content">修复建议</label>
+            <input type="text" name="title" class="form-control" value="{$post.advise}" id="post-title" placeholder="输入修复建议">
+        </div>
+		<div class="form-group">
+            <label>修补限期</label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="1" <if condition="$post.day eq 1">checked="checked"</if> >无影响
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="2" <if condition="$post.day eq 2">checked="checked"</if>>10天
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="3" <if condition="$post.day eq 3">checked="checked"</if>>3天
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="4" <if condition="$post.day eq 4">checked="checked"</if>>2天
+            </label>
+        </div>
+		<div class="form-group">
+            <label>危害评级</label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="1" <if condition="$post.rank eq 1">checked="checked"</if> >无影响
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="2" <if condition="$post.rank eq 2">checked="checked"</if>>低危
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="3" <if condition="$post.rank eq 3">checked="checked"</if>>中等
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="4" <if condition="$post.rank eq 4">checked="checked"</if>>高危
+            </label>
         </div>
         <div class="form-group">
             <label>处理结果</label>
@@ -52,7 +86,7 @@
 <script type="text/javascript">
     var ue = UE.getEditor('post-content',{
         toolbars: [
-            ['fullscreen', 'source', 'undo', 'redo','bold', 'italic', 'underline','fontborder', 'strikethrough', '|','simpleupload', 'insertimage','attachment','emotion','link','unlink', '|', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote','searchreplace', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc'],
+            ['source', 'undo', 'redo','bold', 'italic', 'underline','fontborder', 'strikethrough', '|','simpleupload', 'insertimage','attachment','emotion','link','unlink', '|', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote','searchreplace', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc'],
             ['inserttable','insertrow', 'insertcol','mergeright', 'mergedown','deleterow', 'deletecol','splittorows','splittocols', 'splittocells','deletecaption','inserttitle', 'mergecells', 'deletetable','insertparagraphbeforetable', 'paragraph','fontsize','fontfamily']
         ],
         initialFrameHeight:500,

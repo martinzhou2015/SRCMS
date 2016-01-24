@@ -1,6 +1,14 @@
 <?php
 namespace Admin\Controller;
 use Admin\Controller;
+
+/**
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
+ * @homepage http://www.src.pw
+ * @version 1.5
+ */
+ 
 /**
  * 贡献榜管理
  */

@@ -3,36 +3,53 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>应急响应中心</title>
-		<meta name="generator" content="Bootply" />
+		<title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<link href="__PUBLIC__/User/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
 	</head>
-	<body>
-
-<div class="navbar navbar-fixed-top navbar-bold" data-spy="affix" data-offset-top="1000">
-  <div class="container">
-    <div class="navbar-header">
-      <a href="__ROOT__/index.php" class="navbar-brand">应急响应中心</a>
-      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-    </div>
-    <div class="navbar-collapse collapse" id="navbar">
-      <ul class="nav navbar-nav">
-	    <li><a href="{:U('index/index')}">个人中心</a></li>
-		<li><a href="{:U('post/index')}">漏洞列表</a></li>
-		<li><a href="{:U('post/add')}">报告漏洞</a></li>
-		<li><a href="{:U('gift/index')}">礼品兑换</a></li>
-		<li><a href="{:U('info/index')}">联系方式</a></li>
-      </ul>
-    </div>
-   </div>
-</div>
+ <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="yahei sr-only">Toggle navigation</span>
+            <span class="yahei icon-bar"></span>
+            <span class="yahei icon-bar"></span>
+            <span class="yaheiicon-bar"></span>
+          </button>
+          <a class="yahei navbar-brand" href="__ROOT__"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
+          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+              <ul class="yahei nav navbar-nav">
+             <li><a href="{:U('index/index')}">个人中心</a></li>
+			   <li><a href="{:U('post/add')}">报告漏洞</a></li>
+		      <li><a href="{:U('post/index')}">漏洞列表</a></li>
+		      <li><a href="{:U('gift/index')}">礼品兑换</a></li>
+			  <li><a href="{:U('info/index')}">联系方式</a></li>
+              </ul>
+			  <ul class="yahei nav navbar-nav navbar-right">
+			  <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo session('username')?><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <!--<li><a href="#">Action</a></li>
+                    <li><a href="#">更改密码</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>-->
+					<li><a href="{:U('change/index')}">更改密码</a></li>
+                    <li><a href="{:U('login/logout')}">退出登录</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>

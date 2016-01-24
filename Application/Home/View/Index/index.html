@@ -1,92 +1,209 @@
-<extend name="Public:common" />
-<block name="main">
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<div class="header vert">
-  <div class="container">
-    
-    <h1>Demo</h1>
-      <p class="lead">Security Response Center</p>
-      <div>&nbsp;</div>
-      <a href="__ROOT__/user.php" class="btn btn-default btn-lg">报告漏洞</a>
-  </div>
-</div>
+    <title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
 
-<div id="sec1" class="blurb">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h1><strong>平台简介</strong></h1>
-		<br/>
-        <p class="lead">我们一直致力于保护广大用户的安全，安全应急响应中心（Demo Security Response Center）非常欢迎广大用户向我们反馈我们产品和业务的安全漏洞，以帮助我们提升产品和业务的安全性。</p>
+    <!-- Bootstrap core CSS -->
+    <link href="__PUBLIC__/Home/index/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="__PUBLIC__/Home/index/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="yahei sr-only">Toggle navigation</span>
+            <span class="yahei icon-bar"></span>
+            <span class="yahei icon-bar"></span>
+            <span class="yaheiicon-bar"></span>
+          </button>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
+          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+              <ul class="yahei nav navbar-nav">
+                <li class="yahei active"><a href="{:U('index/index')}">首页</a></li>
+                <li><a class="yahei" href="__ROOT__/user.php">漏洞提交</a></li>
+                <li><a class="yahei" href="{:U('page/index')}">公告</a></li>
+				<li><a class="yahei" href="{:U('blog/index')}">博客</a></li>
+				<li><a class="yahei" href="{:U('hall/index')}">贡献榜</a></li>
+				<li><a class="yahei" href="{:U('gift/index')}">礼品库</a></li>
+                <!--<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>-->
+            </div>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
       </div>
     </div>
-  </div>
-</div>
 
-<div class="callout" id="sec2">
-  <div class="vert">
-    <br/>
-	<br/>
-    <div class="col-md-12 text-center"><h2><strong>贡献榜</strong></h2></div>
-    <div class="col-md-12 text-center">&nbsp;</div>
-    <div class="col-md-8 col-md-offset-2 text-center">
-	<br/>
-      <div class="row hidden-xs">
-	  <foreach name="hall" item="h">
-       <div class="col-sm-2">
-	   <img class="img-circle grayscale" src="{$h.url}">
-	   <h3>
-	   {$h.name}
-	   </h3>
-	   </div>
-	   </foreach>
-       <!--<div class="col-sm-2">
-	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/95.jpg">
-	   <h3>
-	   David
-	   </h3>
-	   </div>
-       <div class="col-sm-2">
-	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/67.jpg">
-	   <h3>
-	   Lily
-	   </h3>
-	   </div>
-       <div class="col-sm-2">
-	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/27.jpg">
-	   <h3>
-	   Martin
-	   </h3>
-	   </div>
-       <div class="col-sm-2">
-	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/women/15.jpg">
-	   <h3>
-	   Kelly
-	   </h3>
-	   </div>  
-       <div class="col-sm-2">
-	   <img class="img-circle grayscale" src="http://api.randomuser.me/portraits/thumb/men/18.jpg">
-	   <h3>
-	   Sam
-	   </h3>
-	   </div>-->
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="blurb">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 text-center">
-        <h2><strong>平台公告</strong></h2><br/>
-		<foreach name="model" item="v">
-            <div>
-                <p class="lead"><a href="__ROOT__/index.php?m=&c=page&a=view&id={$v.id}">{$v.title}</a></p>
-			 </tr>
-        </foreach>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide yahei" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item">
+          <img class="first-slide" src="__PUBLIC__/Home/images/banner.jpg" alt="首页">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>健康成长</h1>
+              <p>安全是其健康成长的核心要素,我们希望借此平台加强与安全业界同仁的合作与交流</p>
+              <p><a class="btn btn-lg btn-primary" href="__ROOT__/user.php" role="button">报告漏洞</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item active">
+          <img class="second-slide" src="__PUBLIC__/Home/images/banner.jpg" alt="首页">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1><foreach name="title" item="v">{$v.value}</foreach>安全中心</h1>
+              <p>立即加入我们，共建建设诚信、共赢、繁荣的安全生态圈</p>
+              <p><a class="btn btn-lg btn-primary" href="__ROOT__/user.php" role="button">立即报告</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="__PUBLIC__/Home/images/banner.jpg" alt="首页">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>合作共赢</h1>
+              <p>欢迎广大用户向我们反馈轻响应相关产品及业务的安全漏洞和威胁情报</p>
+              <p><a class="btn btn-lg btn-primary" href="__ROOT__/user.php" role="button">立即报告</a></p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-</block>
+      <a class="left carousel-control" href="http://v3.bootcss.com/examples/carousel/#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="http://v3.bootcss.com/examples/carousel/#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="container marketing yahei">
+	<div class="row center">
+     <h2>贡献TOP3</h2>
+	 </div>
+	 <br/>
+	 <br/>
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+	   <foreach name="model" item="v">
+        <div class="col-lg-4">
+          <img class="img-circle" src="{$v.url}" alt="用户一" width="140" height="140">
+          <h2>{$v.name}</h2>
+          <p>{$v.des}</p>
+        </div></foreach><!-- /.col-lg-4 -->
+        <!--<div class="col-lg-4">
+          <img class="img-circle" src="__PUBLIC__/Home/images/unknow.jpeg" alt="用户二" width="140" height="140">
+          <h2>路人乙</h2>
+          <p>帮助轻响应发现多个严重级别的权限漏洞和逻辑漏洞，帮助轻响应提升了整体业务安全水平</p>
+        </div>--><!-- /.col-lg-4 -->
+        <!--<div class="col-lg-4">
+          <img class="img-circle" src="__PUBLIC__/Home/images/unknow.jpeg" alt="用户三" width="140" height="140">
+          <h2>路人丁</h2>
+          <p>本月发现一枚严重级别的支付问题漏洞，帮助我们快速定位问题，保障了数万用户的安全</p>
+          
+        </div>--><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+	  <div class="row">
+      <p><a class="btn btn-default center" href="{:U('hall/index')}" role="button">查看更多 »</a></p>
+      </div>
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2>平台简介</h2>
+		  <span class="text-muted">SRCMS Security Resonpse Center</span>
+          <p >轻响应安全应急响应中心（SRCMS Security Response Center）是轻响应致力于维护互联网健康生态环境，保障轻响应产品和业务线的信息安全，促进安全专家的合作与交流，而建立的漏洞收集及应急响应平台。本平台收集轻响应产品线及业务上存在的安全漏洞，同时，我们也希望借此平台加强与业内各界的安全合作，共同打造简单可信赖的互联网健康生态。</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="__PUBLIC__/Home/images/main-photo.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!--<div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+      <hr class="featurette-divider">-->
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="{:U('index/index')}">返回顶部</a></p>
+        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="{:U('index/index')}">关于我们</a> · <a href="{:U('index/index')}">隐私协议</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="__PUBLIC__/Home/index/jquery.min.js"></script>
+    <script src="__PUBLIC__/Home/index/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="__PUBLIC__/Home/index/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="__PUBLIC__/Home/index/ie10-viewport-bug-workaround.js"></script>
+  
+
+</body></html>

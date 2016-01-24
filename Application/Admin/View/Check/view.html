@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>安全工单</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="/dev/Public/Home/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/dev/Public/Home/index/carousel.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="/dev/Public/Home/css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+
+<div class="navbar navbar-fixed-top navbar-default" data-spy="affix" data-offset-top="1000">
+  <div class="container">
+    <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="yahei sr-only">Toggle navigation</span>
+            <span class="yahei icon-bar"></span>
+            <span class="yahei icon-bar"></span>
+            <span class="yaheiicon-bar"></span>
+          </button>
+          <a class="yahei navbar-brand" href="/dev/index.php?m=&c=index&a=index"><strong>安全应急响应中心</strong>
+          <span class="yahei navbar-brand-subtitle">工单系统</span>
+          </a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+	    <li><a href="./admin.php?m=User&c=index&a=index">管理后台</a></li>
+      </ul>
+    </div>
+   </div>
+</div>
+
+<!-- 报告详情 -->
+<div class="gallery">
+  <div class="container">
+      <div class="col-md-12">
+        <h3><strong>{$model.title}</strong></h3>
+		<div class="row">
+		<p><span>#{$model.id}</span><span> / </span><span>@{$model.time|date="Y-m-d H:i:s",###}</span><span> / </span><span><if condition="$model.type eq 1"><span class="label label-info">审核中</span>
+                    <elseif condition="$model.type eq 2" /><span class="label label-default">已忽略</span>
+                    <elseif condition="$model.type eq 3" /><span class="label label-warning">已确认</span>
+                    <elseif condition="$model.type eq 4" /><span class="label label-success">已修复</span>
+                    </if></p>
+		</div>
+        <div class="row">
+		   <pre>
+			 {$model.content|htmlspecialchars_decode|waf}
+			 </pre>
+	    </div>
+		<div class="row">
+		<p>#修复建议 / 修补期限：</span><span><if condition="$model.type eq 1"><span class="label label-success"></span>
+                    <elseif condition="$model.type eq 2" /><span class="label label-default">10天</span>
+                    <elseif condition="$model.type eq 3" /><span class="label label-warning">3天</span>
+                    <elseif condition="$model.type eq 4" /><span class="label label-danger">2天</span>
+                    </if> / 危害评级：</span><span><if condition="$model.type eq 1"><span class="label label-success">无影响</span>
+                    <elseif condition="$model.type eq 2" /><span class="label label-default">低危</span>
+                    <elseif condition="$model.type eq 3" /><span class="label label-warning">中危</span>
+                    <elseif condition="$model.type eq 4" /><span class="label label-danger">高危</span>
+                    </if></p>
+		</div>
+		<div class="row">
+		   <pre>
+			 {$model.advise}
+			 </pre>
+	    </div>
+		<div class="row">
+			<hr/>
+			<p><b>注意事项:</b></p>
+			<p>1.本页面为公司应急响应中心安全工单系统临时授权页面，请您不要对外泄露本页面链接。</p>
+			<p>2.请参照本页面的修复建议对存在问题的业务漏洞进行修补，并及时同步修补结果</p>
+		</div>
+  </div>
+</div>
+</body>
+</html>

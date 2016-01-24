@@ -2,19 +2,17 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center">
-        <ul class="list-inline">
-          <li><img src="__PUBLIC__/Home/pic/weibo.png" alt="weibo"/></li>
-          <li><img src="__PUBLIC__/Home/pic/wechat.png" alt="wechat"/></li>
-          <li><img src="__PUBLIC__/Home/pic/douban.png" alt="douban"/></li>
-        </ul>
         <hr>
-        <p>Copyright © <?php echo date("Y")?></i> at <a href="http://www.src.pw"> Demo Company.</a>All Rights Reserved</p>
-		<p>演示站点 版权所有</p>
+        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="{:U('index/index')}">关于我们</a> · <a href="{:U('index/index')}">隐私协议</a></p>
 		<p>Powered By SRCMS</p>
       </div>
     </div>
   </div>
 </footer>
 
+<!-- script references -->
+		<script src="//2.srcmsdemo.sinaapp.com/jquery.min.js"></script>
+		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+		<script src="__PUBLIC__/Home/js/scripts.js"></script>
 	</body>
 </html>

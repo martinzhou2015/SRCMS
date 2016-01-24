@@ -9,23 +9,34 @@
 	<form method="post" action="{:U('info/update')}">
 	   <div class="form-group">
         <label>姓名：</label>
-        <input type="text" name="realname"  class="form-control" style="width:50%" placeholder="请输入姓名">
+		<foreach name="info" item="v">
+        <input type="text" name="realname"  class="form-control" style="width:50%" value="{$v.realname}">
+		</foreach>
 	   </div>
 	   <div class="form-group">
         <label>邮编：</label>
-        <input type="text" name="zipcode" class="form-control" style="width:50%" placeholder="请输入邮编">
+		<foreach name="info" item="v">
+        <input type="text" name="zipcode" class="form-control" style="width:50%" value="{$v.zipcode}">
+		</foreach>
 	   </div>
 	   <div class="form-group">
         <label>住址：</label>
-        <input type="text" name="location" class="form-control" style="width:50%" placeholder="请输入住址">
+		<foreach name="info" item="v">
+        <input type="text" name="location" class="form-control" style="width:50%" value="{$v.location}">
+		</foreach>
 	   </div>
 	   <div class="form-group">
         <label>电话：</label>
-        <input type="text" name="tel"  class="form-control" style="width:50%" placeholder="请输入电话">
+		<foreach name="info" item="v">
+        <input type="text" name="tel"  class="form-control" style="width:50%" value="{$v.tel}">
+		</foreach>
 	   </div>
-	   <!--<div class="form-group">
-		<input type="hidden" name="user_id" value="">
-		</div>-->
+	   <div class="form-group">
+        <label>支付宝账号：</label>
+		<foreach name="info" item="v">
+        <input type="text" name="alipay"  class="form-control" style="width:50%" value="{$v.alipay}">
+		</foreach>
+	   </div>
 		<button type="submit" class="btn btn-default">提交</button>
 	</form>
 	

@@ -16,20 +16,17 @@
         <a href="{:U('member/index')}"><i class="fa fa-users"></i> 用户管理</a>  
     </li>
 	<li class="dropdown">
-        <a href="{:U('info/index')}"><i class="fa fa-tag"></i> 地址管理</a>  
-    </li>
-	<li class="dropdown">
         <a href="{:U('hall/index')}"><i class="fa fa-star"></i> 贡献榜管理</a>
     </li>
-     <li class="dropdown">
-        <a href="{:U('links/index')}"><i class="fa fa-shopping-cart"></i> 礼品库管理</a>
-    </li>
-    <li class="dropdown">
-        <!--<a href="{:U('setting/index')}" class="dropdown-toggle"><i class="fa fa-cog"></i> 系统设置 <b class="caret"></b></a>-->
-        <!--<ul class="dropdown-menu">
-            <li><a href="{:U('setting/index')}">自定义字段</a></li>
-            <li><a href="#">系统优化</a></li>
-            <li><a href="#">缓存管理</a></li>
-        </ul>-->
+	<li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-cart"></i>礼品管理<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+					<li><a href="{:U('info/index')}"><i class="fa fa-tag"></i> 地址管理</a> </li>
+					<li><a href="{:U('links/index')}"><i class="fa fa-shopping-cart"></i> 礼品库管理</a></li>
+                    <li> <a href="{:U('order/index')}"><i class="fa fa-tag"></i> 订单管理</a></li>
+                  </ul>
+                </li>
+	<li class="dropdown">
+        <a href="{:U('setting/index')}"><i class="fa fa-star"></i>系统设置</a>
     </li>
 </ul>

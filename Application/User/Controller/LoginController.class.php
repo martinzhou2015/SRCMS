@@ -3,15 +3,18 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 2015-07-27
- * @copyright ©2105-2018 SRCMS
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
  * @homepage http://www.src.pw
- * @version 1.0
+ * @version 1.5
  */
 
 class LoginController extends Controller {
     //登陆主页
     public function index(){
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         $this->display();
     }
     //登陆验证
@@ -57,8 +60,8 @@ class LoginController extends Controller {
 	//验证码
     public function verify(){
         $Verify = new \Think\Verify();
-        $Verify->codeSet = '0123456789';
-        $Verify->fontSize = 13;
+        $Verify->codeSet = '123456789abcdefg';
+        $Verify->fontSize = 16;
         $Verify->length = 4;
         $Verify->entry();
     }

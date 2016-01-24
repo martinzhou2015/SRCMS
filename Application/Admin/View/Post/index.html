@@ -21,9 +21,9 @@
             <tr>
                 <th>编号</th>
                 <th>标题</th>
-                <th>类型</th>
-                <th>发布时间</th>
-                <th>作者</th>
+                <th>状态</th>
+                <th>提交时间</th>
+                <th>提交者</th>
                 <th>分类</th>
                 <th>操作</th> 
             </tr>
@@ -34,16 +34,16 @@
                 <td>{$v.id}</td>
                 <td>{$v.title}</td>
                 <td>
-                    <if condition="$v.type eq 1"><span class="label label-success">审核中</span>
-                    <elseif condition="$v.type eq 2" /><span class="label label-info">已忽略</span>
-                    <elseif condition="$v.type eq 3" /><span class="label label-primary">已确认</span>
-                    <elseif condition="$v.type eq 4" /><span class="label label-warning">已修复</span>
+                    <if condition="$v.type eq 1"><span class="label label-info">审核中</span>
+                    <elseif condition="$v.type eq 2" /><span class="label label-default">已忽略</span>
+                    <elseif condition="$v.type eq 3" /><span class="label label-warning">已确认</span>
+                    <elseif condition="$v.type eq 4" /><span class="label label-success">已修复</span>
                     </if>
                 </td>
-                <td>{$v.time|date="Y/m/d H:i:s",###}</td>
+                <td>{$v.time|date="Y/m/d",###}</td>
                 <td>{$v.username}</td>
                 <td>{$v.category_title}</td>
-                <td><a href="{:U('post/update?id=')}{$v.id}">审核</a> | <a href="{:U('post/send?id=')}{$v.id}">分发</a> | <a href="{:U('post/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+                <td><a href="{:U('post/update?id=')}{$v.id}">审核</a> | <a href="{:U('post/session?id=')}{$v.id}" target="_Blank">生成工单</a> | <a href="{:U('check/view?session_id=')}{$v.session}" target="_Blank">查看工单</a> | <a href="{:U('post/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
             </tr>
         </foreach>
         </tbody>

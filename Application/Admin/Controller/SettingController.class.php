@@ -1,6 +1,14 @@
 <?php
 namespace Admin\Controller;
 use Admin\Controller;
+
+/**
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
+ * @homepage http://www.src.pw
+ * @version 1.5
+ */
+
 /**
  * 字段管理
  */
@@ -76,9 +84,9 @@ class SettingController extends BaseController
             }else{
              //   dd(I());die;
                 if ($model->save()) {
-                    $this->success("字段更新成功", U('setting/index'));
+                    $this->success("设置更新成功", U('setting/index'));
                 } else {
-                    $this->error("字段更新失败");
+                    $this->error("设置更新失败");
                 }        
             }
         }

@@ -5,7 +5,7 @@
    <div class="col-md-offset-2">
    <h2><strong>联系方式</strong></h2>
     <hr style="width:80%" class="col-md-offset-0"/>
-    <h5><strong>请您准确填写您的联系方式，以便我们能够准确为您邮寄兑换的礼品。</strong></h5><br/>
+    <h5><strong>请您准确填写您的联系方式，以便我们能够准确为您邮寄兑换的礼品和发放现金奖励。</strong></h5><br/>
 	
     <div class="row">
 	    <a href="{:U('info/add')}" class="btn btn-success <?php $exsit= D('info'); if($exsit->where('user_id='.session('userId'))->count()){echo 'disabled';}; ?>">添加</a>
@@ -32,6 +32,10 @@
 			<tr>
 			    <th>电话：</th>
 			    <td>{$v.tel}</td>
+			</tr>
+			<tr>
+			    <th>支付宝账号：</th>
+			    <td>{$v.alipay}</td>
 			</tr>
         </foreach>
         </tbody>

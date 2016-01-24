@@ -1,23 +1,105 @@
-<extend name="Public:common"/>
-<block name="main">
-<div class="gallery">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2><strong>贡献榜</strong></h2>
-		<hr/>
-		<h5 ><strong>感谢各位安全专家长期关注我们的安全，帮助提高集团安全水平，在此向下面列表中的所有安全专家致以最崇高的敬意！</strong></h5><br/>
-        <table class="table table-hover">
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href=#>
+
+    <title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__PUBLIC__/Home/index/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="__PUBLIC__/Home/index/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="yahei sr-only">Toggle navigation</span>
+            <span class="yahei icon-bar"></span>
+            <span class="yahei icon-bar"></span>
+            <span class="yaheiicon-bar"></span>
+          </button>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
+          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+              <ul class="yahei nav navbar-nav">
+                <li class="yahei"><a href="{:U('index/index')}">首页</a></li>
+                <li><a class="yahei" href="__ROOT__/user.php">漏洞提交</a></li>
+                <li><a class="yahei" href="{:U('page/index')}">公告</a></li>
+				<li><a class="yahei" href="{:U('blog/index')}">博客</a></li>
+				<li class="active"><a class="yahei" href="{:U('hall/index')}">贡献榜</a></li>
+				<li><a class="yahei" href="{:U('gift/index')}">礼品库</a></li>
+                <!--<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>-->
+            </div>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+      </div>
+    </div>
+
+
+    <!--Blank
+    ================================================== -->
+    <div class="container">
+     <br/>
+	 <br/>
+    </div><!-- /.Blank -->
+
+<div class="container marketing yahei">
+	  <br/>
+      <div class="row col-md-12">
+		<h5>感谢各位安全专家长期关注我们的安全，帮助提高集团安全水平，在此向下面列表中的所有安全专家致以最崇高的敬意！</h5>
+		<h5>以下是所有向我们报告过漏洞的白帽子排名：</h5><br/>
+        <table class="table">
         <thead>
             <tr>
+			   <th>排名</th>
                <th>姓名</th>
                <th>积分</th>
                <th>等级</th>
+			   <th>荣誉</th>
             </tr>
         </thead>
 		<tbody>
-		<foreach name="user" item="v">
             <tr>
+			<td>
+			{$xuhao++}
+			</td>
+			<foreach name="user" item="v">
                <td>{$v['username']}</td>
                <td>{$v['jifen']}</td>
                <td>     
@@ -28,23 +110,35 @@
 			   <elseif condition="$v.jifen gt 500" /><span class="label label-warning">核心白帽子</span>
                </if>
 			   </td>
+			   <td>
+               <if condition="$v.jifen lt 500"><span class="label label-info">暂无</span>			   
+			   <elseif condition="$v.jifen gt 800" /><span class="label label-warning">漏洞之王</span>
+               </if>
+			   </td>
                </tr>
 	    </foreach>
-            <!--<tr>
-               <td>Sachin</td>
-               <td>50</td>
-               <td>普通白帽子</td>
-            </tr>
-            <tr>
-               <td>Uma</td>
-               <td>5</td>
-               <td>实习白帽子</td>
-            </tr>-->
         </tbody>
         </table>
+      </div><!-- /.row -->
+	  </div>
+      <!-- FOOTER -->
+<footer class="footer navbar-fixed-bottom">
+	  <div class="container marketing yahei">
+        <p class="pull-right"><a href="{:U('index/index')}">返回顶部</a></p>
+        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="__ROOT__">关于我们</a> · <a href="__ROOT__">隐私协议</a></p>
 		</div>
-    </div>
-  </div>
-</div>
+</footer><!-- /.container -->
 
-</block>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="__PUBLIC__/Home/index/jquery.min.js"></script>
+    <script src="__PUBLIC__/Home/index/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="__PUBLIC__/Home/index/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="__PUBLIC__/Home/index/ie10-viewport-bug-workaround.js"></script>
+  
+
+</body></html>

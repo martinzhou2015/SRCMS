@@ -2,10 +2,10 @@
 namespace Admin\Controller;
 use Admin\Controller;
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 2015-07-27
- * @copyright ©2105-2018 SRCMS
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
  * @homepage http://www.src.pw
- * @version 1.0
+ * @version 1.5
  */
  
 class PostController extends BaseController
@@ -125,30 +125,21 @@ class PostController extends BaseController
         }
     }
 	
+	
 	/**
-     * 分发漏洞报告
-     * @param  [type] $id [description]
-     * @return [type]     [description]
+     * 生成session key
      */
-    public function send()
-    {
-		import('ORG.Net.Mail');
+	    public function session(){
 		$id = I('get.id',0,'intval');
-		$email = I('post.email');
-		$title = I('post.title');
-		$tips = I('post.tips');
-        if (!IS_POST) {
-			$model = M('post')->where('id='.$id)->find();
-            $this->assign('post',$model);
-            $this->display();
+		$str = '!@#$%^&*abcdefghijklmnopqrstuvwxyz';
+        $session = md5($str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)]);
+        $model = M('post');
+        $model->session = $session;
+		$result = $model->where('id='.$id)->save();
+		if($result){
+            $this->success("授权成功", U('Check/view?session_id='.$session));
+        }else{
+            $this->error("授权失败");
         }
-        if (IS_POST) {
-            $result = SendMail($email,$title,$tips,'应急响应中心');
-            if($result){
-            $this->success("发送成功", U('post/index'));
-            }else{
-            $this->error("发送失败");
-                  }      
-        }
-	}
+	   }
 }

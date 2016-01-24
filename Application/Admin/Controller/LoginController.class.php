@@ -2,6 +2,13 @@
 namespace Admin\Controller;
 use Think\Controller;
 
+/**
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
+ * @homepage http://www.src.pw
+ * @version 1.5
+ */
+
 class LoginController extends Controller {
     //登陆主页
     public function index(){

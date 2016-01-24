@@ -1,0 +1,35 @@
+<extend name="Public:common" />
+<block name="main">
+
+<!-- 报告详情 -->
+<div class="gallery">
+  <div class="container">
+      <div class="col-md-12">
+	  <br/>
+        <h4><strong>{$model.title}</strong></h4>
+		<div class="row">
+		<p><span>#{$model.id}</span><span> / </span><span>@{$model.time|date="Y-m-d H:i:s",###}</span><span> / </span><span><if condition="$model.type eq 1"><span class="label label-info">审核中</span>
+                    <elseif condition="$model.type eq 2" /><span class="label label-default">已忽略</span>
+                    <elseif condition="$model.type eq 3" /><span class="label label-warning">已确认</span>
+                    <elseif condition="$model.type eq 4" /><span class="label label-success">已修复</span>
+                    </if></p>
+		</div>
+        <div class="row">
+		<pre>
+			 {$model.content|htmlspecialchars_decode|waf}
+	    </pre>
+	    </div>
+		
+		<div class="row">
+		<hr/>
+			<h5><strong>温馨提示：</strong><if condition="$model.type eq 1"><span>漏洞正在审核中，请您耐心等待，如有疑问请联系漏洞处理人员</span>
+                    <elseif condition="$model.type eq 2" /><span>漏洞已忽略，如有争议请联系漏洞处理人员</span>
+                    <elseif condition="$model.type eq 3" /><span>漏洞已确认，开发正在快马加鞭地修复漏洞</span>
+                    <elseif condition="$model.type eq 4" /><span>漏洞已修复，请您复查，如发现新的问题，请您提交新的漏洞报告</span>
+                    </if></h5>
+			<a class="btn btn-primary" href="{:U('post/index')}">返回列表</a>
+		</div>
+  </div>
+</div>
+
+</block>

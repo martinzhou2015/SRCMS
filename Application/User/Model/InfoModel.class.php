@@ -8,6 +8,7 @@ class InfoModel extends Model{
         array('zipcode','require','请填写邮编'), //默认情况下用正则进行验证
         array('location','require','请填写地址'), //默认情况下用正则进行验证
 		array('tel','require','请填写联系电话'), //默认情况下用正则进行验证
+		array('alipay','require','请填写支付宝账号，方便发放现金奖励'), //默认情况下用正则进行验证
     );
 	
 	protected $_auto = array ( 

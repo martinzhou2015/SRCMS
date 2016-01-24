@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 10 月 06 日 18:50
+-- 生成日期: 2016 年 01 月 24 日 10:47
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.3.29
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `blog` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `content` text NOT NULL,
+  `title` varchar(100) CHARACTER SET gbk NOT NULL,
+  `name` varchar(100) CHARACTER SET gbk NOT NULL,
+  `content` text CHARACTER SET gbk NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=gbk AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `blog`
@@ -88,20 +88,18 @@ CREATE TABLE IF NOT EXISTS `hall` (
   `id` int(10) NOT NULL,
   `name` varchar(10) NOT NULL,
   `url` varchar(100) NOT NULL,
+  `des` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `hall`
 --
 
-INSERT INTO `hall` (`id`, `name`, `url`) VALUES
-(0, 'Lucy', 'http://api.randomuser.me/portraits/thumb/women/12.jpg'),
-(1, 'David', 'http://api.randomuser.me/portraits/thumb/men/95.jpg'),
-(2, 'Lily', 'http://api.randomuser.me/portraits/thumb/women/67.jpg'),
-(3, 'Martin', 'http://api.randomuser.me/portraits/thumb/men/27.jpg'),
-(4, 'Kelly', 'http://api.randomuser.me/portraits/thumb/women/15.jpg'),
-(5, 'Sam', 'http://api.randomuser.me/portraits/thumb/men/18.jpg');
+INSERT INTO `hall` (`id`, `name`, `url`, `des`) VALUES
+(0, '路人甲', './Public/Home/images/unknow.jpeg', '凭借自己精湛的挖掘思路帮助我们发现十余个高危漏洞,是本月当之无愧的No.1'),
+(1, 'David', './Public/Home/images/unknow.jpeg', '帮助轻响应发现多个严重级别的权限漏洞和逻辑漏洞，帮助轻响应提升了整体业务安全水平'),
+(2, 'Lily', './Public/Home/images/unknow.jpeg', '本月发现一枚严重级别的支付问题漏洞，帮助我们快速定位问题，保障了数万用户的安全');
 
 -- --------------------------------------------------------
 
@@ -112,10 +110,11 @@ INSERT INTO `hall` (`id`, `name`, `url`) VALUES
 CREATE TABLE IF NOT EXISTS `info` (
   `user_id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `realname` varchar(20) CHARACTER SET gbk NOT NULL,
-  `location` varchar(50) CHARACTER SET gbk NOT NULL,
-  `tel` varchar(11) CHARACTER SET gbk NOT NULL,
-  `zipcode` varchar(6) CHARACTER SET gbk NOT NULL,
+  `realname` varchar(20) NOT NULL,
+  `location` varchar(50) NOT NULL,
+  `tel` varchar(11) NOT NULL,
+  `zipcode` varchar(6) NOT NULL,
+  `alipay` varchar(20) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -123,9 +122,9 @@ CREATE TABLE IF NOT EXISTS `info` (
 -- 转存表中的数据 `info`
 --
 
-INSERT INTO `info` (`user_id`, `username`, `realname`, `location`, `tel`, `zipcode`) VALUES
-(1, 'admin', '周三', '江苏', '18190112345', '214191'),
-(2, 'martin', '王二', '江苏', '18712345612', '214000');
+INSERT INTO `info` (`user_id`, `username`, `realname`, `location`, `tel`, `zipcode`, `alipay`) VALUES
+(1, 'admin', '周三&lt;input&gt;', '北京市百度科技大厦', '15176528910', '10092@', ''),
+(2, 'martin', '王二', '江苏', '18712345612', '214000', '1009465@qq.com');
 
 -- --------------------------------------------------------
 
@@ -179,8 +178,27 @@ CREATE TABLE IF NOT EXISTS `member` (
 --
 
 INSERT INTO `member` (`id`, `username`, `email`, `password`, `avatar`, `create_at`, `update_at`, `login_ip`, `status`, `type`, `jifen`) VALUES
-(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', NULL, '1436679338', '315763479', '0.0.0.0', 1, 2, 0),
-(2, 'martin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', NULL, '1438016593', '1440839143', '0.0.0.0', 1, 1, 105);
+(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', NULL, '1436679338', '1453600331', '0.0.0.0', 1, 2, 0),
+(2, 'martin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', NULL, '1438016593', '1453552900', '0.0.0.0', 1, 1, 105);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `order`
+--
+
+CREATE TABLE IF NOT EXISTS `order` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `realname` varchar(50) NOT NULL,
+  `zipcode` varchar(10) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `tel` int(15) NOT NULL,
+  `alipay` varchar(50) NOT NULL,
+  `gid` varchar(100) NOT NULL,
+  `finish` int(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -194,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `name` varchar(100) DEFAULT NULL,
   `content` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `page`
@@ -212,11 +230,15 @@ INSERT INTO `page` (`id`, `title`, `name`, `content`) VALUES
 
 CREATE TABLE IF NOT EXISTS `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `session` varchar(15) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content` text,
+  `advise` varchar(255) NOT NULL,
   `time` varchar(11) DEFAULT '0',
+  `day` tinyint(1) NOT NULL,
   `cate_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
+  `rank` tinyint(1) NOT NULL,
   `type` tinyint(1) DEFAULT '1' COMMENT '1:普通,2:置顶,3:热门,4:推荐',
   PRIMARY KEY (`id`),
   KEY `cate_id` (`cate_id`),
@@ -227,8 +249,8 @@ CREATE TABLE IF NOT EXISTS `post` (
 -- 转存表中的数据 `post`
 --
 
-INSERT INTO `post` (`id`, `title`, `content`, `time`, `cate_id`, `user_id`, `type`) VALUES
-(1, '示例漏洞报告', '&lt;p&gt;这里是示例漏洞报告的内容.&lt;/p&gt;', '1438043542', 2, 2, 1);
+INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`, `cate_id`, `user_id`, `rank`, `type`) VALUES
+(1, '04b9c8e7ed9989c', '示例漏洞报告', '&lt;p&gt;这里是示例漏洞报告的内~容。&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;http://localhost/dev/Public/Home/images/unknow.jpeg&quot;/&gt;&lt;/p&gt;', '建议过滤特殊字符', '1438043542', 4, 2, 2, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -250,11 +272,11 @@ CREATE TABLE IF NOT EXISTS `setting` (
 --
 
 INSERT INTO `setting` (`id`, `key`, `value`, `description`) VALUES
-(1, 'site-name', '演示站点', '站点名'),
+(1, 'site-name', 'SRCMS·轻响应', '站点名'),
 (2, 'site-keywords', '关键词1,关键词2', '关键词'),
 (3, 'site-description', '站点描述信息', '站点描述'),
 (4, 'site-tongji', '&lt;script&gt; console.log(&quot;统计代码&quot;)&lt;/script&gt;', '统计代码'),
-(5, 'site-icp', '123456', 'ICP备案号'),
+(5, 'site-icp', '示ICP证 100000号', 'ICP备案号'),
 (6, 'site-url', 'http://www.src.pw', '站点地址');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

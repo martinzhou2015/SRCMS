@@ -21,13 +21,13 @@
         <tbody>
         <foreach name="model" item="v">
             <tr>
-                <td>{$v.id}</td>
-                <td>{$v.title}</td>
+                <td><a href="{:U('post/view?rid=')}{$v.id}">{$v.id}</a></td>
+                <td><a href="{:U('post/view?rid=')}{$v.id}">{$v.title}</a></td>
                 <td>
-                    <if condition="$v.type eq 1"><span class="label label-success">审核中</span>
-                    <elseif condition="$v.type eq 2" /><span class="label label-info">已忽略</span>
-                    <elseif condition="$v.type eq 3" /><span class="label label-primary">已确认</span>
-                    <elseif condition="$v.type eq 4" /><span class="label label-warning">已修复</span>
+                    <if condition="$v.type eq 1"><span class="label label-info">审核中</span>
+                    <elseif condition="$v.type eq 2" /><span class="label label-default">已忽略</span>
+                    <elseif condition="$v.type eq 3" /><span class="label label-warning">已确认</span>
+                    <elseif condition="$v.type eq 4" /><span class="label label-success">已修复</span>
                     </if>
                 </td>
                 <td>{$v.time|date="Y/m/d H:i:s",###}</td>

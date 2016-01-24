@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 2015-07-27
- * @copyright ©2105-2018 SRCMS
+ * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @copyright 2105-2018 SRCMS 
  * @homepage http://www.src.pw
- * @version 1.0
+ * @version 1.5
  */
 
 namespace Home\Controller;
@@ -14,10 +14,12 @@ use Think\Controller;
 class IndexController extends Controller{
 
     public function index(){
-		$model = M('page')->limit(5)->select();
-		$hall = M('hall')->limit(6)->select();
-        $this->assign('model',$model);
-		$this->assign('hall',$hall);
+		$model = M('hall');
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$hall = $model->order('id DESC')->select();
+        $this->assign('model', $hall);
+		$this->assign('title', $title);
         $this->display();
     }
 }
