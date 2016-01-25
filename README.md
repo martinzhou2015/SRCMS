@@ -12,13 +12,15 @@
 
 * 第一步：通过Github代码托管页面将项目源代码下载
 
-* 第二步：在phpmyadmin建立一个名为srcms的数据库，然后将./DB目录下srcms.sql文件导入刚刚创建的数据库。
+* 第二步：在phpmyadmin建立一个名为srcms（可以自定义，但是请参照第四步，调整数据库连接设置）的数据库，然后将./DB目录下srcms.sql文件导入刚刚创建的数据库。
 
 * 第三步：打开./Application/Common/Conf/config.php，按照文件中绿色注释文字的提示,填写网站找回密码、后台登陆报警所需要使用到SMTP服务的相关配置。
 
-* 第四步：打开./Application/Common/Conf/db.php，调整本地数据库连接相关配置。
+* 第四步：打开./Application/Common/Conf/db.php，按照实际情况调整本地数据库连接相关配置。
 
-* 第五步：初次配置全部完成，下面您就可以通过在浏览器内输入相应地址体验SRCMS（轻响应）了。
+* 第五步：打开./Application/Admin/Controller/LoginController.class.php,修改第59行sendMail方法内初始值1009465756@qq.com为您自己的安全邮箱。配置完成后，每次管理员登陆后台，该邮箱都将会接收到登陆日志。
+
+* 配置完成：基础配置全部完成，下面您就可以通过在浏览器内输入相应地址体验SRCMS（轻响应）了。
 
 ---
 ##版本更新日志
