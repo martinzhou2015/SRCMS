@@ -77,8 +77,8 @@ class PostController extends BaseController
 	public function view(){
 		$id = session('userId');
 		$rid = I('get.rid',0,'intval');
-	    $model = M("Post");
-        $post = $model->where('user_id='.$id)->where('id='.$rid)->find();
+	        $model = M("Post");
+                $post = $model->where(array('user_id'=>$id,'id'=>$rid))->find();
 		$tmodel= M('setting');
 		$title = $tmodel->where('id=1')->select();
 		$this->assign('title', $title);
