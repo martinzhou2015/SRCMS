@@ -59,6 +59,7 @@ class LoginController extends Controller {
 	
 	//验证码
     public function verify(){
+    	ob_clean();
         $Verify = new \Think\Verify();
         $Verify->codeSet = '123456789abcdefg';
         $Verify->fontSize = 16;
