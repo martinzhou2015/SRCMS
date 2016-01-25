@@ -13,7 +13,7 @@ use Think\Controller;
 
 class HallController extends Controller{
 
-    public function index($key="")
+    public function index()
     {
        $xuhao = 1;
        $model = M('member');
