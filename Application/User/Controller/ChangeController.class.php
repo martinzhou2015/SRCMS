@@ -17,6 +17,9 @@ class ChangeController extends BaseController{
      */
     public function index()
     {
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         $this->display();
     }
 

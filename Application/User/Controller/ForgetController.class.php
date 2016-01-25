@@ -12,6 +12,9 @@ use Think\Controller;
 class ForgetController extends Controller {
     //显示找回密码页面
     public function index(){
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         $this->display();
     }
     //找回密码逻辑

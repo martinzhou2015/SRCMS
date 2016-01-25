@@ -32,6 +32,9 @@ class PostController extends BaseController
         $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(15)
         $show = $Page->show();// 分页显示输出
         $post = $model->limit($Page->firstRow.','.$Page->listRows)->where($where)->order('post.id DESC')->where('user_id='.$id)->select();
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         $this->assign('model', $post);
         $this->assign('page',$show);
         $this->display();     
@@ -43,6 +46,9 @@ class PostController extends BaseController
     {
         //默认显示添加表单
         if (!IS_POST) {
+			$tmodel= M('setting');
+		    $title = $tmodel->where('id=1')->select();
+		    $this->assign('title', $title);
         	$this->assign("category",getSortedCategory(M('category')->select()));
             $this->display();
         }
@@ -73,6 +79,9 @@ class PostController extends BaseController
 		$rid = I('get.rid',0,'intval');
 	    $model = M("Post");
         $post = $model->where('user_id='.$id)->where('id='.$rid)->find();
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         $this->assign('model', $post);
         $this->display();
     }

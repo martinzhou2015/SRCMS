@@ -13,6 +13,9 @@ class GiftController extends BaseController{
 
     public function index(){
         $gift = M('links')->select();
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         $this->assign('gift',$gift);
         $this->display();
     }
@@ -23,6 +26,9 @@ class GiftController extends BaseController{
 		$id = session('userId');
 		$gid = I('get.gid',0,'intval');
         if (!IS_POST) {
+			$tmodel= M('setting');
+		    $title = $tmodel->where('id=1')->select();
+		    $this->assign('title', $title);
             $info = M('info')->where('user_id='.$id)->select();
 			$gift = M('links')->where('id='.$gid)->select();
             $this->assign('info',$info);

@@ -13,7 +13,10 @@ class InfoController extends BaseController{
 
     public function index(){
 		$id = session('userId');
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
         $info = M('info')->where('user_id='.$id)->select();
+		$this->assign('title', $title);
         $this->assign('info',$info);
         $this->display();
     }
