@@ -17,7 +17,7 @@ class LoginController extends Controller {
     //登陆验证
     public function login(){
         if(!IS_POST)$this->error("非法请求");
-        $member = M('member');
+        $member = M('manager');
         $username =I('username');
         $password =I('password','','md5');
         $code = I('verify','','strtolower');
@@ -32,12 +32,12 @@ class LoginController extends Controller {
             $this->error('账号或密码错误 :(') ;
         }
         //验证账户是否被禁用
-        if($user['status'] == 0){
-            $this->error('账号被禁用，请联系超级管理员 :(') ;
-        }
-        if($user['type'] == 1){
-            $this->error('您没权限登陆后台 :(') ;
-        }
+        //if($user['status'] == 0){
+            //$this->error('账号被禁用，请联系超级管理员 :(') ;
+        //}
+        //if($user['type'] == 1){
+            //$this->error('您没权限登陆后台 :(') ;
+        //}
         //验证是否为管理员
         //更新登陆信息
         $data =array(
@@ -55,7 +55,7 @@ class LoginController extends Controller {
 			$ip = get_client_ip();
 			$time = date("Y-m-d h:i:sa");
             $con='您好,您的后台管理账户 '.$username.' 于 '.$time.' 被登录，登录IP地址为 '.$ip.' 如果该操作非您本人操作，可能帐号信息已经被泄露，请您及时修改密码。 ';  
-            SendMail('1009465756@qq.com','应急响应中心后台登录提示',$con,'应急响应中心'); 	//使用时注意将1009465756@qq.com修改为您的邮箱帐号
+            SendMail($user['email'],'应急响应中心后台登录提示',$con,'应急响应中心');
             $this->success("登陆成功",U('Index/index'));
         }
         //定向之后台主页
@@ -64,10 +64,10 @@ class LoginController extends Controller {
     }
     //验证码
     public function verify(){
-    	ob_clean();
+		ob_clean();
         $Verify = new \Think\Verify();
-        $Verify->codeSet = '0123456789';
-        $Verify->fontSize = 13;
+        $Verify->codeSet = 'AECDEFGHIGJ123456';
+        $Verify->fontSize = 16;
         $Verify->length = 4;
         $Verify->entry();
     }

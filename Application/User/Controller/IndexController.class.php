@@ -11,6 +11,7 @@ use Think\Controller;
 
 class IndexController extends BaseController {
     public function index(){
+		echo waf('111111');
 		$id = session('userId');
 		$tmodel= M('setting');
 		$title = $tmodel->where('id=1')->select();

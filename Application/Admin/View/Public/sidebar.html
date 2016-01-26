@@ -12,9 +12,13 @@
 	<li class="dropdown">
         <a href="{:U('blog/index')}"><i class="fa fa-th-list"></i> 博客管理</a>
     </li>
-    <li class="dropdown">
-        <a href="{:U('member/index')}"><i class="fa fa-users"></i> 用户管理</a>  
-    </li>
+	<li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i>用户管理<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+					<li><a href="{:U('member/index')}"><i class="fa fa-tag"></i> 前台用户</a> </li>
+					<li><a href="{:U('manager/index')}"><i class="fa fa-tag"></i> 后台用户</a></li>
+                  </ul>
+                </li>
 	<li class="dropdown">
         <a href="{:U('hall/index')}"><i class="fa fa-star"></i> 贡献榜管理</a>
     </li>

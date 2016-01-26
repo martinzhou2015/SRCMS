@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 01 月 24 日 10:47
+-- 生成日期: 2016 年 01 月 26 日 14:02
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.3.29
 
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 
 INSERT INTO `info` (`user_id`, `username`, `realname`, `location`, `tel`, `zipcode`, `alipay`) VALUES
 (1, 'admin', '周三&lt;input&gt;', '北京市百度科技大厦', '15176528910', '10092@', ''),
-(2, 'martin', '王二', '江苏', '18712345612', '214000', '1009465@qq.com');
+(2, 'admin2', '王二', '江苏', '18712345612', '214000', '1009465@qq.com');
 
 -- --------------------------------------------------------
 
@@ -153,6 +153,30 @@ INSERT INTO `links` (`id`, `title`, `url`, `sort`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `manager`
+--
+
+CREATE TABLE IF NOT EXISTS `manager` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `login_ip` varchar(20) NOT NULL,
+  `create_at` varchar(11) NOT NULL,
+  `update_at` varchar(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `manager`
+--
+
+INSERT INTO `manager` (`id`, `username`, `email`, `password`, `login_ip`, `create_at`, `update_at`) VALUES
+(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', '0.0.0.0', '1453778451', '1453787197');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `member`
 --
 
@@ -171,15 +195,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   PRIMARY KEY (`id`),
   KEY `username` (`username`) USING BTREE,
   KEY `password` (`password`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- 转存表中的数据 `member`
---
-
-INSERT INTO `member` (`id`, `username`, `email`, `password`, `avatar`, `create_at`, `update_at`, `login_ip`, `status`, `type`, `jifen`) VALUES
-(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', NULL, '1436679338', '1453600331', '0.0.0.0', 1, 2, 0),
-(2, 'martin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', NULL, '1438016593', '1453552900', '0.0.0.0', 1, 1, 105);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -243,14 +259,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   PRIMARY KEY (`id`),
   KEY `cate_id` (`cate_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `post`
---
-
-INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`, `cate_id`, `user_id`, `rank`, `type`) VALUES
-(1, '04b9c8e7ed9989c', '示例漏洞报告', '&lt;p&gt;这里是示例漏洞报告的内~容。&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;http://localhost/dev/Public/Home/images/unknow.jpeg&quot;/&gt;&lt;/p&gt;', '建议过滤特殊字符', '1438043542', 4, 2, 2, 2, 4);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

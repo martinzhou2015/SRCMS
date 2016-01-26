@@ -3,10 +3,10 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @author Zhou Yuyang <1009465756@qq.com> 11:28 2016/1/26
  * @copyright 2105-2018 SRCMS 
  * @homepage http://www.src.pw
- * @version 1.5
+ * @version 1.6
  */
 
 
@@ -38,15 +38,15 @@ class RegController extends Controller{
         if (IS_POST) {
             //如果用户提交数据
             $model = D("Member");
-            if (!$model->create()) {
+            if (!$model->field('username,email,password,repassword')->create()) {
                 // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());
                 exit();
             } else {
                 if ($model->add()) {
-                    $this->success("用户添加成功", U('index/index'));
+                    $this->success("注册成功", U('index/index'));
                 } else {
-                    $this->error("用户添加失败");
+                    $this->error("注册失败");
                 }
             }
         }

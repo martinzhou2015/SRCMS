@@ -40,7 +40,7 @@ class GiftController extends BaseController{
             $model = D("order");
 			$model->user_id = 1;
 			$model->username = 1;
-            if (!$model->create()) {
+            if (!$model->field('username,email,password,repassword,gid')->create()) {
                 // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());
                 exit();

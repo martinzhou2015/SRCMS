@@ -3,10 +3,10 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
+ * @author Zhou Yuyang <1009465756@qq.com> 12:21 2016/1/26
  * @copyright 2105-2018 SRCMS 
  * @homepage http://www.src.pw
- * @version 1.5
+ * @version 1.6
  */
 
 class InfoController extends BaseController{
@@ -35,7 +35,7 @@ class InfoController extends BaseController{
             $model = D("info");
 			$model->user_id = 1;
 			$model->username = 1;
-            if (!$model->create()) {
+            if (!$model->field('realname,zipcode,location,tel,alipay')->create()) {
                 // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());
                 exit();
@@ -67,15 +67,15 @@ class InfoController extends BaseController{
             $model = D("info");
 			$model->user_id = 1;
 			$model->username = 1;
-            if (!$model->create()) {
+            if (!$model->field('realname,zipcode,location,tel,alipay')->create()) {
                 // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());
                 exit();
             } else {
                 if ($model->save()) {
-                    $this->success("更新成功", U('info/index'));
+                    $this->success("联系方式更新成功", U('info/index'));
                 } else {
-                    $this->error("更新失败");
+                    $this->error("联系方式更新失败");
                 }
             }
         }

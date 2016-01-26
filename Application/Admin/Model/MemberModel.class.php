@@ -19,7 +19,6 @@ class MemberModel extends Model{
         array('update_at','time',2,'function'), //更新时
         array('create_at','time',1,'function'), //新增时
         array('login_ip','get_client_ip',3,'function'), //新增时
-      //  array('password','',2,'ignore')   //怎么不能用？
     );
 
 

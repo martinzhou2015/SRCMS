@@ -57,7 +57,7 @@ class PostController extends BaseController
             $model = D("Post");
             $model->time = time();
             $model->user_id = 1;
-            if (!$model->create()) {
+            if (!$model->field('title,user_id,cate_id,content')->create()) {
                 // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());
                 exit();
@@ -77,8 +77,8 @@ class PostController extends BaseController
 	public function view(){
 		$id = session('userId');
 		$rid = I('get.rid',0,'intval');
-	        $model = M("Post");
-                $post = $model->where(array('user_id'=>$id,'id'=>$rid))->find();
+	    $model = M("Post");
+        $post = $model->where(array('user_id'=>$id,'id'=>$rid))->find();  //修复越权漏洞
 		$tmodel= M('setting');
 		$title = $tmodel->where('id=1')->select();
 		$this->assign('title', $title);

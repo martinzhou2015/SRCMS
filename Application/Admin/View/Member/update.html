@@ -14,12 +14,18 @@
 		<input class="form-control" type="password" name="password" placeholder="不填写则不更改">
 	</div>
 	<div class="form-group">
-        <label>用户类型</label>
+        <label>用户等级</label>
         <label class="radio-inline">
-          <input type="radio" name="type" id="type" value="1" <if condition="$model.type eq 1">checked="checked"</if>>前台用户
+          <input type="radio" name="type" id="type" value="1" <if condition="$model.type eq 1">checked="checked"</if>>路人
         </label>
         <label class="radio-inline">
-          <input type="radio" name="type" id="type" value="2" <if condition="$model.type eq 2">checked="checked"</if>>管理员
+          <input type="radio" name="type" id="type" value="2" <if condition="$model.type eq 2">checked="checked"</if>>实习白帽子
+        </label>
+		<label class="radio-inline">
+          <input type="radio" name="type" id="type" value="3" <if condition="$model.type eq 3">checked="checked"</if>>普通白帽子
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="type" id="type" value="4" <if condition="$model.type eq 4">checked="checked"</if>>核心白帽子
         </label>
     </div>
 	<div class="form-group">

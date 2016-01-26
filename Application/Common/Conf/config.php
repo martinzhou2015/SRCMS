@@ -14,7 +14,6 @@ return array(
 	'SHOW_ERROR_MSG'        =>  true, 
 	//用户注册默认信息
 	'DEFAULT_SCORE'=>100,
-	//'LOTTERY_NUM'=>3,  //每天最多的抽奖次数
 	'MAIL_ADDRESS'=>'xxxx@126.com', // 此处填写邮箱地址
     'MAIL_SMTP'=>'smtp.126.com', // 邮箱SMTP服务器
     'MAIL_LOGINNAME'=>'xxxxx', // 邮箱登录帐号
