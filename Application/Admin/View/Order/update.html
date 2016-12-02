@@ -1,0 +1,66 @@
+<include file="Public/header" title="订单详情" />
+<div id="page-wrapper">
+    <form method="post" action="{:U('order/jifen')}">
+	    <div class="form-group">
+            <label for="bb">目前积分: </label>
+            <label><foreach name="userM" item="v">{$v.jifen}</foreach></label>
+        </div>
+        <div class="form-group">
+            <label for="bb">扣除积分: </label>
+            <input type="text" name="amount" class="form-control" id="ee" value="" placeholder="填写扣除积分" value="100">
+        </div>
+			<input type="hidden" name="user_id" value="{$model.username}">
+        <div class="form-group">
+            <input type="hidden" name="id" value="{$model.id}">
+            <button type="submit" class="btn btn-default">执行</button>
+        </div>
+    </form>
+</div>
+<div id="page-wrapper">
+    <form method="post" action="{:U('order/update')}">
+        <div class="form-group">
+            <label for="aa">礼品名称</label>
+            <input type="text" name="gid" class="form-control" id="aa" value="{$model.gid}" placeholder="输入礼品名称">
+        </div>
+        <div class="form-group">
+            <label for="bb">真实姓名</label>
+            <input type="text" name="realname" class="form-control" id="bb" value="{$model.realname}" placeholder="填写真实姓名">
+        </div>
+        <div class="form-group">
+            <label for="cc">住址</label>
+            <input type="text" name="location" class="form-control" id="cc" value="{$model.location}" placeholder="填写住址" value="100">
+        </div>
+		<div class="form-group">
+            <label for="cc">联系方式</label>
+            <input type="text" name="tel" class="form-control" id="dd" value="{$model.tel}" placeholder="填写联系方式" value="100">
+        </div>
+		<div class="form-group">
+            <label for="cc">邮编</label>
+            <input type="text" name="zipcode" class="form-control" id="ee" value="{$model.zipcode}" placeholder="填写邮编" value="100">
+        </div>
+		<div class="form-group">
+            <label for="cc">支付宝帐号</label>
+            <input type="text" name="alipay" class="form-control" id="ee" value="{$model.alipay}" placeholder="填写扣除积分" value="100">
+        </div>
+		<div class="form-group">
+            <label>订单状态： </label>
+            <label class="radio-inline">
+              <input type="radio" name="finish" id="finish" value="0" <if condition="$post.day eq 0">checked="checked"</if> > 待处理
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="finish" id="finish" value="1" <if condition="$post.day eq 1">checked="checked"</if>> 已发货
+            </label>
+			<label class="radio-inline">
+              <input type="radio" name="finish" id="finish" value="0" <if condition="$post.day eq 2">checked="checked"</if> > 发货中
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="finish" id="finish" value="1" <if condition="$post.day eq 3">checked="checked"</if>> 已关闭
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" value="{$model.id}">
+            <button type="submit" class="btn btn-default">更新</button>
+        </div>
+    </form>
+</div>
+<include file="Public/footer" />

@@ -32,7 +32,7 @@
         <foreach name="model" item="v">
             <tr>
                 <td>{$v.id}</td>
-                <td>{$v.title}</td>
+                <td><a href="{:U('post/update?id=')}{$v.id}">{$v.title}</a></td>
                 <td>
                     <if condition="$v.type eq 1"><span class="label label-info">审核中</span>
                     <elseif condition="$v.type eq 2" /><span class="label label-default">已忽略</span>

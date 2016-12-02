@@ -12,6 +12,7 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
+
 	</head>
  <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -23,7 +24,7 @@
             <span class="yahei icon-bar"></span>
             <span class="yaheiicon-bar"></span>
           </button>
-          <a class="yahei navbar-brand" href="__ROOT__"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
+          <a class="yahei navbar-brand" href="/"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
           <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
           </a>
         </div>
@@ -35,20 +36,7 @@
 		      <li><a href="{:U('gift/index')}">礼品兑换</a></li>
 			  <li><a href="{:U('info/index')}">联系方式</a></li>
               </ul>
-			  <ul class="yahei nav navbar-nav navbar-right">
-			  <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo session('username')?><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <!--<li><a href="#">Action</a></li>
-                    <li><a href="#">更改密码</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>-->
-					<li><a href="{:U('change/index')}">更改密码</a></li>
-                    <li><a href="{:U('login/logout')}">退出登录</a></li>
-                  </ul>
-                </li>
-              </ul>
+			 
             </div>
         </div><!--/.navbar-collapse -->
       </div>
@@ -77,6 +65,17 @@
 		<label>确认密码</label>
 		<input class="form-control" type="password" name="repassword" placeholder="请再次输入密码">
 	</div>
+    <div class="form-group">
+                    <label for="exampleInputCode"> 验证码</label>
+                    <div class="row" >
+                        <div class="col-md-5 row col-md-offset-0">
+                            <input type="text"  name="verify" class="form-control" id="exampleInputCode" placeholder="验证码">
+                        </div>
+                        <div class="col-md-4">
+                            <a href="javascript:void(0)"><img class="verify" src="{:U('reg/verify')}" alt="点击刷新"/></a>
+                        </div>
+                    </div>
+    </div>
 	<div class="form-group">
 		<button class="btn btn-success" type="submit" >注册</button>
 	</div>
@@ -86,6 +85,18 @@
         </div>
     </div>
 </div>
+
+        <script src="__PUBLIC__/User/js/jquery-1.10.2.js"></script>
+        <script>
+    $(function(){
+        $(".verify").click(function(){
+            var src = "{:U('reg/verify')}";
+            var random = Math.floor(Math.random()*(1000+1));
+            $(this).attr("src",src+"&random="+random);
+
+        });
+    })
+</script>
 
 <footer>
   <div class="container">
@@ -98,24 +109,17 @@
           <li><i class="icon-pinterest icon-2x"></i></li>
         </ul>
         <hr>
-        <p>Copyright © <?php echo date("Y")?></i> at <a href="http://www.src.pw"> Demo Company.</a>All Rights Reserved</p>
+        <p>Copyright © <?php echo date("Y")?></i> at <a href=""> Demo Company.</a>All Rights Reserved</p>
 		<p>演示站点 版权所有</p>
 		<p>Powered By SRCMS</p>
       </div>
     </div>
   </div>
 </footer>
-
-<ul class="nav pull-right scroll-down">
-  <li><a href="#" title="Scroll down"><i class="icon-chevron-down icon-3x"></i></a></li>
-</ul>
-<ul class="nav pull-right scroll-top">
-  <li><a href="#" title="Scroll to top"><i class="icon-chevron-up icon-3x"></i></a></li>
-</ul>
-
 	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="__PUBLIC__/Home/js/jquery.min.js"></script>
 		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
 		<script src="__PUBLIC__/Home/js/scripts.js"></script>
+
 	</body>
 </html>

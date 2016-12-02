@@ -78,6 +78,7 @@ class MemberController extends BaseController
         }
         if (IS_POST) {
             $model = D("Member");
+			$user = M('member')->find(I('id'));
             if (!$model->create()) {
                 $this->error($model->getError());
             }else{
@@ -85,17 +86,17 @@ class MemberController extends BaseController
                 $data = I();
                 unset($data['password']);
                 if(I('password') != ""){
-                    $data['password'] = md5(I('password'));
+                    $data['password'] = md5(md5(md5($user['salt']).md5(I('password'))."SR")."CMS");
                 }
                 //强制更改超级管理员用户类型
                 if(C('SUPER_ADMIN_ID') == I('id')){
-                    $data['type'] = 2;
+                    $data['type'] = 1;
                 }
                 //更新
                 if ($model->save($data)) {
                     $this->success("用户信息更新成功", U('member/index'));
                 } else {
-                    $this->error("未做任何修改,用户信息更新失败");
+                    $this->error("用户信息更新失败");
                 }        
             }
         }

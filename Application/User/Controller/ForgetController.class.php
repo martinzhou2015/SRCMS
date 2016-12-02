@@ -17,17 +17,30 @@ class ForgetController extends Controller {
 		$this->assign('title', $title);
         $this->display();
     }
+	//验证码
+    public function verify(){
+		ob_clean();
+        $Verify = new \Think\Verify();
+        $Verify->codeSet = '123456789abcdefghijklmnopqrst';
+        $Verify->fontSize = 20;
+        $Verify->length = 4;
+        $Verify->entry();
+    }
+    protected function check_verify($code){
+        $verify = new \Think\Verify();
+        return $verify->check($code);
+    }
     //找回密码逻辑
     public function find(){
         if(!IS_POST)$this->error("非法请求");
         $member = M('member');
         $email =I('post.email','','email');
 		$username =I('post.username');
-        //$code = I('verify','','strtolower');
+        $code = I('verify','','strtolower');
         //验证验证码是否正确
-        //if(!($this->check_verify($code))){
-            //$this->error('验证码错误');
-        //}
+        if(!($this->check_verify($code))){
+            $this->error('验证码错误');
+        }
         //验证输入邮箱是否存在
         $user = $member->where(array('username'=>$username,'email'=>$email))->find();
 		
@@ -55,7 +68,7 @@ class ForgetController extends Controller {
         if(SendMail($email,'找回密码',$con,'应急响应中心')){  
         $this->success("发送成功",U('login/index'));
         }else{  
-         $this->error('账号被禁用 :(') ;
+         $this->error('密码找回邮件发送失败，请重试 :(') ;
         }  
 
     }

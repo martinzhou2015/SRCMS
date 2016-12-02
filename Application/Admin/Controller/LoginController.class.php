@@ -49,9 +49,10 @@ class LoginController extends Controller {
         //如果数据更新成功  跳转到后台主页
         if($member->save($data)){
             session('adminId',$user['id']);
-            session('username',$user['username']);
+            session('adminname',$user['username']);
 			//发送验证码邮件
-            import('ORG.Net.Mail');
+            //import('ORG.Net.Mail');
+			require "./././././ThinkPHP/Library/Org/Net/Mail.class.php";
 			$ip = get_client_ip();
 			$time = date("Y-m-d h:i:sa");
             $con='您好,您的后台管理账户 '.$username.' 于 '.$time.' 被登录，登录IP地址为 '.$ip.' 如果该操作非您本人操作，可能帐号信息已经被泄露，请您及时修改密码。 ';  
@@ -78,7 +79,7 @@ class LoginController extends Controller {
 
     public function logout(){
         session('adminId',null);
-        session('username',null);
+        session('adminname',null);
         redirect(U('Login/index'));
     }
 }

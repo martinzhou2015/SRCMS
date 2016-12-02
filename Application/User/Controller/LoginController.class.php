@@ -21,22 +21,23 @@ class LoginController extends Controller {
     public function login(){
         if(!IS_POST)$this->error("非法请求");
         $member = M('member');
-        $username =I('username');
-        $password =I('password','','md5');
+		$username = I('username','','htmlspecialchars');
+        $password = I('password');
         $code = I('verify','','strtolower');
         //验证验证码是否正确
         if(!($this->check_verify($code))){
             $this->error('验证码错误');
         }
-        //验证账号密码是否正确
-        $user = $member->where(array('username'=>$username,'password'=>$password))->find();
-
-        if(!$user) {
+		
+        $user = $member->where(array('username'=>$username))->find();
+	
+		
+        if($user['password'] != md5(md5(md5($user['salt']).md5($password)."SR")."CMS")) {
             $this->error('账号或密码错误 :(') ;
         }
-        //验证账户是否被禁用
+       // 验证账户是否被禁用
         if($user['status'] == 0){
-            $this->error('账号被禁用，请联系超级管理员 :(') ;
+            $this->error('账号被禁用，请联系网站管理员 :(') ;
         }
 
         //更新登陆信息
@@ -50,6 +51,7 @@ class LoginController extends Controller {
         if($member->save($data)){
             session('userId',$user['id']);
             session('username',$user['username']);
+		//	session('token',md5(time().$user['salt']));
             $this->success("登陆成功",U('Index/index'));
         }
         //定向之后台主页

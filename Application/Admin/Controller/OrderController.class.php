@@ -36,16 +36,58 @@ class OrderController extends BaseController
         $this->assign('page',$show);
         $this->display();     
     }
+	
+    public function update()
+    {
+	  $id = I('get.id',0,'intval');
+        //默认显示添加表单
+        if (!IS_POST) {
+            $model = M('order')->where('id='.$id)->find();
+            $this->assign('model',$model);
+            $this->display();
+        }
+        if (IS_POST) {
+            $model = D("order");
+            if (!$model->create()) {
+                $this->error($model->getError());
+            }else{
+                if ($model->save()) {
+                    $this->success("更新成功", U('order/index'));
+                } else {
+                    $this->error("更新失败");
+                }        
+            }
+        }
+    }
 
     public function delete()
     {
 		$id = I('get.id',0,'intval');
         $model = M('order');
-        $result = $model->where("user_id=".$id)->delete();
+        $result = $model->where("id=".$id)->delete();
         if($result){
-            $this->success("删除成功", U('info/index'));
+            $this->success("删除成功", U('order/index'));
         }else{
             $this->error("删除失败");
         }
     }
+	
+  	/**
+     * 添加积分
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function jifen()
+    {
+		$user_id = I('post.user_id',0,'intval');
+		$amount = I('post.amount',0,'intval');
+		$model = M('member');
+        $result = $model->where('id='.$user_id)->where('jifen>0')->setDec('jifen',$amount);
+        if($result){
+            $this->success("扣除积分成功", U('post/index'));
+        }else{
+            $this->error("扣除积分失败：余额不足");
+        }
+    }
+	
 }

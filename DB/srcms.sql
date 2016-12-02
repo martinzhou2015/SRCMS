@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 01 月 26 日 14:02
+-- 生成日期: 2016 年 12 月 02 日 12:16
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.3.29
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 --
 
 INSERT INTO `info` (`user_id`, `username`, `realname`, `location`, `tel`, `zipcode`, `alipay`) VALUES
-(1, 'admin', '周三&lt;input&gt;', '北京市百度科技大厦', '15176528910', '10092@', ''),
+(1, 'user', '王二', '北京大学', '1001', '1@qq.c', '1@qq.com'),
 (2, 'admin2', '王二', '江苏', '18712345612', '214000', '1009465@qq.com');
 
 -- --------------------------------------------------------
@@ -145,10 +145,10 @@ CREATE TABLE IF NOT EXISTS `links` (
 --
 
 INSERT INTO `links` (`id`, `title`, `url`, `sort`) VALUES
-(1, 'iPhone6', 'http://2.srcmsdemo.sinaapp.com/iphone.jpg', 100),
-(2, 'iPhone6 Plus', 'http://2.srcmsdemo.sinaapp.com/iphone.jpg', 100),
-(3, 'MacBook', 'http://2.srcmsdemo.sinaapp.com/iphone.jpg', 100),
-(4, 'MacBook Air', 'http://2.srcmsdemo.sinaapp.com/iphone.jpg', 100);
+(1, 'iPhone6', 'http://1.srcms.applinzi.com/iphone.jpg', 100),
+(2, 'iPhone6 Plus', 'http://1.srcms.applinzi.com/iphone.jpg', 100),
+(3, 'MacBook', 'http://1.srcms.applinzi.com/iphone.jpg', 100),
+(4, 'MacBook Air', 'http://1.srcms.applinzi.com/iphone.jpg', 100);
 
 -- --------------------------------------------------------
 
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `manager` (
 --
 
 INSERT INTO `manager` (`id`, `username`, `email`, `password`, `login_ip`, `create_at`, `update_at`) VALUES
-(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', '0.0.0.0', '1453778451', '1453787197');
+(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', '0.0.0.0', '1453778451', '1480648405');
 
 -- --------------------------------------------------------
 
@@ -184,6 +184,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
+  `salt` varchar(9) NOT NULL,
   `password` varchar(32) DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL COMMENT '头像',
   `create_at` varchar(11) DEFAULT '0',
@@ -214,7 +215,14 @@ CREATE TABLE IF NOT EXISTS `order` (
   `gid` varchar(100) NOT NULL,
   `finish` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `order`
+--
+
+INSERT INTO `order` (`id`, `username`, `realname`, `zipcode`, `location`, `tel`, `alipay`, `gid`, `finish`) VALUES
+(1, '1', '王二', '1@qq.c', '北京大学', 1001, '1@qq.com', 'iPhone6', 1);
 
 -- --------------------------------------------------------
 
@@ -256,10 +264,20 @@ CREATE TABLE IF NOT EXISTS `post` (
   `user_id` int(11) DEFAULT NULL,
   `rank` tinyint(1) NOT NULL,
   `type` tinyint(1) DEFAULT '1' COMMENT '1:普通,2:置顶,3:热门,4:推荐',
+  `visible` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cate_id` (`cate_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `post`
+--
+
+INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`, `cate_id`, `user_id`, `rank`, `type`, `visible`) VALUES
+(1, '4a5e3249c99651c', '漏洞漏洞', '&lt;p&gt;漏洞啊&lt;/p&gt;', '修补啊', '1453799758', 3, 6, 1, 4, 1, 1),
+(2, '43eb5b1522075c3', '漏洞2', '&lt;p&gt;漏洞2&lt;/p&gt;', '', '1454464294', 1, 6, 1, 4, 1, 0),
+(3, '44070a764435658', '漏洞3', '&lt;p&gt;漏洞3&lt;br/&gt;&lt;/p&gt;', '', '1454474524', 0, 13, 1, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -274,19 +292,18 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `key` (`key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- 转存表中的数据 `setting`
 --
 
 INSERT INTO `setting` (`id`, `key`, `value`, `description`) VALUES
-(1, 'site-name', 'SRCMS·轻响应', '站点名'),
-(2, 'site-keywords', '关键词1,关键词2', '关键词'),
-(3, 'site-description', '站点描述信息', '站点描述'),
+(1, 'sitename', 'SRCMS·轻响应', '站点名称'),
+(2, 'houtaiqq', '1009465756', '安全工单QQ'),
+(3, 'kefuqq', '1009465756', '前台客服QQ'),
 (4, 'site-tongji', '&lt;script&gt; console.log(&quot;统计代码&quot;)&lt;/script&gt;', '统计代码'),
-(5, 'site-icp', '示ICP证 100000号', 'ICP备案号'),
-(6, 'site-url', 'http://www.src.pw', '站点地址');
+(5, 'site-introduce', '<p >华软安全应急响应中心（HR Security Response Center）是轻响应致力于维护华软内网健康生态环境，保障内务产品和网络的信息安全，促进同学们的合作与交流，而建立的漏洞收集及应急响应平台。本平台收集华软产品线及业务上存在的安全漏洞，同时，我们也希望借此平台加强同学们的网络安全意识，共同打造简单可信赖的华软内网健康生态。</p>', '站点介绍');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,0 +1,18 @@
+<include file="Public/header" title="积分变动" />
+<div id="page-wrapper">
+    <form method="post" action="{:U('order/jifen')}">
+        <div class="form-group">
+            <label for="aa">用户名</label>
+            <label>{$model.gid}</label>
+        </div>
+        <div class="form-group">
+            <label for="bb">扣除积分</label>
+            <input type="text" name="amount" class="form-control" id="bb" value="" placeholder="填写真实姓名">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" value="{$model.id}">
+            <button type="submit" class="btn btn-default">更新</button>
+        </div>
+    </form>
+</div>
+<include file="Public/footer" />

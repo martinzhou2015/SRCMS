@@ -125,7 +125,6 @@ class PostController extends BaseController
         }
     }
 	
-	
 	/**
      * 生成session key
      */
