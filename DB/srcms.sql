@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 12 月 02 日 12:16
+-- 生成日期: 2016 年 12 月 03 日 21:32
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.3.29
 
@@ -145,10 +145,10 @@ CREATE TABLE IF NOT EXISTS `links` (
 --
 
 INSERT INTO `links` (`id`, `title`, `url`, `sort`) VALUES
-(1, 'iPhone6', 'http://1.srcms.applinzi.com/iphone.jpg', 100),
-(2, 'iPhone6 Plus', 'http://1.srcms.applinzi.com/iphone.jpg', 100),
-(3, 'MacBook', 'http://1.srcms.applinzi.com/iphone.jpg', 100),
-(4, 'MacBook Air', 'http://1.srcms.applinzi.com/iphone.jpg', 100);
+(1, 'iPhone6', './public/Home/images/iphone.jpg', 100),
+(2, 'iPhone6 Plus', './public/Home/images/iphone.jpg', 100),
+(3, 'Macbook', './public/Home/images/iphone.jpg', 100),
+(4, 'MacBook Air', './public/Home/images/iphone.jpg', 100);
 
 -- --------------------------------------------------------
 
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `manager` (
 --
 
 INSERT INTO `manager` (`id`, `username`, `email`, `password`, `login_ip`, `create_at`, `update_at`) VALUES
-(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', '0.0.0.0', '1453778451', '1480648405');
+(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', '0.0.0.0', '1453778451', '1480752301');
 
 -- --------------------------------------------------------
 
@@ -196,7 +196,14 @@ CREATE TABLE IF NOT EXISTS `member` (
   PRIMARY KEY (`id`),
   KEY `username` (`username`) USING BTREE,
   KEY `password` (`password`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `member`
+--
+
+INSERT INTO `member` (`id`, `username`, `email`, `salt`, `password`, `avatar`, `create_at`, `update_at`, `login_ip`, `status`, `type`, `jifen`) VALUES
+(1, 'user', '1@qq.com', 'pGFhwRqX', 'f3fa525a696371c3db889bf5cec6d1d2', NULL, '1480658200', '1480766843', '0.0.0.0', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -254,7 +261,7 @@ INSERT INTO `page` (`id`, `title`, `name`, `content`) VALUES
 
 CREATE TABLE IF NOT EXISTS `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `session` varchar(15) NOT NULL,
+  `session` varchar(255) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content` text,
   `advise` varchar(255) NOT NULL,
@@ -268,16 +275,14 @@ CREATE TABLE IF NOT EXISTS `post` (
   PRIMARY KEY (`id`),
   KEY `cate_id` (`cate_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `post`
 --
 
 INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`, `cate_id`, `user_id`, `rank`, `type`, `visible`) VALUES
-(1, '4a5e3249c99651c', '漏洞漏洞', '&lt;p&gt;漏洞啊&lt;/p&gt;', '修补啊', '1453799758', 3, 6, 1, 4, 1, 1),
-(2, '43eb5b1522075c3', '漏洞2', '&lt;p&gt;漏洞2&lt;/p&gt;', '', '1454464294', 1, 6, 1, 4, 1, 0),
-(3, '44070a764435658', '漏洞3', '&lt;p&gt;漏洞3&lt;br/&gt;&lt;/p&gt;', '', '1454474524', 0, 13, 1, 0, 1, 0);
+(1, '4260545457986537762', '测试', '&lt;p&gt;测试&lt;/p&gt;', '', '1480684856', 0, 2, 1, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -304,6 +309,31 @@ INSERT INTO `setting` (`id`, `key`, `value`, `description`) VALUES
 (3, 'kefuqq', '1009465756', '前台客服QQ'),
 (4, 'site-tongji', '&lt;script&gt; console.log(&quot;统计代码&quot;)&lt;/script&gt;', '统计代码'),
 (5, 'site-introduce', '<p >华软安全应急响应中心（HR Security Response Center）是轻响应致力于维护华软内网健康生态环境，保障内务产品和网络的信息安全，促进同学们的合作与交流，而建立的漏洞收集及应急响应平台。本平台收集华软产品线及业务上存在的安全漏洞，同时，我们也希望借此平台加强同学们的网络安全意识，共同打造简单可信赖的华软内网健康生态。</p>', '站点介绍');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `wflow`
+--
+
+CREATE TABLE IF NOT EXISTS `wflow` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `session` varchar(255) CHARACTER SET gbk NOT NULL,
+  `type` varchar(255) CHARACTER SET gbk NOT NULL,
+  `content` varchar(255) CHARACTER SET gbk NOT NULL,
+  `time` varchar(255) CHARACTER SET gbk NOT NULL,
+  `rank` int(11) NOT NULL,
+  `userid` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `wflow`
+--
+
+INSERT INTO `wflow` (`id`, `session`, `type`, `content`, `time`, `rank`, `userid`) VALUES
+(1, '4260545457986537762', '3', '&lt;p&gt;收到，正在处理。&lt;/p&gt;', '2016-12-03 19:42:03', 0, 'martin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

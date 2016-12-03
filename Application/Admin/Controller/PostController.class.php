@@ -2,10 +2,10 @@
 namespace Admin\Controller;
 use Admin\Controller;
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
- * @copyright 2105-2018 SRCMS 
- * @homepage http://www.src.pw
- * @version 1.5
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Copyright 2015-2020 SISMO
+ * @Project homepage https://github.com/CNSISMO
+ * @Version 1.8
  */
  
 class PostController extends BaseController
@@ -130,10 +130,12 @@ class PostController extends BaseController
      */
 	    public function session(){
 		$id = I('get.id',0,'intval');
-		$str = '!@#$%^&*abcdefghijklmnopqrstuvwxyz';
-        $session = md5($str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)]);
+		$str = '1234567890';
+        $session = $str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)];
+		$visible = 1;
         $model = M('post');
         $model->session = $session;
+		$model->visible = $visible;
 		$result = $model->where('id='.$id)->save();
 		if($result){
             $this->success("授权成功", U('Check/view?session_id='.$session));

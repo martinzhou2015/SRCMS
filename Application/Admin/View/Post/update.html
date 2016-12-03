@@ -30,12 +30,6 @@
             <input type="text" name="advise" class="form-control" value="{$post.advise}" id="post-title" placeholder="输入修复建议">
         </div>
 		<div class="form-group">
-            <label>漏洞公开</label>
-            <label class="radio-inline">
-              <input type="radio" name="visible" id="visible" value="1" <if condition="$post.day eq 2">checked="checked"</if>>公开
-            </label>
-        </div>
-		<div class="form-group">
             <label>修补限期</label>
             <label class="radio-inline">
               <input type="radio" name="day" id="day" value="1" <if condition="$post.day eq 1">checked="checked"</if> >无影响

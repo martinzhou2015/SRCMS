@@ -3,10 +3,10 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
- * @copyright 2105-2018 SRCMS 
- * @homepage http://www.src.pw
- * @version 1.5
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Copyright 2015-2020 SISMO
+ * @Project homepage https://github.com/CNSISMO
+ * @Version 1.8
  */
 
 class ForgetController extends Controller {
@@ -43,6 +43,7 @@ class ForgetController extends Controller {
         }
         //验证输入邮箱是否存在
         $user = $member->where(array('username'=>$username,'email'=>$email))->find();
+		$salt = $member->where(array('email'=>$email,'username'=>$username))->find();
 		
         if(!$user) {
             $this->error('邮箱不存在 :(') ;
@@ -60,7 +61,7 @@ class ForgetController extends Controller {
         import('ORG.Net.Mail');  
         $str = '1234567890abcdefghijklmnopqrstuvwxyz';
         $passwd=$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)];
-        $content = md5($passwd);
+        $content = md5(md5(md5($salt['salt']).md5($passwd)."SR")."CMS");
 		$member = M('member');
 		$member-> password=$content;
 		$member ->where(array('username'=>$username,'email'=>$email))->save();

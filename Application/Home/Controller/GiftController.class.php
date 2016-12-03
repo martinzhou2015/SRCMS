@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 12:28 2016/1/23
- * @copyright 2105-2018 SRCMS 
- * @homepage http://www.src.pw
- * @version 1.5
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Copyright 2015-2020 SISMO
+ * @Project homepage https://github.com/CNSISMO
+ * @Version 1.8
  */
 
 namespace Home\Controller;

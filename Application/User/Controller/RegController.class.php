@@ -3,20 +3,15 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @author Zhou Yuyang <1009465756@qq.com> 11:28 2016/1/26
- * @copyright 2105-2018 SRCMS 
- * @homepage http://www.src.pw
- * @version 1.6
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Copyright 2015-2020 SISMO
+ * @Project homepage https://github.com/CNSISMO
+ * @Version 1.8
  */
 
-
-/**
- * 注册页面
- */
 class RegController extends Controller{
     /**
      * 用户列表
-     * @return [type] [description]
      */
     public function index()
     {
@@ -41,7 +36,7 @@ class RegController extends Controller{
     }
   
     /**
-     * 添加用户
+     * 用户注册
      */
     public function add()
     {
