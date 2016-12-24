@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
-    <meta name="author" content="">
+	<!-- 在此配置站点icon图标 -->
     <link rel="icon" href=#>
 
-    <title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
+    <title>贡献榜--<foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
 
     <!-- Bootstrap core CSS -->
     <link href="__PUBLIC__/Home/index/bootstrap.min.css" rel="stylesheet">
@@ -111,7 +111,7 @@
       <!-- FOOTER -->
 <footer class="footer navbar-fixed-bottom">
 	  <div class="container marketing yahei">
-        <p class="pull-right"><a href="{:U('index/index')}">返回顶部</a></p>
+        <p class="pull-right"><a href="#" onclick="back();">返回顶部</a></p>
         <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="__ROOT__">关于我们</a> · <a href="__ROOT__">隐私协议</a></p>
 		</div>
 </footer><!-- /.container -->
@@ -126,6 +126,21 @@
     <script src="__PUBLIC__/Home/index/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="__PUBLIC__/Home/index/ie10-viewport-bug-workaround.js"></script>
-  
+	<script>
+			function back(){
+			var oTop = document.getElementById("to_top");
+			var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+			var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+			oTop.style.left = screenw - oTop.offsetWidth +"px";
+			oTop.style.top = screenh - oTop.offsetHeight + "px";
+			window.onscroll = function(){
+			var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+			oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
+			}
+			oTop.onclick = function(){
+			document.documentElement.scrollTop = document.body.scrollTop =0;
+			}
+			}  
+	</script>  
 
 </body></html>

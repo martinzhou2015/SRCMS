@@ -26,7 +26,7 @@ class ManagerController extends BaseController
             $where['username'] = array('like',"%$key%");
             $where['email'] = array('like',"%$key%");
             $where['_logic'] = 'or';
-            $model = M('member')->where($where); 
+            $model = M('manager')->where($where); 
         } 
         
         $count  = $model->where($where)->count();// 查询满足要求的总记录数

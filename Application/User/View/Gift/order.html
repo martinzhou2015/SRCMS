@@ -1,0 +1,35 @@
+<extend name="Public:common" />
+<block name="main">
+
+<div class="gallery">
+   <div class="col-md-offset-2">
+   <h2><strong>订单列表</strong></h2>
+    <hr style="width:80%" class="col-md-offset-0"/>
+    <h5><strong>您可以通过本页面查询兑换礼品的状态，如有异议请及时与对应工作人员联系。</strong></h5><br/>
+	
+    <table class="table table-hover table-striped" style="width:80%" >
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>礼品详情</th>
+                <th>订单状态</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="info" item="v">
+            <tr>
+                <td>{$v.realname}</td>
+                <td>{$v.gid}</td>
+                <td>
+                    <if condition="$v.finish eq 1"><span class="label label-info">已发货</span>
+                    <elseif condition="$v.finish eq 0" /><span class="label label-default">未发货</span>
+                    </if>
+                </td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    <div class="clearfix"></div>
+    {$page}
+</div>
+</block>

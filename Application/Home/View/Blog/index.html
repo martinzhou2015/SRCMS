@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
+		<title>研究博客--<foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
 		<link href="http://2.srcmsdemo.sinaapp.com/font-awesome.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
 </div>
 <footer class="footer">
 	  <div class="container marketing yahei">
-        <p class="pull-right"><a href="{:U('index/index')}">Back to top</a></p>
+        <p class="pull-right"><a href="#" onclick="back();">返回顶部</a></p>
         <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="__ROOT__">关于我们</a> · <a href="__ROOT__">隐私协议</a></p>
 		</div>
 </footer>
@@ -69,5 +69,21 @@
 		<script src="__PUBLIC__/Home/index/jquery.min.js"></script>
 		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
 		<script src="__PUBLIC__/Home/js/scripts.js"></script>
+		<script>
+			function back(){
+			var oTop = document.getElementById("to_top");
+			var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+			var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+			oTop.style.left = screenw - oTop.offsetWidth +"px";
+			oTop.style.top = screenh - oTop.offsetHeight + "px";
+			window.onscroll = function(){
+			var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+			oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
+			}
+			oTop.onclick = function(){
+			document.documentElement.scrollTop = document.body.scrollTop =0;
+			}
+			}  
+	  </script>
 	</body>
 </html>

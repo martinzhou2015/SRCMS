@@ -2,8 +2,8 @@
 <div id="page-wrapper">
     <form method="post" action="{:U('order/jifen')}">
 	    <div class="form-group">
-            <label for="bb">目前积分: </label>
-            <label><foreach name="userM" item="v">{$v.jifen}</foreach></label>
+            <label for="bb">用户目前积分: </label>
+            <label><foreach name="userM" item="v">{$v.jinbi}</foreach></label>
         </div>
         <div class="form-group">
             <label for="bb">扣除积分: </label>
@@ -40,7 +40,7 @@
         </div>
 		<div class="form-group">
             <label for="cc">支付宝帐号</label>
-            <input type="text" name="alipay" class="form-control" id="ee" value="{$model.alipay}" placeholder="填写扣除积分" value="100">
+            <input type="text" name="alipay" class="form-control" id="ee" value="{$model.alipay}" placeholder="填写支付宝账号" value="100">
         </div>
 		<div class="form-group">
             <label>订单状态： </label>

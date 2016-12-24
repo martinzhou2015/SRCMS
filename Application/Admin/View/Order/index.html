@@ -38,7 +38,7 @@
 				<td><if condition="$v.finish eq 0"><span class="label label-info">未处理</span>
                     <elseif condition="$v.finish eq 1" /><span class="label label-default">已发货</span>
                     </if></td>
-				<td><a href="{:U('order/update?id=')}{$v.id}" target="_Blank">查看</a> | <a href="{:U('order/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+				<td><a href="{:U('order/update',array('id'=>$v['id'],'username'=>$v['username']))}" target="_Blank">查看</a> | <a href="{:U('order/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
             </tr>
         </foreach>
         </tbody>

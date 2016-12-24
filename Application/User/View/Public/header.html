@@ -29,8 +29,14 @@
              <li><a href="{:U('index/index')}">个人中心</a></li>
 			   <li><a href="{:U('post/add')}">报告漏洞</a></li>
 		      <li><a href="{:U('post/index')}">漏洞列表</a></li>
-		      <li><a href="{:U('gift/index')}">礼品兑换</a></li>
 			  <li><a href="{:U('info/index')}">联系方式</a></li>
+			  <li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">礼品中心</a>
+			  <ul class="dropdown-menu">
+				<li><a href="{:U('gift/index')}">礼品兑换</a></li>
+				<li><a href="{:U('gift/order')}">查看订单</a></li>
+			  </ul>
+			  </li>
               </ul>
 			  <ul class="yahei nav navbar-nav navbar-right">
 			  <li class="dropdown">

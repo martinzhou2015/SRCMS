@@ -143,4 +143,15 @@ class PostController extends BaseController
             $this->error("授权失败");
         }
 	   }
+	/**
+	筛选漏洞报告
+	**/
+	public function filter()
+    {
+		$model = D('Post'); 
+        $id = I('get.id',0,'intval');
+		$result = $model->where('type='.$id)->select();
+		$this->assign('model', $result);
+        $this->display();     
+    }
 }

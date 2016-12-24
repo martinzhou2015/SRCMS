@@ -11,11 +11,10 @@
      
     <div class="row">
         <ul class="col-sm-7 col-sm-offset-3 list-inline">
+		<foreach name="info" item="i"><p>您当前账户内可用的金币为：{$i.jinbi}</p></foreach>
 		<foreach name="gift" item="v">
-        <li class="panel panel-default" style="width:190px;height:180px;margin:5px 5px 5px 5px;text-align:center;"><br/><img src="{$v.url}" style="width:100px;height:100px;"/><br/>{$v.title}<br/><a href="./user.php?m=User&c=gift&a=add&gid={$v.id}"><button class="btn btn-default text-align" >兑换</button></a></li>
+        <li class="panel panel-default" style="width:190px;height:180px;margin:5px 5px 5px 5px;text-align:center;"><br/><img src="{$v.url}" style="width:100px;height:100px;"/><br/>{$v.title}<br/><foreach name="info" item="i"><if condition="$i.jinbi gt 1"><a href="./user.php?m=User&c=gift&a=add&gid={$v.id}"><button class="btn btn-default text-align" >兑换</button></a><elseif condition="$i.jinbi lt 1" /><a href="#"><button class="btn btn-default text-align" >金币不足</button></a></if></foreach></li>
 		</foreach>
-        <!--<li class="panel panel-default" style="width:200px;height:180px;text-align:center;"><br/><img src="__PUBLIC__/Home/pic/iphone.jpg" style="width:100px;height:100px;"/><br/>iPhone6<br/><button class="btn btn-default text-align" >兑换</button></li>
-		<li class="panel panel-default" style="width:200px;height:180px;text-align:center;"><br/><img src="__PUBLIC__/Home/pic/iphone.jpg" style="width:100px;height:100px;"/><br/>iPhone6<br/><button class="btn btn-default text-align" >兑换</button></li>-->
         </ul>
 	</div>
 </div>

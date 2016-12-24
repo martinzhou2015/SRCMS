@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 12 月 03 日 21:32
+-- 生成日期: 2016 年 12 月 24 日 17:48
 -- 服务器版本: 5.5.40
--- PHP 版本: 5.3.29
+-- PHP 版本: 5.4.33
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -123,8 +123,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 --
 
 INSERT INTO `info` (`user_id`, `username`, `realname`, `location`, `tel`, `zipcode`, `alipay`) VALUES
-(1, 'user', '王二', '北京大学', '1001', '1@qq.c', '1@qq.com'),
-(2, 'admin2', '王二', '江苏', '18712345612', '214000', '1009465@qq.com');
+(2, 'user2', 'user', 'user', '11', 'user', '11');
 
 -- --------------------------------------------------------
 
@@ -172,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `manager` (
 --
 
 INSERT INTO `manager` (`id`, `username`, `email`, `password`, `login_ip`, `create_at`, `update_at`) VALUES
-(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', '0.0.0.0', '1453778451', '1480752301');
+(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', '0.0.0.0', '1453778451', '1482556092');
 
 -- --------------------------------------------------------
 
@@ -193,17 +192,11 @@ CREATE TABLE IF NOT EXISTS `member` (
   `status` tinyint(1) DEFAULT '1' COMMENT '0:禁止登陆 1:正常',
   `type` tinyint(1) DEFAULT '1' COMMENT '1:前台用户 2:管理员 ',
   `jifen` int(10) NOT NULL,
+  `jinbi` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`) USING BTREE,
   KEY `password` (`password`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `member`
---
-
-INSERT INTO `member` (`id`, `username`, `email`, `salt`, `password`, `avatar`, `create_at`, `update_at`, `login_ip`, `status`, `type`, `jifen`) VALUES
-(1, 'user', '1@qq.com', 'pGFhwRqX', 'f3fa525a696371c3db889bf5cec6d1d2', NULL, '1480658200', '1480766843', '0.0.0.0', 1, 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -222,14 +215,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `gid` varchar(100) NOT NULL,
   `finish` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `order`
---
-
-INSERT INTO `order` (`id`, `username`, `realname`, `zipcode`, `location`, `tel`, `alipay`, `gid`, `finish`) VALUES
-(1, '1', '王二', '1@qq.c', '北京大学', 1001, '1@qq.com', 'iPhone6', 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -270,19 +256,13 @@ CREATE TABLE IF NOT EXISTS `post` (
   `cate_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `rank` tinyint(1) NOT NULL,
+  `bounty` varchar(255) NOT NULL,
   `type` tinyint(1) DEFAULT '1' COMMENT '1:普通,2:置顶,3:热门,4:推荐',
   `visible` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cate_id` (`cate_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `post`
---
-
-INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`, `cate_id`, `user_id`, `rank`, `type`, `visible`) VALUES
-(1, '4260545457986537762', '测试', '&lt;p&gt;测试&lt;/p&gt;', '', '1480684856', 0, 2, 1, 0, 1, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -326,14 +306,7 @@ CREATE TABLE IF NOT EXISTS `wflow` (
   `userid` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `wflow`
---
-
-INSERT INTO `wflow` (`id`, `session`, `type`, `content`, `time`, `rank`, `userid`) VALUES
-(1, '4260545457986537762', '3', '&lt;p&gt;收到，正在处理。&lt;/p&gt;', '2016-12-03 19:42:03', 0, 'martin');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

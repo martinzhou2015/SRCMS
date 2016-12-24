@@ -27,6 +27,9 @@ class InfoController extends BaseController{
     public function add()
     {
         //默认显示添加表单
+	    $tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         if (!IS_POST) {
             $this->display();
         }
@@ -57,6 +60,9 @@ class InfoController extends BaseController{
     {
         //默认显示添加表单
 		$id = session('userId');
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$this->assign('title', $title);
         if (!IS_POST) {
             $info = M('info')->where('user_id='.$id)->select();
             $this->assign('info',$info);

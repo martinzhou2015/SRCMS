@@ -12,11 +12,25 @@ use Think\Controller;
 class GiftController extends BaseController{
 
     public function index(){
+		$id = session('userId');
         $gift = M('links')->select();
 		$tmodel= M('setting');
+		$info = M('member')->where('id='.$id)->select();
 		$title = $tmodel->where('id=1')->select();
 		$this->assign('title', $title);
         $this->assign('gift',$gift);
+		$this->assign('info',$info);
+        $this->display();
+    }
+	
+	
+	 public function order(){
+		$tmodel= M('setting');
+		$title = $tmodel->where('id=1')->select();
+		$id = session('userId');
+		$info = M('order')->where('username='.$id)->select();
+		$this->assign('title', $title);
+		$this->assign('info',$info);
         $this->display();
     }
 	
@@ -38,8 +52,6 @@ class GiftController extends BaseController{
         if (IS_POST) {
             //如果用户提交数据
             $model = D("order");
-			$model->user_id = 1;
-			$model->username = 1;
             if (!$model->field('username,gid,tel,alipay,realname,location,zipcode')->create()) {
                 // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());

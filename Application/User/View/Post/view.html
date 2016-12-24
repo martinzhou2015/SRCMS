@@ -8,10 +8,14 @@
 	  <br/>
         <h4><strong>{$model.title}</strong></h4>
 		<div class="row">
-		<p><span>#{$model.id}</span><span> / </span><span>@{$model.time|date="Y-m-d H:i:s",###}</span><span> / </span><span><if condition="$model.type eq 1"><span class="label label-info">审核中</span>
+		<p><span>#{$model.id}</span><span> / </span><span>@{$model.time|date="Y-m-d H:i:s",###}</span><span> / </span><span>报告状态：</span><if condition="$model.type eq 1"><span class="label label-info">审核中</span>
                     <elseif condition="$model.type eq 2" /><span class="label label-default">已忽略</span>
                     <elseif condition="$model.type eq 3" /><span class="label label-warning">已确认</span>
                     <elseif condition="$model.type eq 4" /><span class="label label-success">已修复</span>
+                    </if> / <span>漏洞危害：</span><if condition="$model.rank eq 1"><span class="label label-info">无影响</span>
+                    <elseif condition="$model.rank eq 2" /><span class="label label-default">低危</span>
+                    <elseif condition="$model.rank eq 3" /><span class="label label-warning">中危</span>
+                    <elseif condition="$model.rank eq 4" /><span class="label label-success">高危</span>
                     </if></p>
 		</div>
         <div class="row">

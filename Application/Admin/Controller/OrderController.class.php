@@ -40,10 +40,14 @@ class OrderController extends BaseController
     public function update()
     {
 	  $id = I('get.id',0,'intval');
+	  $user_id = I('get.username',0,'intval');
         //默认显示添加表单
         if (!IS_POST) {
             $model = M('order')->where('id='.$id)->find();
             $this->assign('model',$model);
+		    $model = M('member');
+	        $info = $model->where('id='.$user_id)-> select();
+			$this->assign('userM', $info);
             $this->display();
         }
         if (IS_POST) {
@@ -79,12 +83,12 @@ class OrderController extends BaseController
      */
     public function jifen()
     {
+		$model = M('member');
 		$user_id = I('post.user_id',0,'intval');
 		$amount = I('post.amount',0,'intval');
-		$model = M('member');
-        $result = $model->where('id='.$user_id)->where('jifen>0')->setDec('jifen',$amount);
+        $result = $model->where('id='.$user_id)->setDec('jinbi',$amount);
         if($result){
-            $this->success("扣除积分成功", U('post/index'));
+            $this->success("扣除积分成功", U('order/index'));
         }else{
             $this->error("扣除积分失败：余额不足");
         }
