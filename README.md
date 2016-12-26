@@ -1,4 +1,5 @@
-# 欢迎使用SRCMS·轻响应框架 V1.9正式版
+# 欢迎使用SRCMS·轻响应框架 V1.9测试版 [![codebeat badge](https://codebeat.co/badges/67e58b6d-bc89-4f22-ba8f-7668a9c15c5a)]
+
 =======
 
 **SRCMS**是专门为中小企业和互联网产品创业团队打造的应急响应中心网站建站框架。有了它，如今你可以像使用办公软件一样容易，为你的企业建立起美观完备的安全应急响应中心。
@@ -118,3 +119,5 @@ SRCMS仅为建站软件，任何使用本建站程序搭建的网站其运营的
 * [ThinkPHP](http://www.thinkphp.cn/)
 * [ThinkAdmin](http://www.thinkphp.cn/code/1342.html) 
 * [Bootstarp](http://www.bootcss.com/)
+
+&copy;<a href="https://github.com/CNSISMO" target="_blank">CNSISMO</a> 2016
