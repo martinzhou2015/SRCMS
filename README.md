@@ -1,4 +1,4 @@
-# 欢迎使用SRCMS·轻响应框架 V1.9测试版 [![codebeat badge](https://codebeat.co/badges/67e58b6d-bc89-4f22-ba8f-7668a9c15c5a)]
+# 欢迎使用SRCMS·轻响应框架 V1.9开发版 ![codebeat badge](https://codebeat.co/badges/67e58b6d-bc89-4f22-ba8f-7668a9c15c5a)
 
 =======
 
