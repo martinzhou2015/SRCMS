@@ -1,0 +1,44 @@
+<extend name="Public:common" />
+<block name="main">
+<div class="gallery">
+   <div class="col-md-offset-2">
+   <h2><strong>联系方式</strong></h2>
+    <hr style="width:80%" class="col-md-offset-0"/>
+    <h5><strong>请您准确填写您的联系方式，以便我们能够准确为您邮寄兑换的礼品。</strong></h5><br/>
+	
+	<form method="post" action="{:U('info/update')}">
+	   <div class="form-group">
+        <label>姓名：</label>
+		<foreach name="info" item="v">
+        <input type="text" name="realname"  class="form-control" style="width:50%" value="{$v.realname}">
+		</foreach>
+	   </div>
+	   <div class="form-group">
+        <label>邮编：</label>
+		<foreach name="info" item="v">
+        <input type="text" name="zipcode" class="form-control" style="width:50%" value="{$v.zipcode}">
+		</foreach>
+	   </div>
+	   <div class="form-group">
+        <label>住址：</label>
+		<foreach name="info" item="v">
+        <input type="text" name="location" class="form-control" style="width:50%" value="{$v.location}">
+		</foreach>
+	   </div>
+	   <div class="form-group">
+        <label>电话：</label>
+		<foreach name="info" item="v">
+        <input type="text" name="tel"  class="form-control" style="width:50%" value="{$v.tel}">
+		</foreach>
+	   </div>
+	   <div class="form-group">
+        <label>支付宝账号：</label>
+		<foreach name="info" item="v">
+        <input type="text" name="alipay"  class="form-control" style="width:50%" value="{$v.alipay}">
+		</foreach>
+	   </div>
+		<button type="submit" class="btn btn-default">提交</button>
+	</form>
+	
+</div>
+</block>

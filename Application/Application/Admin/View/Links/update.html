@@ -1,0 +1,22 @@
+<include file="Public/header" title="更新礼品" />
+<div id="page-wrapper">
+    <form method="post" action="{:U('links/update')}">
+        <div class="form-group">
+            <label for="aa">礼品名称</label>
+            <input type="text" name="title" class="form-control" id="aa" value="{$model.title}" placeholder="输入礼品名称">
+        </div>
+        <div class="form-group">
+            <label for="bb">图片地址(图片大小建议设置为 100*100)</label>
+            <input type="text" name="url" class="form-control" id="bb" value="{$model.url}" placeholder="输入图片地址">
+        </div>
+        <div class="form-group">
+            <label for="cc">优先级</label>
+            <input type="text" name="sort" class="form-control" id="cc" value="{$model.sort}" placeholder="越大越靠前" value="100">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" value="{$model.id}">
+            <button type="submit" class="btn btn-default">更新</button>
+        </div>
+    </form>
+</div>
+<include file="Public/footer" />

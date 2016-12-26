@@ -1,0 +1,46 @@
+<extend name="Public:common" />
+<block name="main">
+
+<div class="gallery">
+   <div class="col-md-offset-2">
+   <h2><strong>联系方式</strong></h2>
+    <hr style="width:80%" class="col-md-offset-0"/>
+    <h5><strong>请您准确填写您的联系方式，以便我们能够准确为您邮寄兑换的礼品和发放现金奖励。</strong></h5><br/>
+	
+    <div class="row">
+	    <a href="{:U('info/add')}" class="btn btn-success <?php $exsit= D('info'); if($exsit->where('user_id='.session('userId'))->count()){echo 'disabled';}; ?>">添加</a>
+		<a href="{:U('info/update')}" class="btn btn-success <?php $exsit= D('info'); if($exsit->where('user_id='.session('userId'))->count()){}else{echo 'disabled';}; ?>">更新</a>
+    </div>
+	<br/>
+	
+	<div class="row">
+    <table class="table table-hover table-striped" style="width:80%" >
+        <tbody>
+        <foreach name="info" item="v">
+            <tr>
+			    <th>姓名：</th>
+                <td>{$v.realname}</td>
+            </tr>
+			 <tr>
+			    <th>邮编：</th>
+			    <td>{$v.zipcode}</td>
+			</tr>
+			<tr>
+			    <th>住址：</th>
+			    <td>{$v.location}</td>
+			</tr>
+			<tr>
+			    <th>电话：</th>
+			    <td>{$v.tel}</td>
+			</tr>
+			<tr>
+			    <th>支付宝账号：</th>
+			    <td>{$v.alipay}</td>
+			</tr>
+        </foreach>
+        </tbody>
+    </table>
+    </div>
+	
+</div>
+</block>

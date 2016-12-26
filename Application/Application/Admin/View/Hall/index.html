@@ -1,0 +1,40 @@
+<include file="Public/header" title="贡献榜管理" />
+
+<div id="page-wrapper">
+    
+    <div class="row">
+        <div class="col-md-6">
+            <form action="{:U('hall/index')}" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" name="key" placeholder="输入昵称关键词进行搜索">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>贡献者</th>
+                <th>图片地址</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="model" item="v">
+            <tr>
+                <td>{$v.id}</td>
+                <td>{$v.name}</td>
+                <td>{$v.url}</td>
+                <td><a href="{:U('hall/update?id=')}{$v.id}">编辑</a> | <a href="{:U('hall/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    {$page}
+</div>
+
+<include file="Public/footer" />

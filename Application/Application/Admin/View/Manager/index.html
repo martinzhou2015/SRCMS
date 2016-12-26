@@ -1,0 +1,48 @@
+<include file="Public/header" title="前台用户管理" />
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{:U('manager/add')}" class="btn btn-success">添加用户</a>
+        </div>
+        <div class="col-md-6">
+            <form action="{:U('manager/index')}" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" name="key" placeholder="输入用户名或者邮箱关键词搜索">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <td>编号</td>
+                <td>用户名</td>
+                <td>邮箱</td>
+                <td>创建时间</td>
+                <td>上次登陆</td>
+                <td>登陆IP</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="member" item="v">
+            <tr>
+                <td>{$v.id}</td>
+                <td>{$v.username}</td>
+                <td>{$v.email}</td>
+                <td>{$v.create_at|date="Y/m/d H:i:s",###}</td>
+                <td>{$v.update_at|date="Y/m/d H:i:s",###}</td>
+                <td>{$v.login_ip}</td>
+                <td><a href="{:U('manager/update?id=')}{$v.id}">编辑</a></td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+</div>
+
+<include file="Public/footer" />

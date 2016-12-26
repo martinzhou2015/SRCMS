@@ -1,0 +1,45 @@
+<include file="Public/header" title="地址管理" />
+
+<div id="page-wrapper">
+    <div class="row">
+	<div class="col-md-6">
+            <form action="{:U('info/index')}" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" name="key" placeholder="输入用户名或真实姓名搜索">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>编号</th>
+				<th>用户名</th>
+                <th>真实姓名</th>
+				<th>住址</th>
+                <th>联系方式</th>
+                <th>邮编</th>
+				<th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="model" item="v">
+            <tr>
+                <td>{$v.user_id}</td>
+				<td>{$v.username}</td>
+                <td>{$v.realname}</td>
+                <td>{$v.location}</td>
+                <td>{$v.tel}</td>
+				<td>{$v.zipcode}</td>
+				<td><a href="{:U('info/delete?id=')}{$v.user_id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    {$page}
+</div>
+
+<include file="Public/footer" />

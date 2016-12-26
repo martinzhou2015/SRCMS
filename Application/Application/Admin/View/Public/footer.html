@@ -1,0 +1,14 @@
+<!-- JavaScript -->
+<script src="__STATIC__/js/jquery-1.10.2.js"></script>
+<script src="__STATIC__/js/bootstrap.js"></script>
+<script src="__STATIC__/js/app.js"></script>
+<script>  
+function callback(a){  
+    document.getElementById('version').innerHTML= a['version'];
+	document.getElementById('des').innerHTML= a['des'];
+	document.getElementById('date').innerHTML= a['date'];
+};  
+</script> 
+<script src="http://www.src.pw/json.php?callback=callback"></script>
+</body>
+</html>

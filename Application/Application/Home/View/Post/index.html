@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://2.srcmsdemo.sinaapp.com/font-awesome.min.css" rel="stylesheet">
+		<link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
+	</head>
+ <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="yahei sr-only">Toggle navigation</span>
+            <span class="yahei icon-bar"></span>
+            <span class="yahei icon-bar"></span>
+            <span class="yaheiicon-bar"></span>
+          </button>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
+          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+              <ul class="yahei nav navbar-nav">
+                <li class="yahei"><a href="{:U('index/index')}">首页</a></li>
+                <li><a class="yahei" href="__ROOT__/user.php">漏洞提交</a></li>
+				<li class="active"><a class="yahei" href="{:U('post/index')}">漏洞公开</a></li>
+                <li><a class="yahei" href="{:U('page/index')}">安全公告</a></li>
+				<li><a class="yahei" href="{:U('blog/index')}">研究博客</a></li>
+				<li><a class="yahei" href="{:U('hall/index')}">贡献榜</a></li>
+				<li><a class="yahei" href="{:U('gift/index')}">礼品库</a></li>
+            </div>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+<!-- 公告列表 -->
+<div class="gallery">
+  <div class="container">
+      <div class="col-md-12">
+        <h2><strong>漏洞公开</strong></h2><br/>
+		<table class="table table-hover table-striped">
+		<tbody>
+		<foreach name="model" item="v">
+            <div>
+                <td><a href="__ROOT__/index.php?m=&c=post&a=view&id={$v.id}">{$v.title}</a></td>
+			 </tr>
+        </foreach>
+		</tbody>
+		</table>
+	    </div>
+  </div>
+</div>
+
+<footer class="footer">
+	  <div class="container marketing yahei">
+        <p class="pull-right"><a href="{:U('index/index')}">返回顶部</a></p>
+        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach>· <a href="__ROOT__">关于我们</a> · <a href="__ROOT__">隐私协议</a></p>
+		</div>
+</footer>
+
+
+<!-- script references -->
+		<script src="//2.srcmsdemo.sinaapp.com/jquery.min.js"></script>
+		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+		<script src="__PUBLIC__/Home/js/scripts.js"></script>
+	</body>
+</html>
