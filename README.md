@@ -118,3 +118,5 @@ SRCMS仅为建站软件，任何使用本建站程序搭建的网站其运营的
 * [ThinkPHP](http://www.thinkphp.cn/)
 * [ThinkAdmin](http://www.thinkphp.cn/code/1342.html) 
 * [Bootstarp](http://www.bootcss.com/)
+
+&copy;CNSISMO 2016-2017
