@@ -1,46 +1,86 @@
-<extend name="Public:common" />
-<block name="main">
-
-<div class="gallery">
-   <div class="col-md-offset-2">
-   <h2><strong>联系方式</strong></h2>
-    <hr style="width:80%" class="col-md-offset-0"/>
-    <h5><strong>请您准确填写您的联系方式，以便我们能够准确为您邮寄兑换的礼品和发放现金奖励。</strong></h5><br/>
-	
-    <div class="row">
-	    <a href="{:U('info/add')}" class="btn btn-success <?php $exsit= D('info'); if($exsit->where('user_id='.session('userId'))->count()){echo 'disabled';}; ?>">添加</a>
-		<a href="{:U('info/update')}" class="btn btn-success <?php $exsit= D('info'); if($exsit->where('user_id='.session('userId'))->count()){}else{echo 'disabled';}; ?>">更新</a>
-    </div>
-	<br/>
-	
-	<div class="row">
-    <table class="table table-hover table-striped" style="width:80%" >
-        <tbody>
-        <foreach name="info" item="v">
-            <tr>
-			    <th>姓名：</th>
-                <td>{$v.realname}</td>
-            </tr>
-			 <tr>
-			    <th>邮编：</th>
-			    <td>{$v.zipcode}</td>
-			</tr>
-			<tr>
-			    <th>住址：</th>
-			    <td>{$v.location}</td>
-			</tr>
-			<tr>
-			    <th>电话：</th>
-			    <td>{$v.tel}</td>
-			</tr>
-			<tr>
-			    <th>支付宝账号：</th>
-			    <td>{$v.alipay}</td>
-			</tr>
-        </foreach>
-        </tbody>
-    </table>
-    </div>
-	
+<include file="Public/header" title="更新个人信息 - 企业安全应急响应与缺陷管理中心" user_status="open" info_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+	<ol class="breadcrumb no-bg pl0">
+	<li>
+	<i class="icon-users"></i>账号中心
+	</li>
+	<li>
+	<a href="javascript:;">个人信息</a>
+	</li>
+	</ol>
+</div> 
+<div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>请您准确填写您的个人信息，以便我们能够准确及时为您寄送礼品！</p>
+				<div class="clearfix"></div>
+            </div>
+        </div>
 </div>
-</block>
+
+<form method="post" action="{:U('info/update')}">
+
+<div class="card bg-white">
+<div class="card-header bg-default">
+<div class="pull-left">基本信息</div>
+</div>
+<div class="card-block" style="">
+<foreach name="info" item="v">
+	   <div class="form-group">
+        <label>姓名：</label>
+        <input type="text" name="realname"  class="form-control" placeholder="{$v.realname}">
+	   </div>
+	   <div class="form-group">
+        <label>QQ号：</label>
+        <input type="text" name="qqnumber"  class="form-control" placeholder="{$v.idcode}">
+	   </div>
+	   <div class="form-group">
+        <label>邮编：</label>
+        <input type="text" name="zipcode" class="form-control" placeholder="{$v.zipcode}">
+	   </div>
+	   <div class="form-group">
+        <label>住址：</label>
+        <input type="text" name="location" class="form-control" placeholder="{$v.address}">
+	   </div>
+	   <div class="form-group">
+        <label>电话：</label>
+        <input type="text" name="tel"  class="form-control" placeholder="{$v.tel}">
+	  </div>
+	  <div class="form-group">
+        <label>个人网站：</label>
+        <input type="text" name="website"  class="form-control" placeholder="{$v.tel}">
+	  </div>
+	  <div class="form-group">
+        <label>个人简介：</label>
+        <textarea type="text" name="description"  class="form-control" placeholder="{$v.tel}"></textarea>
+	  </div>
+      <button type="submit" class="btn btn-success">提交</button>
+   </div>
+</div>
+
+	<div class="card bg-white">
+	<div class="card-header bg-default">
+	<div class="pull-left">财务信息</div>
+	</div>
+	<div class="card-block" style="">
+	   <div class="form-group">
+        <label>身份证号：</label>
+        <input type="text" name="realname"  class="form-control" placeholder="{$v.idcode}">
+	   </div>
+	   <div class="form-group">
+			<label>银行卡号：</label>
+			<input type="text" name="alipay"  class="form-control" placeholder="{$v.bankcode}">
+	   </div>
+	   <div class="form-group">
+        <label>支付宝账号：</label>
+        <input type="text" name="alipay"  class="form-control" placeholder="{$v.alipay}">
+	   </div>
+		<button type="submit" class="btn btn-success">提交</button>
+	 </div>
+     </div>
+</foreach>
+     </form>
+</div>
+<include file="Public/footer" />

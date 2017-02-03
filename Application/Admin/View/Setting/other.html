@@ -1,0 +1,69 @@
+<include file="Public/header" title="基础配置  - 企业安全应急响应与缺陷管理中心" setting_status="open" other_color="#6164C1;"/>
+
+<div class="main-content">
+<div class="page-title">
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-users"></i> <a href="{:U('setting/other')}">系统配置</a>
+</li>
+<li>
+<a href="javascript:;">其他配置</a>
+</li>
+</ol>
+</div>
+<div class="card bg-white m-b">
+<div class="card-header">
+高级配置 (默认全部开启)
+</div>
+<div class="card-block">
+<form action="{:U('setting/update?id=1')}" method="post">
+	<div class="form-group">
+            <label for="post-cate">入门引导模式（操作效果提示）</label>
+            <select name="key1" class="form-control" style="width:100%;">
+                    <option value="on">开启</option>
+					<option value="off">关闭</option>
+            </select>
+    </div>
+	<div class="form-group">
+            <label for="post-cate">严格安全模式（后台登录加固）</label>
+            <select name="key2" class="form-control" style="width:100%;">
+                    <option value="on">开启</option>
+					<option value="off">关闭</option>
+            </select>
+    </div>
+	<div class="form-group">
+            <label for="post-cate">邀请注册模式（凭邀请码注册）</label>
+            <select name="key3" class="form-control" style="width:100%;">
+                    <option value="on">开启</option>
+					<option value="off">关闭</option>
+            </select>
+    </div>
+    <div class="form-group">
+            <label for="post-cate">开启关闭站点</label>
+            <select name="key4" class="form-control" style="width:100%;">
+                    <option value="on">开启</option>
+					<option value="off">关闭</option>
+            </select>
+    </div>
+    <div class="form-group">
+            <label for="post-cate">缺陷管理API</label>
+            <select name="key5" class="form-control" style="width:100%;">
+                    <option value="on">开启</option>
+					<option value="off">关闭</option>
+            </select>
+    </div>
+	<div class="form-group">
+            <label for="post-cate">系统更新提示</label>
+            <select name="key1" class="form-control" style="width:100%;">
+                    <option value="on">开启</option>
+					<option value="off">关闭</option>
+            </select>
+    </div>
+	<div class="form-group">
+		<button class="btn btn-success" type="submit" >更新</button>
+	</div>
+</form>
+</div>
+</div>
+</div>
+<include file="Public/footer" />

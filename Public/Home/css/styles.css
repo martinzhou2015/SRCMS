@@ -164,4 +164,87 @@ footer {
   padding: 100px 0;
 }
 
+
+.data-table{
+	table-layout: fixed;
+	width: 100%;
+}
+.data-table th{
+	font-size: 15px;
+	color: #3090c7;
+	background-color: #f1f6f0;
+	line-height: 46px;
+	text-align: center;
+}
+.data-table td{
+	font-size: 14px;
+	line-height: 62px;
+	border-bottom: 1px solid #f2f2f2;
+	text-align: center;
+}
+.data-table td:nth-child(2){
+	/* text-align: left;
+	padding-left: 50px; */
+	text-align: center;
+}
+.data-table td:nth-child(1){
+	color: #fff;
+	background-color: #cccccc;
+	font-size: 20px;
+}
+.data-table tr:nth-child(1) td:nth-child(1){
+	background-color: #5bc11a;
+}
+.data-table tr:nth-child(2) td:nth-child(1){
+	background-color: #3479d8;
+}
+.data-table tr:nth-child(3) td:nth-child(1){
+	background-color: #ff6e9f;
+}
+.data-table i {
+    color: #fff;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 0px 8px;
+    line-height: 20px;
+    margin-right: 3px;
+    font-style: normal;
+    font-size: 12px;
+    background-color: #e3a34b;
+}
+.data-table a{
+	color: #3479d8;
+}
+.data-table span{
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+	white-space: nowrap;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+/*----------------------------------
+  Footer
+------------------------------------*/
+.s-footer__logo {
+  position: relative;
+  z-index: 1;
+}
+
+.s-footer__logo:before {
+  position: absolute;
+  top: 0;
+  left: 0.9375rem;
+  bottom: 0;
+  width: 70%;
+  height: auto;
+  z-index: -1;
+  background: url("../img/widgets/worldmap.png") no-repeat center center;
+  background-size: cover;
+  content: " ";
+}
+
+
 /* -- end custom css for Bootstrap 3.x --*/

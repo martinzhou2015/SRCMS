@@ -6,7 +6,7 @@ use Admin\Controller;
  * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
 
 /**
@@ -26,7 +26,7 @@ class ManagerController extends BaseController
             $where['username'] = array('like',"%$key%");
             $where['email'] = array('like',"%$key%");
             $where['_logic'] = 'or';
-            $model = M('manager')->where($where); 
+            $model = M('member')->where($where); 
         } 
         
         $count  = $model->where($where)->count();// 查询满足要求的总记录数
@@ -89,7 +89,9 @@ class ManagerController extends BaseController
                 }
                 //更新
                 if ($model->save($data)) {
-                    $this->success("用户信息更新成功", U('manager/index'));
+					session('adminId',null);
+                    session('adminname',null);
+                    $this->success("用户信息更新成功", U('Login/index'));
                 } else {
                     $this->error("未做任何修改,用户信息更新失败");
                 }        
@@ -97,7 +99,7 @@ class ManagerController extends BaseController
         }
     }
     /**
-     * 删除后台用户
+     * 禁用后台用户
      * @param  [type] $id [description]
      * @return [type]     [description]
      */

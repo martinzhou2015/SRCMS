@@ -3,11 +3,12 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
+
  
 class PostController extends BaseController
 {
@@ -75,14 +76,34 @@ class PostController extends BaseController
 	*查看漏洞报告
 	*/
 	public function view(){
+	    $rid = I('get.rid',0,'intval');
+		$model = M("Post");
 		$id = session('userId');
-		$rid = I('get.rid',0,'intval');
-	    $model = M("Post");
-        $post = $model->where(array('user_id'=>$id,'id'=>$rid))->find();  //修复越权漏洞
+		$comment = M('comment')->where(array('post_id'=>$rid))->select();
+        $post = $model->where(array('user_id'=>$id,'id'=>$rid))->find();
 		$tmodel= M('setting');
 		$title = $tmodel->where('id=1')->select();
 		$this->assign('title', $title);
         $this->assign('model', $post);
+		$this->assign('comment',$comment);
         $this->display();
+    }
+	
+	public function comment()
+    {
+        if (!IS_POST) {
+        	$this->error("非法请求");
+        }
+        if (IS_POST) {
+			$data = I();
+			$data['update_time'] = time();
+			$data['user_id'] = session('username');
+			$model = M("Comment");
+            if ($model->add($data)) {
+                    $this->success("评论成功", U('post/index'));
+                } else {
+                    $this->error("评论失败");
+                }
+        }
     }
 }

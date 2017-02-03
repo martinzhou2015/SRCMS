@@ -1,77 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
-		<link href="http://2.srcmsdemo.sinaapp.com/font-awesome.min.css" rel="stylesheet">
-		<link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
-	</head>
- <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="yahei sr-only">Toggle navigation</span>
-            <span class="yahei icon-bar"></span>
-            <span class="yahei icon-bar"></span>
-            <span class="yaheiicon-bar"></span>
-          </button>
-          <a class="yahei navbar-brand" href="__ROOT__"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
-          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
-          </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-              <ul class="yahei nav navbar-nav">
-             <li class="active"><a href="{:U('index/index')}">个人中心</a></li>
-            </div>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-
-<body>
-<div class="gallery">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-		<br/>
-            <h3>登陆平台</h3><hr/>
-
-            <form action="{:U('login/login')}" method="post">
-                <div class="form-group">
-                    <label for="exampleInputUser">用户名</label>
-                    <input type="text" name="username" class="form-control" id="exampleInputUser" placeholder="用户名">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword">密码</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword" placeholder="密码">
-                </div>
-               <div class="form-group">
-                    <label for="exampleInputCode"> 验证码</label>
-                    <div class="row" >
-                        <div class="col-md-8 row col-md-offset-0">
-                            <input type="text"  name="verify" class="form-control" id="exampleInputCode" placeholder="验证码">
-                        </div>
-                        <div class="col-md-4">
-                            <a href="javascript:void(0)"><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a>
-                        </div>
-                    </div>
-                </div>
-				    <button type="submit" class="btn btn-default text-align">登陆</button><br/><br/>
-					<a href="{:U('forget/index')}">找回密码</a><p></p>
-					<a href="{:U('reg/index')}" style="float:left;">还没有账号？点击注册</a> 
-                </div>
-                </div>
-            </form>
-        </div>
-    </div>
+<html class=" js no-touch csstransforms csstransforms3d svg" lang="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SRCMS - 企业安全应急响应中心</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<script type="text/javascript" async="" src="__PUBLIC__/Admin/ga.js.下载"></script>
+<link rel="stylesheet" href="__PUBLIC__/Admin/app.min.css">
+<style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style></head>
+<body class="page-loaded" style="font-family:微软雅黑;">
+ 
+<div class="pageload" style="display: none;">
+<div class="pageload-inner">
+<div class="sk-rotating-plane"></div>
 </div>
-<script src="__PUBLIC__/User/js/jquery-1.10.2.js"></script>
+</div>
+ 
+<div class="app signin v2 usersession">
+<div class="session-wrapper">
+<div class="session-carousel slide" data-ride="carousel" data-interval="3000">
+ 
+<div class="carousel-inner" role="listbox">
+<div class="item active" style="background-image:url(__PUBLIC__/Admin/userpage.jpg);background-size:cover;background-repeat: no-repeat;background-position: 50% 50%;">
+</div>
+</div>
+</div>
+</div>
+<div class="card bg-white no-border">
+<div class="card-block">
+<form role="form" class="form-layout" action="{:U('login/login')}" method="post">
+<div class="text-center m-b">
+<img src="__PUBLIC__/Admin/logo.png"></img>
+<p>携手共建安全生态</p>
+</div>
+<div class="form-inputs p-b">
+<label class="text-uppercase">账户名</label>
+<input type="text" class="form-control input-lg" placeholder="邮箱地址" name="username" id="exampleInputUser" />
+<label class="text-uppercase">密码</label>
+<input type="password" class="form-control input-lg" placeholder="密码" name="password" id="exampleInputPassword" />
+<a ui-sref="user.forgot" href="{:U('forget/index')}">忘记密码？</a>
+</div>
+<button class="btn btn-primary btn-block btn-lg m-b" type="submit" data-form-sbm="1484311449704.6902">立即登录</button>
+<div class="divider">
+<span>或</span>
+</div>
+<a class="btn btn-block no-bg btn-lg m-b" href="{:U('reg/index')}">立即注册</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script src="__PUBLIC__/Admin/app.min.js.下载"></script><div class="bg-default"></div><div class="bg-primary"></div><div class="bg-success"></div><div class="bg-warning"></div><div class="bg-danger"></div><div class="bg-info"></div><div class="bg-white"></div><div class="bg-dark"></div>
+
+</body>
+<script src="__STATIC__/js/jquery-1.10.2.js"></script>
 <script>
     $(function(){
         $(".verify").click(function(){
@@ -82,24 +65,4 @@
         });
     })
 </script>
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 text-center">
-        <hr />
-        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="{:U('index/index')}">关于我们</a> · <a href="{:U('index/index')}">隐私协议</a></p>
-		<p>Powered By SRCMS</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-
-	<!-- script references -->
-		<script src="__PUBLIC__/Home/js/jquery.min.js"></script>
-		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
-		<script src="__PUBLIC__/Home/js/scripts.js"></script>
-	</body>
 </html>

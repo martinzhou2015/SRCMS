@@ -3,18 +3,16 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
+
 
 class ForgetController extends Controller {
     //显示找回密码页面
     public function index(){
-		$tmodel= M('setting');
-		$title = $tmodel->where('id=1')->select();
-		$this->assign('title', $title);
         $this->display();
     }
 	//验证码
@@ -58,7 +56,8 @@ class ForgetController extends Controller {
         }
 		
 		//发送验证码邮件
-        import('ORG.Net.Mail');  
+        //import('ORG.Net.Mail');  
+		require "./././././ThinkPHP/Library/Org/Net/Mail.class.php";
         $str = '1234567890abcdefghijklmnopqrstuvwxyz';
         $passwd=$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)].$str[rand(0,35)];
         $content = md5(md5(md5($salt['salt']).md5($passwd)."SR")."CMS");

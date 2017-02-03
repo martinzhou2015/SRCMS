@@ -1,11 +1,12 @@
 <?php
 
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
+
 
 namespace Home\Controller;
 
@@ -17,13 +18,26 @@ class HallController extends Controller{
     {
         $xuhao = 1;
         $model = M('member');
-        $tmodel= M('setting');
-		$title = $tmodel->where('id=1')->select();
-		// fix bug issued by phith0n  13:59 2016/1/25
-        $user = $model->order('jifen ASC')->where('type=1')->where('jifen>0')->select();  
-        $this->assign('title', $title);
-	    $this ->assign('xuhao',$xuhao);
-        $this->assign('user',getSortedCategory($user));
+        $user = $model->order('jifen ASC')->where('jifen>0')->select();  
+		$this ->assign('xuhao',$xuhao);
+        $this->assign('user',$user);
+        $this->display();   
+    }
+	
+    public function view()
+    {
+		$pid = I('get.pid',0,'number_int');
+		$model = M('member');
+		$report = M('post');
+		$user = $model -> where(array('pid'=>$pid)) -> select();
+		$uid = $user[0]['id'];
+		if ($uid != null){
+		$reportnum = $report->where(array('user_id'=>$uid))->count();
+		$highranknum = $report->where(array('user_id'=>$uid))->where('rank=4')->count();
+		$this->assign('num',$reportnum);
+		$this->assign('highranknum',$highranknum);
+		};
+		$this->assign('user',$user);
         $this->display();   
     }
 }

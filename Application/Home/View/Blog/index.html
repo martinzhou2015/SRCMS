@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>研究博客--<foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
-		<link href="http://2.srcmsdemo.sinaapp.com/font-awesome.min.css" rel="stylesheet">
-		<link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
-	</head>
- <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>研究博客 - Google Inc.安全应急响应中心</title>
+        <meta name="keywords" content="Google Inc.安全应急响应中心" />
+        <meta name="description" content="Google Inc.安全应急响应中心">
+        <meta name="author" content="srcms.xyz">
+
+        <!-- Vendor Styles -->
+        <link href="__PUBLIC__/Index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Theme Styles -->
+        <link href="__PUBLIC__/Index/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/global/global.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+</head>
+    <!-- End Head -->
+
+    <!-- Body -->
+    <body style="font-family:微软雅黑">
+
+    <!--========== HEADER ==========-->
+     <header class="navbar-fixed-top">
+      <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,8 +43,8 @@
             <span class="yahei icon-bar"></span>
             <span class="yaheiicon-bar"></span>
           </button>
-          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
-          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong>Google Inc.</strong>
+          <span class="yahei" style=" font-size: 12px;padding: 2px 6px;border: 1px solid;border-radius: 4px;vertical-align: 4px; ">安全应急响应中心</span>
           </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -32,58 +52,127 @@
                 <li class="yahei"><a href="{:U('index/index')}">首页</a></li>
                 <li><a class="yahei" href="__ROOT__/user.php">漏洞提交</a></li>
                 <li><a class="yahei" href="{:U('page/index')}">安全公告</a></li>
-				<li class="active"><a class="yahei" href="{:U('blog/index')}">研究博客</a></li>
+				<li><a class="yahei" href="{:U('blog/index')}" style=" background-color: #f5f5f5;">研究博客</a></li>
 				<li><a class="yahei" href="{:U('hall/index')}">贡献榜</a></li>
 				<li><a class="yahei" href="{:U('gift/index')}">礼品库</a></li>
             </div>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+    <!-- End Nav -->
+    </header>
+        <!--========== PROMO BLOCK ==========-->
+        <div class="js__parallax-window" style="background-image:url('__PUBLIC__/Index/img/1920x1080/06.jpg');">
+            <div class="container g-padding-y-55--xs">
+                <div class="g-padding-y-50--xs">
+                    <p class="g-font-size-26--xs g-font-size-40--md g-margin-b-0--xs g-color--white">研究博客</p>
+                    <p class="g-font-size-20--xs g-font-size-15--md g-margin-b-0--xs g-color--white">前沿的技术积淀，尽在技术博客板块</p>
+                </div>
+            </div>
+        </div>
+        <!--========== END PROMO BLOCK ==========-->
 
-<!-- 博客列表 -->
-<div class="gallery">
-  <div class="container">
-      <div class="col-md-12">
-        <h2><strong>团队博客</strong></h2><br/>
-		<table class="table table-hover table-striped">
-		<tbody>
-		<foreach name="model" item="v">
-            <div>
-                <td>
-				<span class="label label-info">{$v.name}</span>&nbsp;&nbsp;&nbsp;<a href="__ROOT__/index.php?m=&c=blog&a=view&id={$v.id}">{$v.title}</a>
-			 </tr>
-        </foreach>
-		</tbody>
-		</table>
-	    </div>
-  </div>
-</div>
-<footer class="footer">
-	  <div class="container marketing yahei">
-        <p class="pull-right"><a href="#" onclick="back();">返回顶部</a></p>
-        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="__ROOT__">关于我们</a> · <a href="__ROOT__">隐私协议</a></p>
-		</div>
-</footer>
+        <!--========== PAGE CONTENT ==========-->
+         <!-- Portfolio -->
+        <div class="container g-padding-y-80--xs g-padding-y-125--xsm">
+            <div class="row g-margin-b-30--xs">
+			<foreach name="model" item="v">
+                <div class="col-sm-4">
+                    <div class="g-margin-t-20--md g-margin-b-40--xs">
+                        <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-25--xs">{$v.name}</p>
+                        <a href="{:U('blog/view?id=')}{$v.id}"><h2 class="g-font-size-32--xs g-font-size-36--md" style="font-family:微软雅黑;">{$v.title}</h2></a>
+                        <p>发布日期: {$v.update_time|date="Y/m/d",###}</p>
+                    </div>
+                </div>
+			</foreach>	
+            </div>
+        </div>
+        <!-- End Portfolio -->
 
-<!-- script references -->
-		<script src="__PUBLIC__/Home/index/jquery.min.js"></script>
-		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
-		<script src="__PUBLIC__/Home/js/scripts.js"></script>
-		<script>
-			function back(){
-			var oTop = document.getElementById("to_top");
-			var screenw = document.documentElement.clientWidth || document.body.clientWidth;
-			var screenh = document.documentElement.clientHeight || document.body.clientHeight;
-			oTop.style.left = screenw - oTop.offsetWidth +"px";
-			oTop.style.top = screenh - oTop.offsetHeight + "px";
-			window.onscroll = function(){
-			var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
-			oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
-			}
-			oTop.onclick = function(){
-			document.documentElement.scrollTop = document.body.scrollTop =0;
-			}
-			}  
-	  </script>
-	</body>
+
+        <!--========== FOOTER ==========-->
+        <footer class="g-bg-color--dark">
+            <!-- Links -->
+            <div class="g-hor-divider__dashed--white-opacity-lightest">
+                <div class="container g-padding-y-80--xs">
+                    <div class="row">
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">关于我们</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">工作招聘</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">联系我们</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">新浪微博</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">微信平台</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">Twitter</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">隐私政策</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">法律事务</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">授权协议</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
+                            <!--<h3 class="g-font-size-18--xs g-color--white">Google Inc.</h3>-->
+                            <p class="g-color--white-opacity">Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Links -->
+
+            <!-- Copyright -->
+            <div class="container g-padding-y-50--xs">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="index.html">
+                            <img class="g-width-100--xs g-height-auto--xs" src="__PUBLIC__/Index/img/logo.png" alt="Megakit Logo">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 g-text-right--xs">
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">&copy; Google 2017-2018 Powered by: SRCMS</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
+
+
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+       
+        <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+        <!-- Vendor -->
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.migrate.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.back-to-top.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/scrollbar/jquery.scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/vidbg.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/waypoint.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/counterup.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/swiper/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.wow.min.js"></script>
+
+        <!-- General Components and Settings -->
+        <script type="text/javascript" src="__PUBLIC__/Index/js/global.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/portfolio-4-col-slider.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/counter.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/swiper.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/wow.min.js"></script>
+        <!--========== END JAVASCRIPTS ==========-->
+
+
+    </body>
+    <!-- End Body -->
 </html>

@@ -3,11 +3,12 @@ namespace Admin\Controller;
 use Admin\Controller;
 
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
+
 
 /**
  * 博客管理
@@ -16,7 +17,6 @@ class BlogController extends BaseController
 {
     /**
      * 博客列表
-     * @return [type] [description]
      */
     public function index($key="")
     {
@@ -43,46 +43,39 @@ class BlogController extends BaseController
      */
     public function add()
     {
-        //默认显示添加表单
         if (!IS_POST) {
             $this->display();
         }
         if (IS_POST) {
-            //如果用户提交数据
-            $model = D("Blog");
-            if (!$model->create()) {
-                // 如果创建失败 表示验证没有通过 输出错误提示信息
-                $this->error($model->getError());
-                exit();
-            } else {
-                if ($model->add()) {
+            $model = M("Blog");
+			$data = I();
+			$data['update_time'] = time();
+            if ($model->add($data)) {
                     $this->success("添加成功", U('blog/index'));
                 } else {
                     $this->error("添加失败");
                 }
-            }
         }
     }
     /**
      * 更新博客信息
-     * @param  [type] $id [单页ID]
-     * @return [type]     [description]
      */
     public function update()
     {
         $id = I('get.id',0,'intval');
-		//默认显示添加表单
         if (!IS_POST) {
             $model = M('blog')->where('id='.$id)->find();
             $this->assign('page',$model);
             $this->display();
         }
         if (IS_POST) {
-            $model = D("Blog");
+            $model = M("Blog");
+			$data = I();
+			$data['update_time'] = time();
             if (!$model->create()) {
                 $this->error($model->getError());
             }else{
-                if ($model->save()) {
+                if ($model->save($data)) {
                     $this->success("更新成功", U('blog/index'));
                 } else {
                     $this->error("更新失败");
@@ -92,8 +85,6 @@ class BlogController extends BaseController
     }
     /**
      * 删除博客
-     * @param  [type] $id [description]
-     * @return [type]     [description]
      */
     public function delete()
     {

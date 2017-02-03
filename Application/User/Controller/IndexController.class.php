@@ -3,24 +3,25 @@ namespace User\Controller;
 use Think\Controller;
 
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
+
 
 class IndexController extends BaseController {
     public function index(){
 		$id = session('userId');
-		$tmodel= M('setting');
-		$gCount = M('links')->count();
-		$title = $tmodel->where('id=1')->select();
-		$page = M('post')->where('user_id='.$id)->count();
-		$user = M('member')->where('id='.$id)->select();
-		$this->assign('title', $title);
-        $this->assign('page',$page);
-		$this->assign('user',$user);
-		$this->assign('gift',$gCount);
+		$username = session('username');
+		$pnum = M('post')->where('user_id='.$id)->count();
+		$jinbi = M('member')->where('id='.$id)->find();
+		$gift = M('order')->where(array('username'=>$username,'userid'=>$id))->count();
+		$page = M('page')->select();
+        $this->assign('pnum',$pnum);
+		$this->assign('jinbi',$jinbi);
+		$this->assign('gift',$gift);
+		$this->assign('page',$page);
         $this->display();
     }
 }

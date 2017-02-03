@@ -1,44 +1,66 @@
-<extend name="Public:common" />
-<block name="main">
-
-<div class="gallery">
-   <div class="col-md-offset-2">
-   <h2><strong>漏洞列表</strong></h2>
-    <hr style="width:80%" class="col-md-offset-0"/>
-    <h5><strong>您可以通过本页面查询每个漏洞的漏洞状态，如有异议请及时与对应工作人员联系。</strong></h5><br/>
+<include file="Public/header" title="历史报告 - 企业安全应急响应与缺陷管理中心" report_status="open" report_color="#6164C1;"/>
+<div class="main-content">
+<div class="row">
+        <div class="col-md-6">
+        <a href="{:U('post/add')}" class="btn btn-success" style="margin : 2px 5px 5px 0px;">提交漏洞</a>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary" style="margin : 2px 0px 5px 0px;">筛选报告</button>
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="margin : 2px 0px 5px 0px;">
+				<span class="caret"></span>
+				<span class="sr-only">切换下拉菜单</span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="{:U('post/filter?id=1')}">审核中</a></li>
+				<li><a href="{:U('post/filter?id=2')}">已忽略</a></li>
+				<li><a href="{:U('post/filter?id=3')}">已确认</a></li>
+				<li><a href="{:U('post/filter?id=4')}">已修复</a></li>
+			</ul>
+</div>
+    </ul>
+        </div>
+        <div class="col-md-6">
+            <form action="{:U('post/index')}" method="post">
+                <div class="form-group input-group" style="margin : 2px 0px 5px 0px;">
+                    <input type="text" class="form-control" name="key" placeholder="输入报告标题或漏洞类型关键词搜索...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
 	
-    <table class="table table-hover table-striped" style="width:80%" >
+	<div class="no-more-tables">
+    <table class="table m-b-0">
         <thead>
             <tr>
-                <th>报告编号</th>
                 <th>报告标题</th>
                 <th>报告状态</th>
                 <th>提交时间</th>
-                <th>提交者</th>
+                <th>漏洞危害</th>
                 <th>漏洞类型</th>
             </tr>
         </thead>
         <tbody>
         <foreach name="model" item="v">
             <tr>
-                <td><a href="{:U('post/view?rid=')}{$v.id}">{$v.id}</a></td>
-                <td><a href="{:U('post/view?rid=')}{$v.id}">{$v.title}</a></td>
-                <td>
+                <td data-title="报告标题"><a href="{:U('post/view?rid=')}{$v.id}">{$v.title}</a></td>
+                <td data-title="报告状态">
                     <if condition="$v.type eq 1"><span class="label label-info">审核中</span>
                     <elseif condition="$v.type eq 2" /><span class="label label-default">已忽略</span>
                     <elseif condition="$v.type eq 3" /><span class="label label-warning">已确认</span>
                     <elseif condition="$v.type eq 4" /><span class="label label-success">已修复</span>
                     </if>
                 </td>
-                <td>{$v.time|date="Y/m/d H:i:s",###}</td>
-                <td>{$v.username}</td>
-                <td>{$v.category_title}</td>
+                <td data-title="提交时间">{$v.time|date="Y/m/d H:i:s",###}</td>
+                <td data-title="漏洞危害">{$v.username}</td>
+                <td data-title="漏洞类型">{$v.category_title}</td>
             </tr>
         </foreach>
         </tbody>
     </table>
     <div class="clearfix"></div>
     {$page}
-    
+    </div>
 </div>
-</block>
+<include file="Public/footer" />

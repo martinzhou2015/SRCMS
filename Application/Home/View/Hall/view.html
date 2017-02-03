@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>个人主页 - Google Inc.安全应急响应中心</title>
+        <meta name="keywords" content="Google Inc.安全应急响应中心" />
+        <meta name="description" content="Google Inc.安全应急响应中心">
+        <meta name="author" content="srcms.xyz">
+
+        <!-- Vendor Styles -->
+        <link href="__PUBLIC__/Index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Theme Styles -->
+        <link href="__PUBLIC__/Index/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/global/global.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="__PUBLIC__/Index/img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="__PUBLIC__/Index/img/apple-touch-icon.png">
+    </head>
+    <!-- End Head -->
+</head>
+    <!-- End Head -->
+
+    <!-- Body -->
+    <body style="font-family:微软雅黑">
+
+    <!--========== HEADER ==========-->
+     <header class="navbar-fixed-top">
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="yahei sr-only">Toggle navigation</span>
+            <span class="yahei icon-bar"></span>
+            <span class="yahei icon-bar"></span>
+            <span class="yaheiicon-bar"></span>
+          </button>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong>Google Inc.</strong>
+          <span class="yahei" style=" font-size: 12px;padding: 2px 6px;border: 1px solid;border-radius: 4px;vertical-align: 4px; ">安全应急响应中心</span>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+              <ul class="yahei nav navbar-nav">
+                <li class="yahei"><a href="{:U('index/index')}">首页</a></li>
+                <li><a class="yahei" href="__ROOT__/user.php">漏洞提交</a></li>
+                <li><a class="yahei" href="{:U('page/index')}">安全公告</a></li>
+				<li><a class="yahei" href="{:U('blog/index')}">研究博客</a></li>
+				<li><a class="yahei" href="{:U('hall/index')}" style=" background-color: #f5f5f5;">贡献榜</a></li>
+				<li><a class="yahei" href="{:U('gift/index')}">礼品库</a></li>
+            </div>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <!-- End Nav -->
+    </header>
+        <!--========== PAGE CONTENT ==========-->
+        <!-- Form -->
+        <div id="js__scroll-to-appointment" class="g-bg-color--sky-light g-padding-y-125--sm">
+            <div class="container g-bg-color--white g-box-shadow__dark-lightest-v3">
+                <div class="row">
+                    <!-- Form -->
+					<foreach name="user" item="v">
+                    <div class="col-md-8 js__form-eqaul-height-v1">
+                        <div class="g-padding-x-65--xs g-padding-y-70--xs">
+                            <h2 class="g-font-size-35--xs g-color--primary" style="font-family:微软雅黑;">{$v['username']}</h2>
+							<div class="row g-margin-b-5--xs g-margin-b-20--md">
+                                    <div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--md">
+										<span class="text-uppercase g-font-size-15--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs">总贡献 /</span>
+                                        <h1 class="text-uppercase g-font-size-60--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs" style="font-family:微软雅黑;">{$v['jifen']}</h1>
+                                    </div>
+                                    <div class="col-sm-6">
+										<span class="text-uppercase g-font-size-15--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs">报告总数 /</span>
+                                        <h1 class="text-uppercase g-font-size-60--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs" style="font-family:微软雅黑;">{$num}</h1>
+                                    </div>
+                             </div>
+							 <div class="row g-margin-b-5--xs g-margin-b-10--md">
+                                    <div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--md">
+									<span class="text-uppercase g-font-size-15--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs">高危报告数 /</span>
+                                        <h1 class="text-uppercase g-font-size-60--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs" style="font-family:微软雅黑;">{$highranknum}</h1>
+                                    </div>
+                                    <div class="col-sm-6">
+										<span class="text-uppercase g-font-size-15--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs">安全币 /</span>
+                                        <h1 class="text-uppercase g-font-size-60--xs g-font-weight--700 g-letter-spacing--2 g-margin-b-25--xs" style="font-family:微软雅黑;">****</h1>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- End Form -->
+
+                    <!-- Contacts -->
+                    <div class="col-md-4 g-bg-color--primary-ltr js__form-eqaul-height-v1">
+                        <div class="g-overflow--hidden g-padding-x-30--xs g-padding-y-50--xs">
+                            <h2 class="g-font-size-24--xs g-color--white g-margin-b-50--xs" style="font-family:微软雅黑;">个人简介</h2>
+                            <ul class="list-unstyled g-margin-b-70--xs">
+                                <li class="clearfix g-color--white g-margin-b-40--xs">
+                                    <div class="g-media g-width-40--xs g-margin-t-5--xs">
+                                        <i class="g-font-size-20--xs g-color--white-opacity-light ti-user"></i>
+                                    </div>
+                                    <div class="g-media__body">
+                                        研究团队:<br/>{$v['team']}
+                                    </div>
+                                </li>
+                                <li class="clearfix g-color--white g-margin-b-40--xs">
+                                    <div class="g-media g-width-40--xs g-margin-t-5--xs">
+                                        <i class="g-font-size-20--xs g-color--white-opacity-light ti-twitter"></i>
+                                    </div>
+                                    <div class="g-media__body">
+                                        个人主页:<br/>{$v['website']}
+                                    </div>
+                                </li>
+                                <li class="clearfix g-color--white g-margin-b-40--xs">
+                                    <div class="g-media g-width-40--xs g-margin-t-5--xs">
+                                        <i class="g-font-size-20--xs g-color--white-opacity-light ti-email"></i>
+                                    </div>
+                                    <div class="g-media__body">
+                                        个人简介:<br/>{$v['description']}
+                                    </div>
+                                </li>
+                            </ul>
+                            <i class="g-font-size-150--xs g-color--white-opacity-lightest ti-comments" style="position: absolute; bottom: -1.25rem; right: -1.25rem;"></i>
+                        </div>
+                    </div>
+					</foreach>
+                    <!-- End Contacts -->
+                </div>
+            </div>
+        </div>
+        <!-- End Form -->
+		
+        <!--========== FOOTER ==========-->
+        <footer class="g-bg-color--dark">
+            <!-- Links -->
+            <div class="g-hor-divider__dashed--white-opacity-lightest">
+                <div class="container g-padding-y-80--xs">
+                    <div class="row">
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">关于我们</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">工作招聘</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">联系我们</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">新浪微博</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">微信平台</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">Twitter</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">隐私政策</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">法律事务</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">授权协议</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
+                            <!--<h3 class="g-font-size-18--xs g-color--white">Google Inc.</h3>-->
+                            <p class="g-color--white-opacity">Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Links -->
+
+            <!-- Copyright -->
+            <div class="container g-padding-y-50--xs">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="index.html">
+                            <img class="g-width-100--xs g-height-auto--xs" src="__PUBLIC__/Index/img/logo.png" alt="Megakit Logo">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 g-text-right--xs">
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">&copy; Google 2017-2018 Powered by: SRCMS</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
+
+
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+       
+        <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+        <!-- Vendor -->
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.migrate.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.back-to-top.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/scrollbar/jquery.scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.parallax.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/swiper/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.wow.min.js"></script>
+
+        <!-- General Components and Settings -->
+        <script type="text/javascript" src="__PUBLIC__/Index/js/global.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/magnific-popup.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/swiper.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/wow.min.js"></script>
+        <!--========== END JAVASCRIPTS ==========-->
+
+
+    </body>
+    <!-- End Body -->
+</html>

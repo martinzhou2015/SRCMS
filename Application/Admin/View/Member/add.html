@@ -1,21 +1,31 @@
-<include file="Public/header" title="添加用户" />
-<div id="page-wrapper">
+<include file="Public/header" title="添加前台用户 - 企业安全应急响应与缺陷管理中心" users_status="open" member_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-users"></i> <a href="{:U('member/index')}">用户列表</a>
+</li>
+<li>
+<a href="javascript:;">添加前台用户</a>
+</li>
+</ol>
+</div>
 <form action="{:U('member/add')}" method="post">
 	<div class="form-group">
 		<label>用户名</label>
-		<input class="form-control" type="text" name="username" placeholder="username">
+		<input class="form-control" type="text" name="username" placeholder="用户名">
 	</div>
 	<div class="form-group">
 		<label>邮箱</label>
-		<input class="form-control" type="text" name="email" placeholder="Email">
+		<input class="form-control" type="text" name="email" placeholder="邮箱">
 	</div>
 	<div class="form-group">
 		<label>密码</label>
-		<input class="form-control" type="password" name="password" placeholder="password">
+		<input class="form-control" type="password" name="password" placeholder="密码">
 	</div>
 	<div class="form-group">
 		<label>确认密码</label>
-		<input class="form-control" type="password" name="repassword" placeholder="repassword">
+		<input class="form-control" type="password" name="repassword" placeholder="再输入一次密码">
 	</div>
 	<div class="form-group">
         <label>用户等级</label>

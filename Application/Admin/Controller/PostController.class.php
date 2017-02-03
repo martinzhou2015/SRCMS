@@ -1,12 +1,14 @@
 <?php
 namespace Admin\Controller;
 use Admin\Controller;
+
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
+
  
 class PostController extends BaseController
 {
@@ -17,11 +19,11 @@ class PostController extends BaseController
     public function index($key="")
     {
         if($key == ""){
-            $model = D('PostView'); 
+            $model = D('PostView');  
         }else{
-            $where['post.title'] = array('like',"%$key%");
-            $where['member.username'] = array('like',"%$key%");
-            $where['category.title'] = array('like',"%$key%");
+            $where['title'] = array('like',"%$key%");
+            $where['name'] = array('like',"%$key%");
+			$where['type'] = array('like',"%$key%");
             $where['_logic'] = 'or';
             $model = D('PostView')->where($where); 
         } 
@@ -29,11 +31,12 @@ class PostController extends BaseController
         $count  = $model->where($where)->count();// 查询满足要求的总记录数
         $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show = $Page->show();// 分页显示输出
-        $post = $model->limit($Page->firstRow.','.$Page->listRows)->where($where)->order('post.id DESC')->select();
-        $this->assign('model', $post);
+        $pages = $model->limit($Page->firstRow.','.$Page->listRows)->where($where)->order('id DESC')->select();
+        $this->assign('model', $pages);
         $this->assign('page',$show);
         $this->display();     
     }
+
     /**
      * 添加漏洞报告
      */
@@ -63,14 +66,11 @@ class PostController extends BaseController
         }
     }
     /**
-     * 审核漏洞报告
-     * @param  [type] $id [文章ID]
-     * @return [type]     [description]
+     * 编辑漏洞报告
      */
     public function update()
     {
 		$id = I('get.id',0,'intval');
-        //默认显示添加表单
         if (!IS_POST) {
             $model = M('post')->where('id='.$id)->find();
             $this->assign("category",getSortedCategory(M('category')->select()));
@@ -79,6 +79,7 @@ class PostController extends BaseController
         }
         if (IS_POST) {
             $model = D("Post");
+			$model->time = time();
             if (!$model->create()) {
                 $this->error($model->getError());
             }else{
@@ -90,10 +91,33 @@ class PostController extends BaseController
             }
         }
     }
+	 /**
+     * 审核漏洞报告
+     */
+    public function review()
+    {
+		$id = I('get.id',0,'intval');
+        if (!IS_POST) {
+            $model = M('post')->where('id='.$id)->find();
+			$comment = M('comment')->where('post_id='.$id)->select();
+            $this->assign("category",getSortedCategory(M('category')->select()));
+            $this->assign('post',$model);
+			$this->assign('comment',$comment);
+            $this->display();
+        }
+        if (IS_POST) {
+            $model = D("Post");
+			$model->time = time();
+			$data = I();
+            if ($model->where('id='.$id)->field('day,rank,type')->save($data)) {
+                    $this->success("审核成功", U('post/index'));
+            } else {
+                    $this->error("审核失败");
+            }        
+        }
+    }
     /**
      * 删除漏洞报告
-     * @param  [type] $id [description]
-     * @return [type]     [description]
      */
     public function delete()
     {
@@ -109,19 +133,28 @@ class PostController extends BaseController
 	
 	/**
      * 添加积分
-     * @param  [type] $id [description]
-     * @return [type]     [description]
      */
     public function jifen()
     {
-		$user_id = I('post.user_id',0,'intval');
-		$amount = I('post.amount',0,'intval');
-		$model = M('member');
-        $result = $model->where('id='.$user_id)->setInc('jifen',$amount);
-        if($result){
-            $this->success("添加积分成功", U('post/index'));
+		$member = M('member');
+		$record = M('record');
+		$user_id = I('get.uid',0,'intval');
+		$jifen = I('post.jifen',0,'intval');
+		$jinbi = I('post.jinbi',0,'intval');
+		$data['type'] = 1;
+		$data['name'] = '增加积分/安全币';
+		$data['content'] = '+积分:'.$jifen.' +安全币:'.$jinbi;
+		$data['time'] = time();
+		$user = $member->where('id='.$user_id)-> select();
+		$data['user'] = $user[0]['username'];
+		$data['operator'] = session('adminname');
+        $result1 = $member->where('id='.$user_id)->setInc('jifen',$jifen);
+		$result2 = $member->where('id='.$user_id)->setInc('jinbi',$jinbi);
+		$result3 = $record -> add($data);
+        if($result1 && $result2){
+            $this->success("增加积分/安全币成功", U('post/index'));
         }else{
-            $this->error("添加积分失败");
+            $this->error("增加积分/安全币失败");
         }
     }
 	
@@ -143,15 +176,28 @@ class PostController extends BaseController
             $this->error("授权失败");
         }
 	   }
-	/**
-	筛选漏洞报告
+	   
+
+    /**
+	添加报告评论
 	**/
-	public function filter()
+	public function comment()
     {
-		$model = D('Post'); 
-        $id = I('get.id',0,'intval');
-		$result = $model->where('type='.$id)->select();
-		$this->assign('model', $result);
-        $this->display();     
+        if (!IS_POST) {
+        	$this->error("非法请求");
+        }
+        if (IS_POST) {
+            $model = D("Comment");
+            if (!$model->create()) {
+                $this->error($model->getError());
+                exit();
+            } else {
+                if ($model->add()) {
+                    $this->success("添加成功", U('post/index'));
+                } else {
+                    $this->error("添加失败");
+                }
+            }
+        }
     }
 }

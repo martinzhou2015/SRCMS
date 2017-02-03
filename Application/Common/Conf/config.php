@@ -1,6 +1,6 @@
 <?php
 return array(
-	'MODULE_ALLOW_LIST' =>    array('Home','Admin',),
+	'MODULE_ALLOW_LIST' => array('Home','Admin',),
 	'LOAD_EXT_CONFIG'   => 'db', 
 	/**
 	URL不区分大小写
@@ -23,5 +23,5 @@ return array(
 	/**
     站点全局开启http-only
     **/	
-	'COOKIE_HTTPONLY'  =>  ''
+	'COOKIE_HTTPONLY'  =>  '',
 );

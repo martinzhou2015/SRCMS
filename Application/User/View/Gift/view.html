@@ -1,0 +1,62 @@
+<include file="Public/header" title="兑换中心 - 企业安全应急响应与缺陷管理中心" gifts_status="open" order_color="#6164C1;"/>
+
+<div class="main-content">
+<div class="page-title">
+<div class="title">礼品中心</div>
+<div class="sub-title">兑换详情</div>
+</div>
+<div class="m-b block clearfix">
+<div class="text-right">
+<i class="icon-moustache fa-4x m-b"></i>
+<p>订单状态：<if condition="$info.finish eq 1"><span class="label label-success">已发货</span>
+              <elseif condition="$info.finish eq 0" /><span class="label label-danger">未发货</span>
+                    </if></p>
+<p>订单编号： #SRC-00{$info.id}</p>
+</div>
+</div>
+<div class="card">
+<div class="card-block p-a-0">
+<div class="table-responsive">
+<table class="table m-b-0">
+<thead>
+<tr>
+<th>兑换时间</th>
+<th>兑换人</th>
+<th>商品名称</th>
+<th>商品数量</th>
+<th>联系方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+{$info.update_time|date="Y/m/d",###}
+</td>
+<td>
+{$info.realname}
+</td>
+<td>
+{$info.gid}
+</td>
+<td>
+1
+</td>
+<td>
+{$info.tel}
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="card card-block bg-default shadow">
+<p class="bold small">礼品兑换说明</p>
+<small>您在兑换后，我们将会尽快处理您的订单，请您耐心等待，如有任何疑问，请及时与我们联系。</small>
+</div>
+</div>
+ 
+</div>
+ 
+
+<include file="Public/footer" />

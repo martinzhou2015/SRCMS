@@ -1,52 +1,87 @@
-<extend name="Public:common" />
-<block name="main">
-<div class="gallery">
-   <div class="col-md-offset-2">
-   <h2><strong>订单确认</strong></h2>
-    <hr style="width:80%" class="col-md-offset-0"/>
-    <h5><strong>请您再次校对您的订单信息和联系方式，以便我们能够准确为您邮寄兑换的礼品，礼品将会在人工审核后寄出。</strong></h5><br/>
-	
-	<form method="post" action="{:U('gift/add')}">
+<include file="Public/header" title="订单确认 - 企业安全应急响应与缺陷管理中心" gifts_status="open" gifts_color="#6164C1;"/>
+
+<div class="main-content">
+<div class="page-title">
+<div class="title">礼品中心</div>
+<div class="sub-title">订单确认</div>
+</div>
+<div class="col-lg-13">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>请您再次校对您的订单信息和联系方式，以便我们能够准确为您邮寄兑换的礼品。</p>
+				<div class="clearfix"></div>
+            </div>
+        </div>
+<div class="card bg-white m-b">
+<div class="card-header">商品明细</div>
+<div class="card-block p-a-0">
+<div class="table-responsive">
+<table class="table cart m-b-0">
+<thead>
+<tr>
+<th>礼品名称</th>
+<th>兑换数量</th>
+<th>消耗金币</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-capitalize">{$gift.title}</td>
+<td>
+<a class="math-actions minus">&nbsp;</a>
+<span class="cart-quantity">1</span>
+<a class="math-actions">&nbsp;</a>
+</td>
+<td>{$gift.price}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<div class="card bg-white m-b">
+<div class="card-header">个人信息</div>
+<div class="card-block">
+<form method="post" action="{:U('gift/add?gid=')}{$gift.id}">
 	   <div class="form-group">
         <label>姓名：</label>
-		<foreach name="info" item="v">
-        <input type="text" name="realname"  class="form-control" style="width:50%" value="{$v.realname}">
-		</foreach>
+        <input type="text" name="realname"  class="form-control" value="{$info.realname}">
 	   </div>
 	   <div class="form-group">
         <label>邮编：</label>
-		<foreach name="info" item="v">
-        <input type="text" name="zipcode" class="form-control" style="width:50%" value="{$v.zipcode}">
-		</foreach>
+        <input type="text" name="zipcode" class="form-control" value="{$info.zipcode}">
 	   </div>
 	   <div class="form-group">
         <label>住址：</label>
-		<foreach name="info" item="v">
-        <input type="text" name="location" class="form-control" style="width:50%" value="{$v.location}">
-		</foreach>
+        <input type="text" name="address" class="form-control" value="{$info.address}">
 	   </div>
 	   <div class="form-group">
         <label>电话：</label>
-		<foreach name="info" item="v">
-        <input type="text" name="tel"  class="form-control" style="width:50%" value="{$v.tel}">
-		</foreach>
+        <input type="text" name="tel"  class="form-control" value="{$info.tel}">
 	   </div>
 	   <div class="form-group">
         <label>支付宝账号：</label>
-		<foreach name="info" item="v">
-        <input type="text" name="alipay"  class="form-control" style="width:50%" value="{$v.alipay}">
-		</foreach>
-	   <div class="form-group">
-		<label>礼品名称：</label>
-		<foreach name="gift" item="g">
-        <input type="text" name="gid"  class="form-control" style="width:50%" value="{$g.title}">
-		</foreach>
+        <input type="text" name="alipay"  class="form-control" value="{$info.alipay}">
 	   </div>
-	   <div class="form-group">
-        <input type="text" name="username"  class="form-control" style="display:none; width:50%" value="<?php echo session('userId')?>">
-	   </div>
-		<button type="submit" class="btn btn-default">提交</button>
-	</form>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12">
+<button type="submit" class="btn btn-primary pull-right" onclick="javascript:return del('您真的确定要兑换吗？兑换操作不可撤销！');">提交订单</button>
+<a href="{:U('gift/index')}" class="btn btn-default" ui-sref="app.commerce.products">返回</a>
+</div>
+</div>
+</form>
+
+
+
+
+
+		
 	
 </div>
-</block>
+<include file="Public/footer" />

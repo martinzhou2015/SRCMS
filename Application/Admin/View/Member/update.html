@@ -1,20 +1,36 @@
-<include file="Public/header" title="更新用户" />
-<div id="page-wrapper">
+<include file="Public/header" title="编辑前台用户 - 企业安全应急响应与缺陷管理中心" users_status="open" member_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-users"></i> <a href="{:U('member/index')}">用户列表</a>
+</li>
+<li>
+<a href="javascript:;">编辑前台用户</a>
+</li>
+</ol>
+</div>
+
+<div class="card bg-white m-b">
+<div class="card-header">
+账户信息
+</div>
+<div class="card-block">
 <form action="{:U('member/update')}" method="post">
 	<div class="form-group">
-		<label>用户名</label>
+		<label>用户名:</label>
 		<input class="form-control" type="text" name="username" value="{$model.username}">
 	</div>
 	<div class="form-group">
-		<label>邮箱</label>
+		<label>邮箱:</label>
 		<input class="form-control" type="text" name="email" value="{$model.email}">
 	</div>
 	<div class="form-group">
-		<label>新密码</label>
+		<label>新密码:</label>
 		<input class="form-control" type="password" name="password" placeholder="不填写则不更改">
 	</div>
 	<div class="form-group">
-        <label>用户等级</label>
+        <label>用户等级: </label>
         <label class="radio-inline">
           <input type="radio" name="type" id="type" value="1" <if condition="$model.type eq 1">checked="checked"</if>>路人
         </label>
@@ -29,7 +45,7 @@
         </label>
     </div>
 	<div class="form-group">
-        <label>用户状态</label>
+        <label>用户状态: </label>
         <label class="radio-inline">
           <input type="radio" name="status" id="status" value="0" <if condition="$model.status eq 0">checked="checked"</if>>禁止登陆
         </label>
@@ -41,9 +57,60 @@
 		<input type="hidden" name="id" value="{$model.id}">
 		<button class="btn btn-success" type="submit" >更新</button>
 	</div>
+</div>
+</div>
 
+<div class="card bg-white m-b">
+<div class="card-header">
+积分信息
+</div>
+<div class="card-block">
+	<div class="form-group">
+		<label>积分:</label>
+		<input class="form-control" type="text" name="jifen" value="{$model.jifen}">
+	</div>
+	<div class="form-group">
+		<label>安全币:</label>
+		<input class="form-control" type="text" name="jinbi" value="{$model.jinbi}">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-success" type="submit" >更新</button>
+	</div>
+</div>
+</div>
 
-</form>
+<div class="card bg-white m-b">
+<div class="card-header">
+个人信息
+</div>
+<div class="card-block">
+	<div class="form-group">
+		<label>真实姓名:</label>
+		<input class="form-control" type="text" name="realname" value="{$model.realname}">
+	</div>
+	<div class="form-group">
+		<label>住址:</label>
+		<input class="form-control" type="text" name="address" value="{$model.address}">
+	</div>
+	<div class="form-group">
+		<label>身份证号:</label>
+		<input class="form-control" type="text" name="idcode" value="{$model.idcode}">
+	</div>
+	<div class="form-group">
+		<label>银行卡号:</label>
+		<input class="form-control" type="text" name="bankcode" value="{$model.bankcode}">
+	</div>
+	<div class="form-group">
+		<label>联系电话:</label>
+		<input class="form-control" type="text" name="tel" value="{$model.tel}">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-success" type="submit" >更新</button>
+	</div>
+</form>	
+</div>
+</div>
+
 </div>
 
 <include file="Public/footer" />

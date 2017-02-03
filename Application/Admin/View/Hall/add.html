@@ -1,21 +1,55 @@
-<include file="Public/header" title="添加贡献者" />
-<div id="page-wrapper">
-    <form method="post" action="{:U('hall/add')}">
-        <div class="form-group">
-            <label for="aa">贡献者名称</label>
-            <input type="text" name="name" class="form-control" id="aa" placeholder="输入贡献者名称">
-        </div>
-        <div class="form-group">
-            <label for="bb">图片地址(图片大小建议设置为 80*80)</label>
-            <input type="text" name="url" class="form-control" id="bb" placeholder="输入图片地址">
-        </div>
-		<div class="form-group">
-            <label for="bb">贡献者描述</label>
-            <input type="text" name="des" class="form-control" id="bb" placeholder="输入对贡献者的描述">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-default">提交</button>
-        </div>
-    </form>
+<include file="Public/header" title="添加贡献者 - 企业安全应急响应与缺陷管理中心" hall_status="open" hall_color="#6164C1;"/>
+<div class="main-content">
+	<div class="page-title">
+		<ol class="breadcrumb no-bg pl0">
+		<li>
+			<i class="icon-users"></i><a href="{:U('hall/index')}"> 名人堂列表</a>
+		</li>
+		<li>
+			<a href="javascript:;">添加贡献者</a>
+		</li>
+		</ol>
+	</div>
+	<div class="card bg-white m-b">
+		<div class="card-header bg-default">
+		<div class="pull-left">效果提示（点击右侧关闭）</div>
+		<div class="card-controls">
+		<a href="javascript:;" class="card-remove" data-toggle="card-remove">
+		<i class="card-icon-remove"></i>
+		</a>
+		</div>
+		</div>
+		<div class="card-block text-center">
+		      <img src="__PUBLIC__/Admin/instrucion/add_hall.jpg">
+		</div>
+	</div>
+	<div class="card bg-white m-b">
+		<div class="card-header">
+			添加贡献者
+		</div>
+		<div class="card-block">
+			<form method="post" action="{:U('hall/add')}">
+				<div class="form-group">
+					<label for="aa">贡献者名称</label>
+					<input type="text" name="name" class="form-control" placeholder="输入贡献者名称">
+				</div>
+				<div class="form-group">
+					<label for="aa">贡献者团队</label>
+					<input type="text" name="team" class="form-control" placeholder="输入贡献者团队">
+				</div>
+				<div class="form-group">
+					<label for="bb">图片地址(图片大小建议设置为 80*80)</label>
+					<input type="text" name="url" class="form-control"placeholder="输入图片地址">
+				</div>
+				<div class="form-group">
+					<label for="bb">贡献者描述</label>
+					<textarea type="text" name="des" class="form-control" placeholder="输入对贡献者的描述"></textarea>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">提交</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 <include file="Public/footer" />

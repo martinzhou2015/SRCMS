@@ -1,34 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Google Inc.安全应急响应中心</title>
+        <meta name="keywords" content="Google Inc.安全应急响应中心" />
+        <meta name="description" content="Google Inc.安全应急响应中心">
+        <meta name="author" content="srcms.xyz">
 
-    <title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
+        <!-- Web Fonts -->
+        <!--<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">-->
 
-    <!-- Bootstrap core CSS -->
-    <link href="__PUBLIC__/Home/index/bootstrap.min.css" rel="stylesheet">
+        <!-- Vendor Styles -->
+        <link href="__PUBLIC__/Index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="__PUBLIC__/Home/index/ie-emulation-modes-warning.js"></script>
+        <!-- Theme Styles -->
+        <link href="__PUBLIC__/Index/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/global/global.css" rel="stylesheet" type="text/css"/>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="__PUBLIC__/Index/img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="__PUBLIC__/Index/img/apple-touch-icon.png">
+    </head>
+    <!-- End Head -->
 
-    <!-- Custom styles for this template -->
-    <link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <!-- Body -->
+    <body style="font-family:微软雅黑">
+
+    <!--========== HEADER ==========-->
+     <header class="navbar-fixed-top">
+
+      <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -37,13 +47,13 @@
             <span class="yahei icon-bar"></span>
             <span class="yaheiicon-bar"></span>
           </button>
-          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
-          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong>Google Inc.</strong>
+          <span class="yahei" style=" font-size: 12px;padding: 2px 6px;border: 1px solid;border-radius: 4px;vertical-align: 4px; ">安全应急响应中心</span>
           </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
               <ul class="yahei nav navbar-nav">
-                <li class="yahei active"><a href="{:U('index/index')}">首页</a></li>
+                <li class="yahei" style=" background-color: #f5f5f5;"><a href="{:U('index/index')}">首页</a></li>
                 <li><a class="yahei" href="__ROOT__/user.php">漏洞提交</a></li>
                 <li><a class="yahei" href="{:U('page/index')}">安全公告</a></li>
 				<li><a class="yahei" href="{:U('blog/index')}">研究博客</a></li>
@@ -53,139 +63,281 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+    <!-- End Nav -->
+    </header>
+        <!--========== END HEADER ==========-->
 
-      </div>
-    </div>
-
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide yahei" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item">
-          <img class="first-slide" src="__PUBLIC__/Home/images/banner.jpg" alt="首页">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>健康成长</h1>
-              <p>安全是其健康成长的核心要素,我们希望借此平台加强与安全业界同仁的合作与交流</p>
-              <p><a class="btn btn-lg btn-primary" href="__ROOT__/user.php" role="button">报告漏洞</a></p>
+              <!--========== SWIPER SLIDER ==========-->
+        <div class="s-swiper js__swiper-slider">
+            <!-- Swiper Wrapper -->
+            <div class="swiper-wrapper">
+                <div class="s-promo-block-v4 g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('__PUBLIC__/Index/img/1920x1080/05.jpg');">
+                    <div class="container g-ver-center--xs">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="g-margin-b-50--xs">
+                                    <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white" style="font-family:微软雅黑;">Google INC.<br/>安全应急响应中心</h1>
+                                    <p class="g-font-size-18--xs g-font-size-22--sm g-color--white-opacity">诚邀广大安全专家共建安全生态</p>
+                                </div>
+                                <a href="__ROOT__/user.php" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-padding-x-50--xs">提交漏洞</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+                <div class="s-promo-block-v4 g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('__PUBLIC__/Index/img/1920x1080/16.jpg');">
+                    <div class="container g-text-right--xs g-ver-center--xs">
+                        <div class="row">
+                            <div class="col-md-7 col-md-offset-5">
+                                <div class="g-margin-b-50--xs">
+                                    <h2 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white" style="font-family:微软雅黑;">Google INC.<br/>安全应急响应中心</h2>
+                                    <p class="g-font-size-18--xs g-font-size-22--sm g-color--white-opacity">诚邀广大安全专家共建安全生态</p>
+                                </div>
+                                <a href="__ROOT__/user.php" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-padding-x-50--xs">提交情报</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <!-- End Swiper Wrapper -->
+			
+			<!-- Pagination -->
+			<div class="s-swiper__pagination-v1 s-swiper__pagination-v1--bc s-swiper__pagination-v1--white js__swiper-pagination"></div>
         </div>
-        <div class="item active">
-          <img class="second-slide" src="__PUBLIC__/Home/images/banner.jpg" alt="首页">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1><foreach name="title" item="v">{$v.value}</foreach>安全中心</h1>
-              <p>立即加入我们，共建建设诚信、共赢、繁荣的安全生态圈</p>
-              <p><a class="btn btn-lg btn-primary" href="__ROOT__/user.php" role="button">立即报告</a></p>
+        <!--========== END SWIPER SLIDER ==========-->
+
+        <!--========== PAGE CONTENT ==========-->
+		        <!-- Testimonials -->
+        <div class="g-padding-y-80--xs g-padding-y-125--xsm">
+            <div class="container g-text-center--xs">
+                <p class="text-uppercase g-font-size-30--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-50--xs">名人堂</p>
+                <div class="s-swiper js__swiper-testimonials">
+                    <!-- Swiper Wrapper -->
+                    <div class="swiper-wrapper g-margin-b-50--xs">
+					<foreach name="model" item="v">
+                        <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                            <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                                <img class="g-width-70--xs g-height-70--xs g-hor-border-4__solid--white g-box-shadow__dark-lightest-v4 g-radius--circle g-margin-b-30--xs" src="{$v.url}" alt="Image">
+                                <div class="g-margin-b-40--xs">
+                                    <p class="g-font-size-22--xs g-font-size-28--sm g-color--heading"><i>" {$v.des} "</i></p>
+                                </div>
+                                <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-30--xs"></div>
+                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--primary g-margin-b-5--xs">{$v.name} / {$v.team}</h4>
+                            </div>
+                        </div>
+						</foreach>
+                        <!--<div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                            <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                                <img class="g-width-70--xs g-height-70--xs g-hor-border-4__solid--white g-box-shadow__dark-lightest-v4 g-radius--circle g-margin-b-30--xs" src="__PUBLIC__/Index/img/400x400/05.jpg" alt="Image">
+                                <div class="g-margin-b-40--xs">
+                                    <p class="g-font-size-22--xs g-font-size-28--sm g-color--heading"><i>" I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability. "</i></p>
+                                </div>
+                                <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-30--xs"></div>
+                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--primary g-margin-b-5--xs">Anna Kusaikina / Apple</h4>
+                            </div>
+                        </div>
+                        <div class="swiper-slide g-padding-x-130--sm g-padding-x-150--lg">
+                            <div class="g-padding-x-20--xs g-padding-x-50--lg">
+                                <img class="g-width-70--xs g-height-70--xs g-hor-border-4__solid--white g-box-shadow__dark-lightest-v4 g-radius--circle g-margin-b-30--xs" src="__PUBLIC__/Index/img/400x400/06.jpg" alt="Image">
+                                <div class="g-margin-b-40--xs">
+                                    <p class="g-font-size-22--xs g-font-size-28--sm g-color--heading"><i>" I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability. "</i></p>
+                                </div>
+                                <div class="center-block g-hor-divider__solid--heading-light g-width-100--xs g-margin-b-30--xs"></div>
+                                <h4 class="g-font-size-15--xs g-font-size-18--sm g-color--primary g-margin-b-5--xs">Lucas Richardson / Microsoft</h4>
+                            </div>
+                        </div>-->
+                    </div>
+                    <!-- End Swipper Wrapper -->
+
+                    <!-- Arrows -->
+                    <div class="g-font-size-22--xs g-color--heading js__swiper-fraction"></div>
+                    <a href="javascript:void(0);" class="g-display-none--xs g-display-inline-block--sm s-swiper__arrow-v1--right s-icon s-icon--md s-icon--primary-brd g-radius--circle ti-angle-right js__swiper-btn--next"></a>
+                    <a href="javascript:void(0);" class="g-display-none--xs g-display-inline-block--sm s-swiper__arrow-v1--left s-icon s-icon--md s-icon--primary-brd g-radius--circle ti-angle-left js__swiper-btn--prev"></a>
+                    <!-- End Arrows -->
+                </div>
             </div>
-          </div>
         </div>
-        <div class="item">
-          <img class="third-slide" src="__PUBLIC__/Home/images/banner.jpg" alt="首页">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>合作共赢</h1>
-              <p>欢迎广大用户向我们反馈轻响应相关产品及业务的安全漏洞和威胁情报</p>
-              <p><a class="btn btn-lg btn-primary" href="__ROOT__/user.php" role="button">立即报告</a></p>
+        <!-- End Testimonials -->
+
+        <!-- Process -->
+        <div class="g-bg-color--primary-ltr">
+            <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+                <div class="g-text-center--xs g-margin-b-100--xs">
+                    <p class="text-uppercase g-font-size-30--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">处理流程</p>
+                    <!--<h2 class="g-font-size-32--xs g-font-size-36--sm g-color--white">处理流程</h2>-->
+                </div>
+                <ul class="list-inline row g-margin-b-100--xs">
+                    <!-- Process -->
+                    <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--md">
+                        <div class="center-block g-text-center--xs">
+                            <div class="g-margin-b-30--xs">
+                                <span class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">01</span>
+                            </div>
+                            <div class="g-padding-x-20--xs">
+                                <h3 class="g-font-size-18--xs g-color--white" style="font-family:微软雅黑;">报告漏洞</h3>
+                                <p class="g-color--white-opacity">注册并登录平台，提交漏洞详情</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Process -->
+
+                    <!-- Process -->
+                    <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--md">
+                        <div class="center-block g-text-center--xs">
+                            <div class="g-margin-b-30--xs">
+                                <span class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">02</span>
+                            </div>
+                            <div class="g-padding-x-20--xs">
+                                <h3 class="g-font-size-18--xs g-color--white" style="font-family:微软雅黑;">漏洞审核</h3>
+                                <p class="g-color--white-opacity">漏洞有效性鉴别，通常需要1-5个工作日</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Process -->
+
+                    <!-- Process -->
+                    <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1 g-margin-b-60--xs g-margin-b-0--sm">
+                        <div class="center-block g-text-center--xs">
+                            <div class="g-margin-b-30--xs">
+                                <span class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">03</span>
+                            </div>
+                            <div class="g-padding-x-20--xs">
+                                <h3 class="g-font-size-18--xs g-color--white" style="font-family:微软雅黑;">反馈奖励</h3>
+                                <p class="g-color--white-opacity">反馈漏洞审核情况，根据严重性发放奖励</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Process -->
+
+                    <!-- Process -->
+                    <li class="col-sm-3 col-xs-6 g-full-width--xs s-process-v1">
+                        <div class="center-block g-text-center--xs">
+                            <div class="g-margin-b-30--xs">
+                                <span class="g-display-inline-block--xs g-width-100--xs g-height-100--xs g-font-size-38--xs g-color--primary g-bg-color--white g-box-shadow__dark-lightest-v4 g-padding-x-20--xs g-padding-y-20--xs g-radius--circle">04</span>
+                            </div>
+                            <div class="g-padding-x-20--xs">
+                                <h3 class="g-font-size-18--xs g-color--white" style="font-family:微软雅黑;">漏洞修复</h3>
+                                <p class="g-color--white-opacity">报告者确认漏洞修复，相关缺陷跟踪结单</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Process -->
+                </ul>
             </div>
-          </div>
         </div>
-      </div>
-    </div><!-- /.carousel -->
+        <!-- End Process -->
 
+        <!-- News -->
+        <div class="container-fluid g-padding-y-80--xs g-padding-y-125--sm">
+            <div class="g-text-center--xs g-margin-b-80--xs">
+                <p class="text-uppercase g-font-size-30--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-25--xs">平台公告</p>
+            </div>
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-<div class="container marketing yahei">
-	<div class="row center">
-     <h2>贡献TOP3</h2>
-	 </div>
-	 <br/>
-	 <br/>
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-	   <foreach name="model" item="v">
-        <div class="col-lg-4">
-          <img class="img-circle" src="{$v.url}" alt="用户一" width="140" height="140">
-          <h2>{$v.name}</h2>
-          <p>{$v.des}</p>
-        </div></foreach><!-- /.col-lg-4 -->
-        <!--<div class="col-lg-4">
-          <img class="img-circle" src="__PUBLIC__/Home/images/unknow.jpeg" alt="用户二" width="140" height="140">
-          <h2>路人乙</h2>
-          <p>帮助轻响应发现多个严重级别的权限漏洞和逻辑漏洞，帮助轻响应提升了整体业务安全水平</p>
-        </div>--><!-- /.col-lg-4 -->
-        <!--<div class="col-lg-4">
-          <img class="img-circle" src="__PUBLIC__/Home/images/unknow.jpeg" alt="用户三" width="140" height="140">
-          <h2>路人丁</h2>
-          <p>本月发现一枚严重级别的支付问题漏洞，帮助我们快速定位问题，保障了数万用户的安全</p>
-          
-        </div>--><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-	  <div class="row">
-      <p><a class="btn btn-default center" href="{:U('hall/index')}" role="button">查看更多 »</a></p>
-      </div>
-      <!-- START THE FEATURETTES -->
+            <!-- Swiper -->
+            <div class="s-swiper js__swiper-news">
+                <!-- Wrapper -->
+                <div class="swiper-wrapper g-margin-b-60--xs">
+				<foreach name="advisories" item="v">
+                    <article class="s-promo-block-v6 g-bg-position--center swiper-slide" style="background: url('__PUBLIC__/Index/img/400x500/02.jpg');">
+                        <div class="g-text-center--xs g-padding-x-15--xs g-padding-x-30--lg g-padding-y-50--xs g-margin-t-120--xs">
+                            <div class="g-margin-b-25--xs">
+                                <h3 class="g-font-size-16--xs g-color--white g-margin-b-5--xs" style="font-family:微软雅黑;">{$v.title}</h3>
+                                <p class="g-color--white">{$v.update_time|date="Y/m/d",###}</p>
+                            </div>
+                            <a href="{:U('page/view?id=')}{$v.id}" class="text-uppercase s-btn s-btn--xs s-btn--white-brd g-radius--50">查看详情</a>
+                        </div>
+                    </article>
+				</foreach>
+                </div>
+                <!-- End Wrapper -->
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2>平台简介</h2>
-		  <span class="text-muted">SRCMS Security Resonpse Center</span>
-          <p >轻响应安全应急响应中心（SRCMS Security Response Center）是轻响应致力于维护互联网健康生态环境，保障轻响应产品和业务线的信息安全，促进安全专家的合作与交流，而建立的漏洞收集及应急响应平台。本平台收集轻响应产品线及业务上存在的安全漏洞，同时，我们也希望借此平台加强与业内各界的安全合作，共同打造简单可信赖的互联网健康生态。</p>
+                <!-- Pagination -->
+                <div class="s-swiper__pagination-v1 s-swiper__pagination-v1--dark g-text-center--xs js__swiper-pagination"></div>
+            </div>
+            <!-- End Swiper -->
         </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="__PUBLIC__/Home/images/main-photo.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
+        <!-- End News -->
 
-      <hr class="featurette-divider">
+        <!--========== END PAGE CONTENT ==========-->
+
+        <!--========== FOOTER ==========-->
+        <footer class="g-bg-color--dark">
+            <!-- Links -->
+            <div class="g-hor-divider__dashed--white-opacity-lightest">
+                <div class="container g-padding-y-80--xs">
+                    <div class="row">
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">关于我们</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">工作招聘</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">联系我们</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">新浪微博</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">微信平台</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">Twitter</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">隐私政策</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">法律事务</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">授权协议</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
+                            <!--<h3 class="g-font-size-18--xs g-color--white">Google Inc.</h3>-->
+                            <p class="g-color--white-opacity">Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Links -->
+
+            <!-- Copyright -->
+            <div class="container g-padding-y-50--xs">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="index.html">
+                            <img class="g-width-100--xs g-height-auto--xs" src="__PUBLIC__/Index/img/logo.png" alt="Megakit Logo">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 g-text-right--xs">
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">&copy; Google 2017-2018 Powered by: SRCMS</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
 
 
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
 
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#" onclick="back();">返回顶部</a></p>
-        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="{:U('index/index')}">关于我们</a> · <a href="{:U('index/index')}">隐私协议</a></p>
-      </footer>
+        <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+        <!-- Vendor -->
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.migrate.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.back-to-top.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/scrollbar/jquery.scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.parallax.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/swiper/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.wow.min.js"></script>
 
-    </div><!-- /.container -->
+        <!-- General Components and Settings -->
+        <script type="text/javascript" src="__PUBLIC__/Index/js/global.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/magnific-popup.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/swiper.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/wow.min.js"></script>
+        <!--========== END JAVASCRIPTS ==========-->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="__PUBLIC__/Home/index/jquery.min.js"></script>
-    <script src="__PUBLIC__/Home/index/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <!--<script src="__PUBLIC__/Home/index/holder.min.js"></script>-->
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="__PUBLIC__/Home/index/ie10-viewport-bug-workaround.js"></script>
-	<script>
-	function back(){
-	var oTop = document.getElementById("to_top");
-	var screenw = document.documentElement.clientWidth || document.body.clientWidth;
-	var screenh = document.documentElement.clientHeight || document.body.clientHeight;
-	oTop.style.left = screenw - oTop.offsetWidth +"px";
-	oTop.style.top = screenh - oTop.offsetHeight + "px";
-	window.onscroll = function(){
-    var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
-    oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
-	}
-	oTop.onclick = function(){
-    document.documentElement.scrollTop = document.body.scrollTop =0;
-	}
-	}  
-	</script>
-
-</body></html>
+    </body>
+    <!-- End Body -->
+</html>

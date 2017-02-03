@@ -3,12 +3,12 @@ namespace Admin\Controller;
 use Admin\Controller;
 
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
- 
+
 /**
  * 贡献榜管理
  */
@@ -28,29 +28,46 @@ class HallController extends BaseController
             $model = M('hall')->where($where); 
         } 
         
-        $count  = $model->where($where)->count();// 查询满足要求的总记录数
-        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
-        $show = $Page->show();// 分页显示输出
+        $count  = $model->where($where)->count();
+        $Page = new \Extend\Page($count,15);
+        $show = $Page->show();
         $hall = $model->limit($Page->firstRow.','.$Page->listRows)->where($where)->order('id DESC')->select();
         $this->assign('model', $hall);
         $this->assign('page',$show);
         $this->display();     
     }
+	
+	public function record($key="")
+    {
+        if($key == ""){
+            $model = M('record');  
+        }else{
+            $where['user'] = array('like',"%$key%");
+            $where['operator'] = array('like',"%$key%");
+            $where['_logic'] = 'or';
+            $model = M('record')->where($where); 
+        } 
+        
+        $count  = $model->where($where)->count();
+        $Page = new \Extend\Page($count,25);
+        $show = $Page->show();
+        $record = $model->limit($Page->firstRow.','.$Page->listRows)->where('type=1')->where($where)->order('id DESC')->select();
+        $this->assign('model', $record);
+        $this->assign('page',$show);
+        $this->display();     
+    }
 
-    /**
-     * 添加贡献者
-    
+     /**
+     * 添加贡献者信息
+     */
     public function add()
     {
-        //默认显示添加表单
         if (!IS_POST) {
             $this->display();
         }
         if (IS_POST) {
-            //如果用户提交数据
             $model = D("hall");
             if (!$model->create()) {
-                // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());
                 exit();
             } else {
@@ -61,7 +78,7 @@ class HallController extends BaseController
                 }
             }
         }
-    } */
+    }
 	
     /**
      * 更新贡献者信息
@@ -69,7 +86,6 @@ class HallController extends BaseController
     public function update()
     {
 		$id = I('get.id',0,'intval');
-        //默认显示添加表单
         if (!IS_POST) {
             $model = M('hall')->where('id='.$id)->find();
             $this->assign('model',$model);
@@ -88,6 +104,7 @@ class HallController extends BaseController
             }
         }
     }
+	
     /**
      * 删除贡献者
      */

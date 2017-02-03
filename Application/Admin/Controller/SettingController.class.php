@@ -3,111 +3,49 @@ namespace Admin\Controller;
 use Admin\Controller;
 
 /**
- * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
+ * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2017/02/02
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
 
-/**
- * 字段管理
- */
 class SettingController extends BaseController
 {
-    /**
-     * 分类列表
-     * @return [type] [description]
-     */
-    public function index($key="")
+	public function index()
     {
-        if($key == ""){
-            $model = M('setting');  
-        }else{
-            $where['key'] = array('like',"%$key%");
-            $where['description'] = array('like',"%$key%");
-            $where['_logic'] = 'or';
-            $model = M('setting')->where($where); 
-        } 
-        
-        $count  = $model->where($where)->count();// 查询满足要求的总记录数
-        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
-        $show = $Page->show();// 分页显示输出
-        $setting = $model->limit($Page->firstRow.','.$Page->listRows)->where($where)->order('id DESC')->select();
+        $model = M('setting');  
+        $setting = $model->where('id=1')-> find();
         $this->assign('model', $setting);
-        $this->assign('page',$show);
         $this->display();     
     }
 
-    /**
-     * 添加分类
-     */
-    public function add()
+	public function other()
     {
-        //默认显示添加表单
-        if (!IS_POST) {
-            $this->display();
-        }
-        if (IS_POST) {
-            //如果用户提交数据
-            $model = D("Setting");
-            if (!$model->create()) {
-                // 如果创建失败 表示验证没有通过 输出错误提示信息
-                $this->error($model->getError());
-                exit();
-            } else {
-
-                if ($model->add()) {
-                    $this->success("字段添加成功", U('setting/index'));
-                } else {
-                    $this->error("字段添加失败");
-                }
-            }
-        }
+        $model = M('setting');  
+        $setting = $model->where('id=2')-> find();
+        $this->assign('model', $setting);
+        $this->display();     
     }
+
+	
     /**
-     * 更新分类信息
-     * @param  [type] $id [分类ID]
-     * @return [type]     [description]
+     * 更新基础配置
      */
     public function update()
     {
-        //默认显示添加表单
         if (!IS_POST) {
-            $model = M('setting')->find(I('id'));
-            $this->assign('model',$model);
             $this->display();
         }
         if (IS_POST) {
-            $model = D("Setting");
-            if (!$model->create()) {
-                $this->error($model->getError());
-            }else{
-             //   dd(I());die;
-                if ($model->save()) {
-                    $this->success("设置更新成功", U('setting/index'));
+                $model = M("setting");
+				$data = I();
+				$id = I('get.id',0,'intval');
+                if ($model-> where('id='.$id) ->save($data)) {
+                    $this->success("配置更新成功", U('setting/index'));
                 } else {
-                    $this->error("设置更新失败");
-                }        
+                    $this->error("配置更新失败");     
             }
         }
     }
-    /**
-     * 删除分类
-     * @param  [type] $id [description]
-     * @return [type]     [description]
-     */
-    public function delete($id)
-    {
-        $model = M('setting');
-
-        //验证通过
-        $result = $model->delete($id);
-        if($result){
-            $this->success("字段删除成功", U('setting/index'));
-        }else{
-            $this->error("字段删除失败");
-        }
-    }
-
 
 }

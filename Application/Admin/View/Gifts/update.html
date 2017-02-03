@@ -1,0 +1,41 @@
+<include file="Public/header" title="更新礼品 - 企业安全应急响应与缺陷管理中心" links_status="open" links_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-layers"></i> <a href="{:U('gifts/index')}">礼品列表</a>
+</li>
+<li>
+<a href="javascript:;">更新礼品</a>
+</li>
+</ol>
+</div>
+
+    <form method="post" action="{:U('gifts/update')}">
+        <div class="form-group">
+            <label for="aa">礼品名称</label>
+            <input type="text" name="title" class="form-control" value="{$model.title}" placeholder="输入礼品名称">
+        </div>
+        <div class="form-group">
+            <label for="bb">图片地址(图片大小建议设置为 100*100)</label>
+            <input type="text" name="url" class="form-control" value="{$model.url}" placeholder="输入图片地址">
+        </div>
+        <div class="form-group">
+            <label for="cc">礼品价格</label>
+            <input type="text" name="price" class="form-control" value="{$model.price}" placeholder="输入礼品价格...">
+        </div>
+		<div class="form-group">
+            <label for="post-cate">礼品分类 </label>
+            <select name="sort" class="form-control" style="width:100%;">
+                    <option value="graphic">实物礼品</option>
+					<option value="cash">现金礼品</option>
+					<option value="virtual">虚拟礼品</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" value="{$model.id}">
+            <button type="submit" class="btn btn-default">更新</button>
+        </div>
+    </form>
+	</div>
+<include file="Public/footer" />

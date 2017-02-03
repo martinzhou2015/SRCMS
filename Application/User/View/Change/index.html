@@ -1,12 +1,16 @@
-<extend name="Public:common" />
-<block name="main">
-
-<div class="gallery">
-   <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-		<br/>
-            <h3>更改密码</h3><hr/>
-    
+<include file="Public/header" title="更新个人信息 - 企业安全应急响应与缺陷管理中心" user_status="open" change_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+	<ol class="breadcrumb no-bg pl0">
+	<li>
+	<i class="icon-users"></i>账号中心
+	</li>
+	<li>
+	<a href="javascript:;">更改密码</a>
+	</li>
+	</ol>
+</div> 
+   <div class="col-lg-12">
 	<form action="{:U('change/change')}" method="post">
 	<div class="form-group">
 		<label>旧密码</label>
@@ -20,12 +24,34 @@
 		<label>确认密码</label>
 		<input class="form-control" type="password" name="repassword" placeholder="请再次输入新密码">
 	</div>
+	<div class="form-group">
+                    <label> 验证码</label>
+                    <div class="row" >
+                        <div class="col-md-8">
+                            <input type="text"  name="verify" class="form-control" id="exampleInputCode" placeholder="请输入验证码...">
+                        </div>
+                        <div class="col-md-4">
+                            <a href="javascript:void(0)"><img class="verify" class="form-control" src="{:U('reg/verify')}" alt="点击刷新"/></a>
+                        </div>
+                    </div>
+    </div>
     <div class="form-group">
 		<button class="btn btn-success" type="submit">提交</button>
 	</div>
     </form>
-        </div>
-    </div>
+   </div>
 </div>
 
-</block>
+<script src="__STATIC__/js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $(".verify").click(function(){
+            var src = "{:U('change/verify')}";
+            var random = Math.floor(Math.random()*(1000+1));
+            $(this).attr("src",src+"&random="+random);
+
+        });
+    })
+</script>
+
+<include file="Public/footer" />

@@ -1,0 +1,46 @@
+<include file="Public/header" title="礼品管理  - 企业安全应急响应与缺陷管理中心" links_status="open" links_color="#6164C1;"/>
+
+<div class="main-content">
+    
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{:U('gifts/add')}" class="btn btn-success" style="margin : 2px 5px 5px 0px;">添加礼品</a>
+        </div>
+        <div class="col-md-6">
+            <form action="{:U('gifts/index')}" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" name="key" placeholder="输入礼品名称关键词搜索...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+	<div class="no-more-tables">
+    <table class="table m-b-0">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>礼品名称</th>
+                <th>礼品价格</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="model" item="v">
+            <tr>
+                <td data-title="编号">{$v.id}</td>
+                <td data-title="礼品名称">{$v.title}</td>
+                <td data-title="礼品价格">{$v.price}</td> 
+                <td data-title="操作"><a href="{:U('gifts/update?id=')}{$v.id}">编辑</a> | <a href="{:U('gifts/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+</div>
+ <div class="clearfix"></div>
+    {$page}
+</div>
+
+<include file="Public/footer" />

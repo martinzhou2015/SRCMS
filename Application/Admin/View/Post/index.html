@@ -1,30 +1,27 @@
-<include file="Public/header" title="漏洞审核" />
-<div id="page-wrapper">
-    
-    <div class="row">
+<include file="Public/header" title="全部报告 - 企业安全应急响应与缺陷管理中心" report_status="open" report_color="#6164C1;"/>
+<div class="main-content">
+<div class="row">
         <div class="col-md-6">
-        <a href="{:U('post/add')}" class="btn btn-success">添加报告</a>
+        <a href="{:U('post/add')}" class="btn btn-success" style="margin : 2px 5px 5px 0px;">添加报告</a>
 		<div class="btn-group">
-			<button type="button" class="btn btn-primary">筛选报告</button>
-			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+			<button type="button" class="btn btn-primary" style="margin : 2px 0px 5px 0px;">筛选报告</button>
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="margin : 2px 0px 5px 0px;">
 				<span class="caret"></span>
 				<span class="sr-only">切换下拉菜单</span>
 			</button>
 			<ul class="dropdown-menu" role="menu">
-				<li><a href="{:U('post/filter?id=1')}">审核中</a></li>
-				<li><a href="{:U('post/filter?id=2')}">已忽略</a></li>
-				<li><a href="{:U('post/filter?id=3')}">已确认</a></li>
-				<li><a href="{:U('post/filter?id=4')}">已修复</a></li>
-				<!--<li class="divider"></li>
-				<li><a href="#">分离的链接</a></li>-->
+				<li><a href="{:U('post/index?key=1')}">审核中</a></li>
+				<li><a href="{:U('post/index?key=2')}">已忽略</a></li>
+				<li><a href="{:U('post/index?key=3')}">已确认</a></li>
+				<li><a href="{:U('post/index?key=4')}">已修复</a></li>
 			</ul>
 </div>
     </ul>
         </div>
         <div class="col-md-6">
             <form action="{:U('post/index')}" method="post">
-                <div class="form-group input-group">
-                    <input type="text" class="form-control" name="key" placeholder="输入文章标题、作者或者分类关键词搜索">
+                <div class="form-group input-group" style="margin : 2px 0px 5px 0px;">
+                    <input type="text" class="form-control" name="key" placeholder="输入报告标题、提交者或者漏洞类型关键词搜索...">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                     </span>
@@ -32,40 +29,41 @@
             </form>
         </div>
     </div>
-    <table class="table table-hover table-striped">
+	<div class="no-more-tables">
+    <table class="table m-b-0">
         <thead>
             <tr>
                 <th>编号</th>
-                <th>标题</th>
-                <th>状态</th>
+                <th>报告标题</th>
+                <th>报告状态</th>
                 <th>提交时间</th>
                 <th>提交者</th>
-                <th>分类</th>
+                <th>漏洞类型</th>
                 <th>操作</th> 
             </tr>
         </thead>
         <tbody>
         <foreach name="model" item="v">
             <tr>
-                <td>{$v.id}</td>
-                <td><a href="{:U('post/update?id=')}{$v.id}">{$v.title}</a></td>
-                <td>
+                <td data-title="编号">{$v.id}</td>
+                <td data-title="报告标题"><a href="{:U('post/review?id=')}{$v.id}">{$v.title}</a></td>
+                <td data-title="报告状态">
                     <if condition="$v.type eq 1"><span class="label label-info">审核中</span>
                     <elseif condition="$v.type eq 2" /><span class="label label-default">已忽略</span>
                     <elseif condition="$v.type eq 3" /><span class="label label-warning">已确认</span>
                     <elseif condition="$v.type eq 4" /><span class="label label-success">已修复</span>
                     </if>
                 </td>
-                <td>{$v.time|date="Y/m/d",###}</td>
-                <td>{$v.username}</td>
-                <td>{$v.category_title}</td>
-                <td><a href="{:U('post/update?id=')}{$v.id}">审核</a> | <if condition="$v.visible eq 0"><a href="{:U('post/session?id=')}{$v.id}" target="_Blank">生成工单</a>  <elseif condition="$v.visible eq 1" /><a href="{:U('check/view?session_id=')}{$v.session}" target="_Blank">查看工单</a></if> | <a href="{:U('post/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+                <td data-title="提交时间">{$v.time|date="Y/m/d",###}</td>
+                <td data-title="提交者">{$v.username}</td>
+                <td data-title="分类">{$v.category_title}</td>
+                <td data-title="操作"><a href="{:U('post/review?id=')}{$v.id}">审核</a> | <a href="{:U('post/update?id=')}{$v.id}">编辑</a> <!--| <if condition="$v.visible eq 0"><a href="{:U('post/session?id=')}{$v.id}" target="_Blank">生成工单</a>  <elseif condition="$v.visible eq 1" /><a href="{:U('check/view?session_id=')}{$v.session}" target="_Blank">查看工单</a></if>--> | <a href="{:U('post/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
             </tr>
         </foreach>
         </tbody>
     </table>
+	</div>
     <div class="clearfix"></div>
     {$page}
-    
 </div>
 <include file="Public/footer" />

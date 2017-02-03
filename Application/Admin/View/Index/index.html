@@ -1,139 +1,82 @@
-<include file="Public/header" title="应急响应中心后台主页" />
-<div id="page-wrapper">
+<include file="Public/header" title="控制台 - 企业安全应急响应与缺陷管理中心" />
+<div class="main-content" style="font-family:微软雅黑">
+<div class="m-x-n-g m-t-n-g overflow-hidden">
+<div class="card m-b-0 bg-primary-dark text-white p-a-md no-border">
+<h4 class="m-t-0">
+<span class="pull-right" style="font-family:微软雅黑">本周共计 109 份报告</span>
+<span style="font-family:微软雅黑">总缺陷趋势</span>
+</h4>
+<div class="chart dashboard-line labels-white" style="height: 300px; padding: 0px; position: relative;"><canvas class="flot-base" width="1014" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1014px; height: 300px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 17px; text-align: center;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 140px; text-align: center;">1</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 263px; text-align: center;">2</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 386px; text-align: center;">3</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 510px; text-align: center;">4</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 633px; text-align: center;">5</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 756px; text-align: center;">6</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 879px; text-align: center;">7</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 114px; top: 281px; left: 1003px; text-align: center;">8</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 267px; left: 8px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 234px; left: 1px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 200px; left: 1px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 167px; left: 1px; text-align: right;">30</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 134px; left: 1px; text-align: right;">40</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 100px; left: 1px; text-align: right;">50</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 67px; left: 1px; text-align: right;">60</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 33px; left: 1px; text-align: right;">70</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">80</div></div></div><canvas class="flot-overlay" width="1014" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 1014px; height: 300px;"></canvas></div>
+</div>
+<div class="card bg-white no-border">
+<div class="row text-center">
+<div class="col-sm-3 col-xs-6 p-t p-b">
+<h4 class="m-t-0 m-b-0"><a href="{:U('post/index')}">{$post}</a></h4>
+<small class="text-muted bold"><a href="{:U('post/index')}">漏洞报告</a></small>
+</div>
+<div class="col-sm-3 col-xs-6 p-t p-b">
+<h4 class="m-t-0 m-b-0"><a href="{:U('page/index')}">{$page}</a></h4>
+<small class="text-muted bold"><a href="{:U('page/index')}">安全公告</a></small>
+</div>
+<div class="col-sm-3 col-xs-6 p-t p-b">
+<h4 class="m-t-0 m-b-0"><a href="{:U('member/index')}">{$user}</a></h4>
+<small class="text-muted bold"><a href="{:U('member/index')}">注册用户</a></small>
+</div>
+<div class="col-sm-3 col-xs-6 p-t p-b">
+<h4 class="m-t-0 m-b-0"><a href="{:U('order/index')}">{$order}</a></h4>
+<small class="text-muted bold">礼品订单</small>
+</div>
+</div>
+</div>
+</div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <span style="font-size:20px">您好！欢迎登陆应急响应中心管理后台</span>
-                <p>注意:请定期修改您的后台密码，保证安全性！</p>
-				<p>请您定期更新SRCMS以获取最新安全补丁和特性：<a href="https://github.com/martinzhou2015/SRCMS" target="_blank">点击此处查看项目</a></p>
-				<!--<p>您可以进行以下操作：</p>
-				<ul>
-				<li>1.漏洞审核</li>
-				<li>2.博客更新</li>
-				<li>3.礼品库更新</li>
-				<li>3.用户管理</li>
-				</u/>-->
-				<div class="clearfix"></div>
-            </div>
-        </div>
-    </div><!-- /.row -->
-    <div class="row">
-        <div class="col-lg-3">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <i class="fa  fa-comment fa-5x"></i>
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <p class="announcement-heading">{$post}</p>
-                            <p class="announcement-text">漏洞报告</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer announcement-bottom">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="{:U('post/index')}"><i class="fa fa-edit"></i>审核漏洞</a>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                <a href="{:U('post/index')}"><i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="panel panel-warning">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <i class="fa fa-users fa-5x"></i>
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <p class="announcement-heading">{$user}</p>
-                            <p class="announcement-text">用户</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer announcement-bottom">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="{:U('member/index')}"><i class="fa fa-edit"></i>管理用户</a>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                <a href="{:U('member/index')}"><i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <i class="fa fa-edit fa-5x"></i>
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <p class="announcement-heading">{$page}</p>
-                            <p class="announcement-text">公告</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer announcement-bottom">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="{:U('page/index')}"><i class="fa fa-edit"></i>管理公告</a>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                <a href="{:U('page/index')}"><i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <i class="fa fa-link fa-5x"></i>
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <p class="announcement-heading">{$links}</p>
-                            <p class="announcement-text">礼品库</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer announcement-bottom">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <a href="{:U('links/index')}"><i class="fa fa-edit"></i>管理礼品</a>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                <a href="{:U('links/index')}"><i class="fa fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div><!-- /.row -->
+<!--<div class="row">
+<div class="col-sm-6">
+<div class="card card-block no-border bg-danger text-white">
+<h6 class="m-a-0" style="font-family:微软雅黑;">未审核报告</h6>
+<h1 class="m-a-0">785</h1>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="card card-block no-border bg-dark text-white">
+<h6 class="m-a-0" style="font-family:微软雅黑;">未结单报告</h6>
+<h1 class="m-a-0">381</h1>
+</div>
+</div>
+</div>-->
 
-    <!-- /.row -->
+<div class="row">
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="no-more-tables">
+    <table class="table m-b-0">
+        <thead>
+            <tr>
+                <th>公告标题</th>
+                <th>发布时间</th>
+            </tr>
+        </thead>
+        <tbody>
+		<foreach name="detail" item="v">
+		 <tr>
+                <td data-title="报告标题"><a href="{:U('page/update?id=')}{$v.id}">{$v.title}</a></td>
+                <td data-title="报告时间">{$v.time|date="Y/m/d",###}</td>
+        </tr>
+		</foreach>
+        </tbody>
+    </table>
+	</div>
+</div>
+</div>
 
-    <!-- /.row -->
 
+</div>
+</div>
+</div>
+
+
+ 
 </div>
 
 <include file="Public/footer" />

@@ -1,19 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>礼品库--<foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
-		<link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
-	</head>
- <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>礼品中心 - Google Inc.安全应急响应中心</title>
+        <meta name="keywords" content="Google Inc.安全应急响应中心" />
+        <meta name="description" content="Google Inc.安全应急响应中心">
+        <meta name="author" content="srcms.xyz">
+
+        <!-- Web Fonts -->
+        <!--<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">-->
+
+        <!-- Vendor Styles -->
+        <link href="__PUBLIC__/Index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/vendor/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Theme Styles -->
+        <link href="__PUBLIC__/Index/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="__PUBLIC__/Index/css/global/global.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <!--<link rel="shortcut icon" href="__PUBLIC__/Index/img/favicon.ico" type="image/x-icon">-->
+        <link rel="apple-touch-icon" href="__PUBLIC__/Index/img/apple-touch-icon.png">
+    </head>
+    <!-- End Head -->
+
+    <!-- Body -->
+    <body style="font-family:微软雅黑">
+
+    <!--========== HEADER ==========-->
+     <header class="navbar-fixed-top">
+      <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -22,8 +46,8 @@
             <span class="yahei icon-bar"></span>
             <span class="yaheiicon-bar"></span>
           </button>
-          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
-          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong>Google Inc.</strong>
+          <span class="yahei" style=" font-size: 12px;padding: 2px 6px;border: 1px solid;border-radius: 4px;vertical-align: 4px; ">安全应急响应中心</span>
           </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -33,56 +57,156 @@
                 <li><a class="yahei" href="{:U('page/index')}">安全公告</a></li>
 				<li><a class="yahei" href="{:U('blog/index')}">研究博客</a></li>
 				<li><a class="yahei" href="{:U('hall/index')}">贡献榜</a></li>
-				<li class="active"><a class="yahei" href="{:U('gift/index')}">礼品库</a></li>
+				<li><a class="yahei" href="{:U('gift/index')}" style=" background-color: #f5f5f5;">礼品库</a></li>
             </div>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+    <!-- End Nav -->
+    </header>
+        <!--========== PROMO BLOCK ==========-->
+        <div class="js__parallax-window" style="background-image:url('__PUBLIC__/Index/img/970x647/07.jpg');">
+            <div class="container g-padding-y-55--xs">
+                <div class="g-padding-y-50--xs">
+                    <p class="g-font-size-26--xs g-font-size-40--md g-margin-b-0--xs">礼品中心</p>
+                    <p class="g-font-size-18--xs g-font-size-15--md g-margin-b-0--xs">丰富的奖品，丰厚的奖励，感恩回馈。</p>
+                </div>
+            </div>
+        </div>
+        <!--========== END PROMO BLOCK ==========-->
 
-<div class="gallery">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2><strong>礼品库</strong></h2>
-        <hr/>
-      </div>
-     </div>
-     
-    <div class="row">
-        <ul class="col-sm-7 col-sm-offset-3 list-inline">
-		<foreach name="gift" item="v">
-        <li class="panel panel-default" style="width:190px;height:150px;margin:5px 5px 5px 5px;text-align:center;"><br/><img src="{$v.url}" style="width:100px;height:100px;"/><br/>{$v.title}<br/></li>
-		</foreach>
-        </ul>
-	</div>
-</div>
+        <!--========== PAGE CONTENT ==========-->
+        <!-- Portfolio Filter -->
+        <div class="container g-padding-y-100--xs">
+            <div class="s-portfolio">
+                <div id="js__filters-portfolio-gallery" class="s-portfolio__filter-v1 cbp-l-filters-text cbp-l-filters-center">
+                    <div data-filter="*" class="g-font-size-15--md s-portfolio__filter-v1-item cbp-filter-item cbp-filter-item-active">所有奖品</div>
+                    <div data-filter=".graphic" class="g-font-size-15--md s-portfolio__filter-v1-item cbp-filter-item">实物奖品</div>
+                    <div data-filter=".cash" class="g-font-size-15--md s-portfolio__filter-v1-item cbp-filter-item">现金奖品</div>
+                    <div data-filter=".virtual" class="g-font-size-15--md s-portfolio__filter-v1-item cbp-filter-item">虚拟奖品</div>
+                </div>
+            </div>
+        </div>
+        <!-- End Portfolio Filter -->
 
-<footer class="footer">
-	  <div class="container marketing yahei">
-        <p class="pull-right"><a href="#" onclick="back();">返回顶部</a></p>
-        <p>© 2016 <foreach name="title" item="v">{$v.value}</foreach> · <a href="__ROOT__">关于我们</a> · <a href="__ROOT__">隐私协议</a></p>
-		</div>
-</footer>
+        <!-- Portfolio Gallery -->
+        <div class="container">
+             <div id="js__grid-portfolio-gallery" class="cbp">
+                <!-- Item -->
+				<foreach name="gift" item="v">
+                <div class="s-portfolio__item cbp-item {$v.sort}">
+                    <div class="s-portfolio__img-effect">
+                        <img src="{$v.url}" alt="Portfolio Image">
+                    </div>
+                    <div class="s-portfolio__caption-hover--cc">
+                        <div class="g-margin-b-25--xs">
+                            <h2 class="g-font-size-18--xs g-color--white g-margin-b-5--xs" style="font-family:微软雅黑;">{$v.title}</h2>
+                            <p class="g-color--white-opacity">礼品价格：{$v.price} 安全币</p>
+                        </div>
+                        <ul class="list-inline g-ul-li-lr-5--xs g-margin-b-0--xs">
+                            <li>
+                                <a href="{$v.url}" class="cbp-lightbox s-icon s-icon--sm s-icon--white-bg g-radius--circle" data-title="{$v.title} <br/> 礼品价格：{$v.price} 安全币">
+                                    <i class="ti-fullscreen"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./user.php" class="s-icon s-icon--sm s-icon s-icon--white-bg g-radius--circle">
+                                    <i class="ti-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+				</foreach>
+                <!-- End Item -->
+            </div>
+            <!-- End Portfolio Gallery -->
+        </div>
+        <!-- End Portfolio -->
+		        <!-- Clients -->
+        <div class="g-container--md g-padding-y-80--xs g-padding-y-125--sm">
+            <!-- Swiper Clients -->
+            <!-- End Swiper Clients -->
+        </div>
+        <!-- End Clients -->
+        <!--========== FOOTER ==========-->
+        <footer class="g-bg-color--dark">
+            <!-- Links -->
+            <div class="g-hor-divider__dashed--white-opacity-lightest">
+                <div class="container g-padding-y-80--xs">
+                    <div class="row">
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">关于我们</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">工作招聘</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">联系我们</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">新浪微博</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">微信平台</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">Twitter</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
+                            <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">隐私政策</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">法律事务</a></li>
+                                <li><a class="g-font-size-15--xs g-color--white-opacity" href="javascript:void(0);">授权协议</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
+                            <!--<h3 class="g-font-size-18--xs g-color--white">Google Inc.</h3>-->
+                            <p class="g-color--white-opacity">Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Links -->
 
-<!-- script references -->
-		<script src="__PUBLIC__/Home/index/jquery.min.js"></script>
-		<script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
-		<script src="__PUBLIC__/Home/js/scripts.js"></script>
-		<script>
-			function back(){
-			var oTop = document.getElementById("to_top");
-			var screenw = document.documentElement.clientWidth || document.body.clientWidth;
-			var screenh = document.documentElement.clientHeight || document.body.clientHeight;
-			oTop.style.left = screenw - oTop.offsetWidth +"px";
-			oTop.style.top = screenh - oTop.offsetHeight + "px";
-			window.onscroll = function(){
-			var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
-			oTop.style.top = screenh - oTop.offsetHeight + scrolltop +"px";
-			}
-			oTop.onclick = function(){
-			document.documentElement.scrollTop = document.body.scrollTop =0;
-			}
-			}  
-	  </script>
-	</body>
+            <!-- Copyright -->
+            <div class="container g-padding-y-50--xs">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="index.html">
+                            <img class="g-width-100--xs g-height-auto--xs" src="__PUBLIC__/Index/img/logo.png" alt="Megakit Logo">
+                        </a>
+                    </div>
+                    <div class="col-xs-6 g-text-right--xs">
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">&copy; Google 2017-2018 Powered by: SRCMS</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
+
+
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+       
+        <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+        <!-- Vendor -->
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.migrate.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.back-to-top.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/scrollbar/jquery.scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/swiper/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/vendor/jquery.wow.min.js"></script>
+
+        <!-- General Components and Settings -->
+        <script type="text/javascript" src="__PUBLIC__/Index/js/global.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/scrollbar.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/swiper.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/portfolio-3-col.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Index/js/components/wow.min.js"></script>
+        <!--========== END JAVASCRIPTS ==========-->
+
+    </body>
+    <!-- End Body -->
 </html>
-

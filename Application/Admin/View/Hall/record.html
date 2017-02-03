@@ -1,0 +1,46 @@
+<include file="Public/header" title="积分日志 - 企业安全应急响应与缺陷管理中心" hall_status="open" jifen_color="#6164C1;"/>
+
+<div class="main-content">
+    <div class="row">
+	    <div class="col-md-12">
+            <form action="{:U('hall/record')}" method="post">
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" name="key" placeholder="输入影响用户名或操作人名关键词进行搜索...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+	<div class="no-more-tables">
+    <table class="table m-b-0">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>操作行为</th>
+                <th>操作明细</th>
+				<th>操作时间</th>
+                <th>影响用户</th>
+				<th>操作人</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="model" item="list">
+            <tr>
+                <td data-title="编号">{$list.id}</td>
+                <td data-title="操作行为">{$list.name}</td>
+				<td data-title="操作明细">{$list.content}</td>
+				<td data-title="操作时间">{$list.time|date="Y/m/d",###}</td>
+                <td data-title="影响用户">{$list.user}</td>
+				<td data-title="操作人">{$list.operator}</td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+</div>
+<div class="clearfix"></div>
+    {$page}
+</div>
+
+<include file="Public/footer" />

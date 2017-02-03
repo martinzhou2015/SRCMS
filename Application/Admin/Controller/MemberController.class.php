@@ -5,8 +5,8 @@ use Admin\Controller;
 /**
  * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
  * @Copyright 2015-2020 SISMO
- * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Project homepage https://www.srcms.xyz
+ * @Version 2.0
  */
 
 /**
@@ -16,7 +16,7 @@ class MemberController extends BaseController
 {
     /**
      * 用户列表
-     * @return [type] [description]
+     * @param  [type] $id [管理员ID]
      */
     public function index($key="")
     {
@@ -43,15 +43,12 @@ class MemberController extends BaseController
      */
     public function add()
     {
-        //默认显示添加表单
         if (!IS_POST) {
             $this->display();
         }
         if (IS_POST) {
-            //如果用户提交数据
             $model = D("Member");
             if (!$model->create()) {
-                // 如果创建失败 表示验证没有通过 输出错误提示信息
                 $this->error($model->getError());
                 exit();
             } else {
@@ -64,13 +61,10 @@ class MemberController extends BaseController
         }
     }
     /**
-     * 更新管理员信息
-     * @param  [type] $id [管理员ID]
-     * @return [type]     [description]
+     * 更新用户信息
      */
     public function update()
     {
-        //默认显示添加表单
         if (!IS_POST) {
             $model = M('member')->find(I('id'));
             $this->assign('model',$model);
@@ -82,17 +76,14 @@ class MemberController extends BaseController
             if (!$model->create()) {
                 $this->error($model->getError());
             }else{
-                //验证密码是否为空   
                 $data = I();
                 unset($data['password']);
                 if(I('password') != ""){
                     $data['password'] = md5(md5(md5($user['salt']).md5(I('password'))."SR")."CMS");
                 }
-                //强制更改超级管理员用户类型
                 if(C('SUPER_ADMIN_ID') == I('id')){
                     $data['type'] = 1;
                 }
-                //更新
                 if ($model->save($data)) {
                     $this->success("用户信息更新成功", U('member/index'));
                 } else {
@@ -102,18 +93,13 @@ class MemberController extends BaseController
         }
     }
     /**
-     * 删除管理员
-     * @param  [type] $id [description]
-     * @return [type]     [description]
+     * 禁用用户
      */
-    public function delete()
+    public function ban()
     {
 		$id = I('get.id',0,'intval'); 
-    	if(C('SUPER_ADMIN_ID') == $id) $this->error("超级管理员不可禁用!");
         $model = M('member');
-        //查询status字段值
         $result = $model->find($id);
-        //更新字段
         $data['id']=$id;
         if($result['status'] == 1){
         	$data['status']=0;
@@ -125,6 +111,20 @@ class MemberController extends BaseController
             $this->success("状态更新成功", U('member/index'));
         }else{
             $this->error("状态更新失败");
+        }
+    }
+    /**
+     * 删除用户
+	 * @param  [type] $id [管理员ID]
+     */
+    public function delete()
+    {
+		$id = I('get.id',0,'intval'); 
+        $model = M('member');
+		if($model->where('id='.$id)->delete()){
+            $this->success("用户删除成功", U('member/index'));
+        }else{
+            $this->error("用户删除失败");
         }
     }
 }

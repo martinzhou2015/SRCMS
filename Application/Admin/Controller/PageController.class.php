@@ -5,7 +5,7 @@ use Admin\Controller;
  * @Author: Zhou Yuyang <1009465756@qq.com> 10:28 2016/12/03
  * @Copyright 2015-2020 SISMO
  * @Project homepage https://github.com/CNSISMO
- * @Version 1.8
+ * @Version 2.0
  */
  
 /**
@@ -38,7 +38,7 @@ class PageController extends BaseController
     }
 
     /**
-     * 添加单页
+     * 添加公告
      */
     public function add()
     {
@@ -47,52 +47,41 @@ class PageController extends BaseController
             $this->display();
         }
         if (IS_POST) {
-            //如果用户提交数据
-            $model = D("Page");
-            if (!$model->create()) {
-                // 如果创建失败 表示验证没有通过 输出错误提示信息
-                $this->error($model->getError());
-                exit();
-            } else {
-                if ($model->add()) {
+            $model = M("Page");
+			$data = I();
+			$data['update_time'] = time();
+            if ($model->add($data)) {
                     $this->success("添加成功", U('page/index'));
                 } else {
                     $this->error("添加失败");
                 }
-            }
         }
     }
     /**
-     * 更新单页信息
-     * @param  [type] $id [单页ID]
-     * @return [type]     [description]
+     * 更新公告
      */
     public function update()
     {
         $id = I('get.id',0,'intval');
-		//默认显示添加表单
         if (!IS_POST) {
             $model = M('page')->where('id='.$id)->find();
             $this->assign('page',$model);
             $this->display();
         }
         if (IS_POST) {
-            $model = D("Page");
-            if (!$model->create()) {
-                $this->error($model->getError());
-            }else{
-                if ($model->save()) {
+            $model = M("Page");
+			$data = I();
+			$data['update_time'] = time();
+            if ($model->save($data)) {
                     $this->success("更新成功", U('page/index'));
                 } else {
                     $this->error("更新失败");
                 }        
-            }
         }
     }
+
     /**
      * 删除单页
-     * @param  [type] $id [description]
-     * @return [type]     [description]
      */
     public function delete()
     {

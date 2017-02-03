@@ -1,53 +1,342 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title><foreach name="title" item="v">{$v.value}</foreach>安全应急响应中心</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="__PUBLIC__/Home/css/bootstrap.min.css" rel="stylesheet">
-		<link href="__PUBLIC__/User/font-awesome/css/font-awesome.css" rel="stylesheet">
-		<link href="__PUBLIC__/Home/index/carousel.css" rel="stylesheet">
-		<link href="__PUBLIC__/Home/css/styles.css" rel="stylesheet">
-	</head>
- <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="yahei sr-only">Toggle navigation</span>
-            <span class="yahei icon-bar"></span>
-            <span class="yahei icon-bar"></span>
-            <span class="yaheiicon-bar"></span>
-          </button>
-          <a class="yahei navbar-brand" href="__ROOT__"><strong><foreach name="title" item="v">{$v.value}</foreach></strong>
-          <span class="yahei navbar-brand-subtitle">安全应急响应中心</span>
-          </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-              <ul class="yahei nav navbar-nav">
-             <li><a href="{:U('index/index')}">个人中心</a></li>
-			   <li><a href="{:U('post/add')}">报告漏洞</a></li>
-		      <li><a href="{:U('post/index')}">漏洞列表</a></li>
-			  <li><a href="{:U('info/index')}">联系方式</a></li>
-			  <li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">礼品中心</a>
-			  <ul class="dropdown-menu">
-				<li><a href="{:U('gift/index')}">礼品兑换</a></li>
-				<li><a href="{:U('gift/order')}">查看订单</a></li>
-			  </ul>
-			  </li>
-              </ul>
-			  <ul class="yahei nav navbar-nav navbar-right">
-			  <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo session('username')?><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-					<li><a href="{:U('change/index')}">更改密码</a></li>
-                    <li><a href="{:U('login/logout')}">退出登录</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-        </div>
-      </div>
-    </nav>
+<html class=" js no-touch csstransforms csstransforms3d svg" lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>[title]</title>
+<meta name="description" content="">
+<meta name="referrer" content="never">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+ 
+<script type="text/javascript" src="__STATIC__/ga.js"></script>
+
+<link rel="stylesheet" href="__STATIC__/app.min.css">
+
+<style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style>
+</head>
+<body class="wysihtml5-supported page-loaded" style="font-family:微软雅黑;">
+ 
+<div class="pageload" style="display: none;">
+<div class="pageload-inner">
+<div class="sk-rotating-plane"></div>
+</div>
+</div>
+ 
+<div class="app layout-fixed-header">
+ 
+<div class="sidebar-panel offscreen-left ps-container ps-active-y" data-ps-id="4dd3008c-a74f-793d-e4fa-8a1e95729015">
+<div class="brand">
+ 
+<a href="javascript:;" class="toggle-apps hidden-xs">
+<i class="icon-grid"></i>
+</a>
+ 
+ 
+<div class="toggle-offscreen">
+<a href="javascript:;" class="visible-xs hamburger-icon" data-toggle="offscreen" data-move="ltr">
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+ 
+ 
+<a class="brand-logo">
+<span>SRCMS</span>
+</a>
+<a href="http://reactor.nyasha.me/static/forms-editors.html#" class="small-menu-visible brand-logo">S</a>
+ 
+</div>
+ 
+<nav role="navigation">
+<ul class="nav">
+ 
+<li>
+<a href="{:U('index/index')}">
+<i class="icon-compass"></i>
+<span>个人中心</span>
+</a>
+</li> 
+ 
+<li class="[report_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-drop"></i>
+<span>漏洞报告</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('post/add')}">
+<span style="color:[add_report_color];">提交报告</span>
+</a>
+</li>
+<li>
+<a href="{:U('post/index')}">
+<span style="color:[report_color];">全部报告</span>
+</a>
+</li>
+</ul>
+</li>
+ 
+<li class="[gifts_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-bag"></i>
+<span>礼品中心</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('gift/index')}">
+<span style="color:[gifts_color]">礼品兑换</span>
+</a>
+</li>
+<li>
+<a href="{:U('gift/order')}">
+<span style="color:[order_color]">我的订单</span>
+</a>
+</li>
+</ul>
+</li>
+ 
+<li class="[user_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-users"></i>
+<span>账号中心</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('info/index')}">
+<span style="color:[info_color]">个人信息</span>
+</a>
+</li>
+<li>
+<a href="{:U('change/index')}">
+<span style="color:[change_color]">账户设置</span>
+</a>
+</li>
+</ul>
+</li>
+
+<!--<li class="[setting_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-equalizer"></i>
+<span>积分明细</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('setting/index')}">
+<span style="color:[setting_color]">积分明细</span>
+</a>
+</li>
+<li>
+<a href="{:U('setting/other')}">
+<span style="color:[other_color]">安全币明细</span>
+</a>
+</li>
+</ul>
+</li>-->
+</ul>
+</nav>
+ 
+<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 703px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 562px;"></div></div></div>
+ 
+ 
+<div class="main-panel">
+ 
+<div class="header navbar">
+<div class="brand visible-xs">
+ 
+<div class="toggle-offscreen">
+<a href="javascript:;" class="hamburger-icon visible-xs" data-toggle="offscreen" data-move="ltr">
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+ 
+ 
+<a class="brand-logo">
+<span>SRCMS</span>
+</a>
+ 
+</div>
+<ul class="nav navbar-nav hidden-xs">
+<li>
+<a href="javascript:;" class="small-sidebar-toggle ripple" data-toggle="layout-small-menu">
+<i class="icon-toggle-sidebar"></i>
+</a>
+</li>
+<!--<li class="searchbox">
+<a href="javascript:;" data-toggle="search">
+<i class="search-close-icon icon-close hide"></i>
+<i class="search-open-icon icon-magnifier"></i>
+</a>
+</li>-->
+<li class="navbar-form search-form hide">
+<input type="search" class="form-control search-input" placeholder="Start typing...">
+<div class="search-predict hide">
+<a href="http://reactor.nyasha.me/static/forms-editors.html#">Searching for 'purple rain'</a>
+<ul class="predictive-list">
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face1.jpg" class="img-circle" alt="">
+<span>Tammy Carpenter</span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face2.jpg" class="img-circle" alt="">
+<span>Catherine Moreno</span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face3.jpg" class="img-circle" alt="">
+<span>Diana Robertson</span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face4.jpg" class="img-circle" alt="">
+<span>Emma Sullivan</span>
+</a>
+</li>
+</ul>
+<div class="heading">
+<span class="title">Page posts</span>
+</div>
+<ul class="predictive-list">
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/img2.jpeg" class="img-rounded" alt="">
+<span>The latest news for cloud-based developers </span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/img2.jpeg" class="img-rounded" alt="">
+<span>Trending Goods of the Week</span>
+</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right hidden-xs">
+<!--<li>
+<a href="javascript:;" class="ripple" data-toggle="dropdown">
+<span>EN</span>
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="javascript:;">English</a>
+</li>
+<li>
+<a href="javascript:;">Russian</a>
+</li>
+<li>
+<a href="javascript:;">French</a>
+</li>
+<li>
+<a href="javascript:;">Spanish</a>
+</li>
+</ul>
+</li>-->
+<li>
+<!--<a href="javascript:;" class="ripple" data-toggle="dropdown">
+<i class="icon-bell"></i>
+</a>-->
+<ul class="dropdown-menu notifications">
+<li class="notifications-header">
+<p class="text-muted small">You have 3 new messages</p>
+</li>
+<li>
+<ul class="notifications-list">
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-success text-white">
+<i class="icon-bulb"></i>
+</div>
+</div>
+<span class="notification-message"><b>Sean</b> launched a new application</span>
+<span class="time">2s</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-danger text-white">
+<i class="icon-cursor"></i>
+</div>
+</div>
+<span class="notification-message"><b>Removed calendar</b> from app list</span>
+<span class="time">4h</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-primary text-white">
+<i class="icon-basket"></i>
+</div>
+</div>
+<span class="notification-message"><b>Denise</b> bought <b>Urban Admin Kit</b></span>
+<span class="time">2d</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-info text-white">
+<i class="icon-bubble"></i>
+</div>
+</div>
+<span class="notification-message"><b>Vincent commented</b> on an item</span>
+<span class="time">2s</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<span class="notification-icon">
+<img src="__STATIC__/face3.jpg" class="avatar img-circle" alt="">
+</span>
+<span class="notification-message"><b>Jack Hunt</b> has <b>joined</b> mailing list</span>
+<span class="time">9d</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="javascript:;" class="ripple" data-toggle="dropdown">
+<img src="__STATIC__/avatar.jpg" class="header-avatar img-circle" alt="user" title="user">
+<span>{:session('username')} </span>
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="{:U('info/index')}">个人设置</a>
+</li>
+<li>
+<!--<a href="javascript:;">Upgrade</a>
+</li>
+<li>
+<a href="javascript:;">
+<span class="label bg-danger pull-right">34</span>
+<span>Notifications</span>
+</a>
+</li>-->
+<li role="separator" class="divider"></li>
+<li>
+<a href="{:U('login/logout')}">退出</a>
+</li>
+</ul>
+</li>
+<!--<li>
+<a href="javascript:;" class="ripple" data-toggle="layout-chat-open">
+<i class="icon-user"></i>
+</a>
+</li>-->
+</ul>
+</div>
+ 
+ 

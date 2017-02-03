@@ -1,42 +1,62 @@
-<include file="Public/header" title="系统设置" />
+<include file="Public/header" title="基础配置  - 企业安全应急响应与缺陷管理中心" setting_status="open" setting_color="#6164C1;"/>
 
-<div id="page-wrapper">
-    
-    <div class="row">
-        <!--<div class="col-md-6">
-            <a href="{:U('setting/add')}" class="btn btn-success">添加字段</a>
-        </div> -->
-        <div class="col-md-6">
-            <form action="{:U('setting/index')}" method="post">
-                <div class="form-group input-group">
-                    <input type="text" class="form-control" name="key" placeholder="输入字段名或者描述关键词搜索">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
-            </form>
-        </div>
-    </div>
-    <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th>字段名</th>
-                <th>字段描述</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody>
-        <foreach name="model" item="v">
-            <tr>
-                <td>{$v.key}</td>
-                <!-- <td>{$v.value}</td> -->
-                <td>{$v.description}</td> 
-                <td><a href="{:U('setting/update?id=')}{$v.id}">编辑</a> <!--| <a href="{:U('setting/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a>--></td>
-            </tr>
-        </foreach>
-        </tbody>
-    </table>
-    {$page}
+<div class="main-content">
+<div class="page-title">
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-users"></i> <a href="{:U('setting/index')}">系统配置</a>
+</li>
+<li>
+<a href="javascript:;">基础配置</a>
+</li>
+</ol>
+</div>
+<div class="card bg-white m-b">
+<div class="card-header">
+站点信息
+</div>
+<div class="card-block">
+<form action="{:U('setting/update?id=1')}" method="post">
+	<div class="form-group">
+		<label>站点名称</label>
+		<input class="form-control m-b input-sm" type="text" name="key2" value="{$model.key2}">
+	</div>
+	<div class="form-group">
+		<label>站点介绍</label>
+		<textarea class="form-control m-b input-sm" type="text" name="key3">{$model.key3}</textarea>
+	</div>
+	<div class="form-group">
+		<label>统计代码</label>
+		<textarea class="form-control m-b input-sm" type="text" name="key4">{$model.key4}</textarea>
+	</div>
+	<div class="form-group">
+		<label>版权信息</label>
+		<textarea class="form-control m-b input-sm" type="text" name="key6">{$model.key6}</textarea>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-success" type="submit" >更新</button>
+	</div>
+</div>	
 </div>
 
+<div class="card bg-white m-b">
+<div class="card-header">
+联系方式
+</div>	
+<div class="card-block">
+	<div class="form-group">
+		<label>审核联系QQ</label>
+		<input class="form-control m-b input-sm" type="text" name="key1" value="{$model.key1}" >
+	</div>
+	<div class="form-group">
+		<label>礼品兑换联系QQ</label>
+		<input class="form-control m-b input-sm" type="text" name="key5" value="{$model.key5}">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-success" type="submit" >更新</button>
+	</div>
+</form>
+</div>
+</div>
+</div>
 <include file="Public/footer" />

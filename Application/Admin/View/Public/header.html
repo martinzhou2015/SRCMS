@@ -1,50 +1,467 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[title]</title>
+<html class=" js no-touch csstransforms csstransforms3d svg" lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <!-- Bootstrap core CSS -->
-    <link href="__STATIC__/css/bootstrap.css" rel="stylesheet">
+<title>[title]</title>
+<meta name="description" content="">
+<meta name="referrer" content="never">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+ 
+<script type="text/javascript" src="__STATIC__/ga.js"></script>
 
-    <!-- Add custom CSS here -->
-    <link href="__STATIC__/css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="__STATIC__/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="__STATIC__/app.min.css">
+
+<style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style>
 </head>
+<body class="wysihtml5-supported page-loaded" style="font-family:微软雅黑;">
+ 
+<div class="pageload" style="display: none;">
+<div class="pageload-inner">
+<div class="sk-rotating-plane"></div>
+</div>
+</div>
+ 
+<div class="app layout-fixed-header">
+ 
+<div class="sidebar-panel offscreen-left ps-container ps-active-y" data-ps-id="4dd3008c-a74f-793d-e4fa-8a1e95729015">
+<div class="brand">
+ 
+<a href="{:U('about/index')}" class="toggle-apps hidden-xs">
+<i class="icon-grid"></i>
+</a>
+ 
+ 
+<div class="toggle-offscreen">
+<a href="javascript:;" class="visible-xs hamburger-icon" data-toggle="offscreen" data-move="ltr">
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+ 
+ 
+<a class="brand-logo">
+<span>SRCMS</span>
+</a>
+<a href="http://reactor.nyasha.me/static/forms-editors.html#" class="small-menu-visible brand-logo">S</a>
+ 
+</div>
+ 
+<nav role="navigation">
+<ul class="nav">
+ 
+<li>
+<a href="{:U('index/index')}">
+<i class="icon-compass"></i>
+<span>控制台</span>
+</a>
+</li> 
+ 
+<li class="[report_status] menu-accordion">
+<a href="javascript:;">
+<!--<span class="badge pull-right">{$post}</span>-->
+<i class="icon-drop"></i>
+<span>漏洞报告</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('post/index?key=1')}">
+<span style="color:[review_report_color];">报告审核</span>
+</a>
+</li>
+<li>
+<a href="{:U('post/index')}">
+<span style="color:[report_color];">全部报告</span>
+</a>
+</li>
+<li>
+<a href="{:U('category/index')}">
+<span style="color:[report_category_color];">漏洞分类</span>
+</a>
+</li>
+</ul>
+</li>
+ 
+ 
+<!--<li class="menu-accordion">
+<a href="javascript:;">
+<i class="icon-cursor"></i>
+<i class="icon-layers"></i>
+<span>安全工单</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="http://reactor.nyasha.me/static/apps-calendar.html">
+<span>处理工单</span>
+</a>
+</li>
+<li>
+<a href="http://reactor.nyasha.me/static/apps-gallery.html">
+<span>全部工单</span>
+</a>
+</li>
+<li>
+<a href="http://reactor.nyasha.me/static/apps-messages.html">
+<span>搜索工单</span>
+</a>
+</li>
+</ul>
+</li>
 
-<body style="font-family:微软雅黑">
 
-<div id="wrapper">
+<li class="menu-accordion">
+<a href="javascript:;">
+<i class="icon-notebook"></i>
+<span>安全维基</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="http://reactor.nyasha.me/static/apps-calendar.html">
+<span>搜索维基</span>
+</a>
+</li>
+<li>
+<a href="http://reactor.nyasha.me/static/apps-gallery.html">
+<span>分类百科</span>
+</a>
+</li>
+</ul>
+</li>-->
 
-    <!-- Sidebar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{:U('index/index')}">应急响应中心管理后台</a>
-        </div>
+ 
+<li class="[links_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-bag"></i>
+<span>礼品中心</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('gifts/index')}">
+<span style="color:[links_color]">礼品管理</span>
+</a>
+</li>
+<li>
+<a href="{:U('order/index')}">
+<span style="color:[orders_color]">订单管理</span>
+</a>
+</li>
+</ul>
+</li>
+ 
+ 
+<li class="[page_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-book-open"></i>
+<span>博客公告</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('page/index')}">
+<span style="color:[page_color];">公告管理</span>
+</a>
+</li>
+<li>
+<a href="{:U('blog/index')}">
+<span style="color:[blog_color];">博客管理</span>
+</a>
+</li>
+</ul>
+</li>
+ 
+ 
+<!--<li class="open menu-accordion">-->
+<li class="[users_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-users"></i>
+<span>用户管理</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('member/index')}">
+<span style="color:[member_color]">前台用户</span>
+</a>
+</li>
+<li>
+<a href="{:U('manager/index')}">
+<span style="color:[manager_color]">后台用户</span>
+</a>
+</li>
+</ul>
+</li>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+ 
+<!--<li class="menu-accordion">
+<a href="javascript:;">
+<i class="icon-pie-chart"></i>
+<span>数据中心</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="javascript:;">
+<span>图表汇总</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<span>数据报告</span>
+</a>
+</li>
+</ul>
+</li>-->
+ 
+<li class="[hall_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-trophy"></i>
+<span>贡献管理</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('hall/index')}">
+<span style="color:[hall_color];">名人堂管理</span>
+</a>
+</li>
+<li>
+<a href="{:U('hall/record')}">
+<span style="color:[jifen_color];">积分日志</span>
+</a>
+</li>
+</ul>
+</li>
 
-            <include file="Public/sidebar" />
-
-            <ul class="nav navbar-nav navbar-right navbar-user">
-
-                <li class="dropdown user-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 你好,{:session('adminname')} <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <!--<li><a href="#"><i class="fa fa-gear"></i> 设置</a></li>
-                        <li class="divider"></li>-->
-                        <li><a href="{:U('login/logout')}"><i class="fa fa-power-off"></i> 退出</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </nav>
+<li class="[setting_status] menu-accordion">
+<a href="javascript:;">
+<i class="icon-equalizer"></i>
+<span>系统设置</span>
+</a>
+<ul class="sub-menu">
+<li>
+<a href="{:U('setting/index')}">
+<span style="color:[setting_color]">基础配置</span>
+</a>
+</li>
+<!--<li>
+<a href="{:U('setting/other')}">
+<span style="color:[other_color]">其他配置</span>
+</a>
+</li>-->
+<!--<li>
+<a href="{:U('setting/record')}">
+<span>登录日志</span>
+</a>
+</li>-->
+</ul>
+</li>
+</ul>
+</nav>
+ 
+<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 703px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 562px;"></div></div></div>
+ 
+ 
+<div class="main-panel">
+ 
+<div class="header navbar">
+<div class="brand visible-xs">
+ 
+<div class="toggle-offscreen">
+<a href="javascript:;" class="hamburger-icon visible-xs" data-toggle="offscreen" data-move="ltr">
+<span></span>
+<span></span>
+<span></span>
+</a>
+</div>
+ 
+ 
+<a class="brand-logo">
+<span>SRCMS</span>
+</a>
+ 
+</div>
+<ul class="nav navbar-nav hidden-xs">
+<li>
+<a href="javascript:;" class="small-sidebar-toggle ripple" data-toggle="layout-small-menu">
+<i class="icon-toggle-sidebar"></i>
+</a>
+</li>
+<!--<li class="searchbox">
+<a href="javascript:;" data-toggle="search">
+<i class="search-close-icon icon-close hide"></i>
+<i class="search-open-icon icon-magnifier"></i>
+</a>
+</li>-->
+<li class="navbar-form search-form hide">
+<input type="search" class="form-control search-input" placeholder="Start typing...">
+<div class="search-predict hide">
+<a href="http://reactor.nyasha.me/static/forms-editors.html#">Searching for 'purple rain'</a>
+<div class="heading">
+<span class="title">People</span>
+</div>
+<ul class="predictive-list">
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face1.jpg" class="img-circle" alt="">
+<span>Tammy Carpenter</span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face2.jpg" class="img-circle" alt="">
+<span>Catherine Moreno</span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face3.jpg" class="img-circle" alt="">
+<span>Diana Robertson</span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/face4.jpg" class="img-circle" alt="">
+<span>Emma Sullivan</span>
+</a>
+</li>
+</ul>
+<div class="heading">
+<span class="title">Page posts</span>
+</div>
+<ul class="predictive-list">
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/img2.jpeg" class="img-rounded" alt="">
+<span>The latest news for cloud-based developers </span>
+</a>
+</li>
+<li>
+<a class="avatar" href="http://reactor.nyasha.me/static/forms-editors.html#">
+<img src="__STATIC__/img2.jpeg" class="img-rounded" alt="">
+<span>Trending Goods of the Week</span>
+</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right hidden-xs">
+<!--<li>
+<a href="javascript:;" class="ripple" data-toggle="dropdown">
+<span>EN</span>
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="javascript:;">English</a>
+</li>
+<li>
+<a href="javascript:;">Russian</a>
+</li>
+<li>
+<a href="javascript:;">French</a>
+</li>
+<li>
+<a href="javascript:;">Spanish</a>
+</li>
+</ul>
+</li>-->
+<li>
+<!--<a href="javascript:;" class="ripple" data-toggle="dropdown">
+<i class="icon-bell"></i>
+</a>-->
+<ul class="dropdown-menu notifications">
+<li class="notifications-header">
+<p class="text-muted small">You have 3 new messages</p>
+</li>
+<li>
+<ul class="notifications-list">
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-success text-white">
+<i class="icon-bulb"></i>
+</div>
+</div>
+<span class="notification-message"><b>Sean</b> launched a new application</span>
+<span class="time">2s</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-danger text-white">
+<i class="icon-cursor"></i>
+</div>
+</div>
+<span class="notification-message"><b>Removed calendar</b> from app list</span>
+<span class="time">4h</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-primary text-white">
+<i class="icon-basket"></i>
+</div>
+</div>
+<span class="notification-message"><b>Denise</b> bought <b>Urban Admin Kit</b></span>
+<span class="time">2d</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<div class="notification-icon">
+<div class="circle-icon bg-info text-white">
+<i class="icon-bubble"></i>
+</div>
+</div>
+<span class="notification-message"><b>Vincent commented</b> on an item</span>
+<span class="time">2s</span>
+</a>
+</li>
+<li>
+<a href="javascript:;">
+<span class="notification-icon">
+<img src="__STATIC__/face3.jpg" class="avatar img-circle" alt="">
+</span>
+<span class="notification-message"><b>Jack Hunt</b> has <b>joined</b> mailing list</span>
+<span class="time">9d</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="javascript:;" class="ripple" data-toggle="dropdown">
+<img src="__STATIC__/avatar.jpg" class="header-avatar img-circle" alt="user" title="user">
+<span>{:session('adminname')} </span>
+<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="{:U('manager/update?id=')}{:session('adminId')}">个人设置</a>
+</li>
+<li>
+<!--<a href="javascript:;">Upgrade</a>
+</li>
+<li>
+<a href="javascript:;">
+<span class="label bg-danger pull-right">34</span>
+<span>Notifications</span>
+</a>
+</li>-->
+<li role="separator" class="divider"></li>
+<!--<li>
+<a href="javascript:;">使用帮助</a>
+</li>-->
+<li>
+<a href="{:U('login/logout')}">退出</a>
+</li>
+</ul>
+</li>
+<!--<li>
+<a href="javascript:;" class="ripple" data-toggle="layout-chat-open">
+<i class="icon-user"></i>
+</a>
+</li>-->
+</ul>
+</div>
+ 
+ 
