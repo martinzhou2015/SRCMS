@@ -1,7 +1,5 @@
 # 欢迎使用SRCMS V2社区开发版 ![codebeat badge](https://codebeat.co/badges/67e58b6d-bc89-4f22-ba8f-7668a9c15c5a)
 
-![Alt text](http://www.srcms.xyz/2/0.png)
-
 **SRCMS** 是一款安全应急响应与缺陷管理软件，致力于为大、中、小企业和组织提供“最敏捷、安全和美观的安全应急响应中心的建站解决方案，帮助企业建立属于自己的安全应急响应中心和体系”。有了SRCMS，您就可以像使用Discuz!搭建论坛一样容易，为您的企业建立安全应急响应中心平台。
 
 > * **项目维护:** Martin Zhou
