@@ -83,7 +83,7 @@ class RegController extends Controller{
             session('username',$user['username']);
 			session('token',md5(time().$user['salt']));
         }	
-				  $this->success("注册成功", U('index/index'));
+				  $this->success("注册成功，请先完善个人信息", U('info/index'));
                 } else {
                     $this->error("注册失败");
                 }

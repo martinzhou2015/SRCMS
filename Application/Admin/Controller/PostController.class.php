@@ -138,9 +138,16 @@ class PostController extends BaseController
     {
 		$member = M('member');
 		$record = M('record');
+		$post = M('post');
+		$adminId = session('adminId');
+		
 		$user_id = I('get.uid',0,'intval');
 		$jifen = I('post.jifen',0,'intval');
 		$jinbi = I('post.jinbi',0,'intval');
+		$pid = I('post.pid',0,'intval');
+		$token = I('post.token');
+		
+		//添加积分记录
 		$data['type'] = 1;
 		$data['name'] = '增加积分/安全币';
 		$data['content'] = '+积分:'.$jifen.' +安全币:'.$jinbi;
@@ -148,9 +155,20 @@ class PostController extends BaseController
 		$user = $member->where('id='.$user_id)-> select();
 		$data['user'] = $user[0]['username'];
 		$data['operator'] = session('adminname');
+		
+		//单个报告奖励详情
+		$pdata['bounty'] = '+积分:'.$jifen.' +安全币:'.$jinbi;
+		
+		$manager = M('manager')-> where(array('id'=>$adminId)) -> find();
+			
+	    if($token != $manager['token']){
+				$this->error("非法请求");
+			}
+		
         $result1 = $member->where('id='.$user_id)->setInc('jifen',$jifen);
 		$result2 = $member->where('id='.$user_id)->setInc('jinbi',$jinbi);
 		$result3 = $record -> add($data);
+		$result4 = $post->where('id='.$pid) -> field('bounty') -> save($pdata);
         if($result1 && $result2){
             $this->success("增加积分/安全币成功", U('post/index'));
         }else{
@@ -160,7 +178,7 @@ class PostController extends BaseController
 	
 	/**
      * 生成session key
-     */
+
 	    public function session(){
 		$id = I('get.id',0,'intval');
 		$str = '1234567890';
@@ -176,7 +194,7 @@ class PostController extends BaseController
             $this->error("授权失败");
         }
 	   }
-	   
+	        */
 
     /**
 	添加报告评论

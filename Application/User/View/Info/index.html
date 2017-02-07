@@ -20,42 +20,59 @@
         </div>
 </div>
 
-<form method="post" action="{:U('info/update')}">
+<form method="post" action="{:U('info/index')}">
 
 <div class="card bg-white">
 <div class="card-header bg-default">
 <div class="pull-left">基本信息</div>
+<div class="card-controls">
+<a href="javascript:;" class="card-collapse" data-toggle="card-collapse">
+<i class="card-icon-collapse"></i>
+</a>
+</div>
 </div>
 <div class="card-block" style="">
 <foreach name="info" item="v">
+<div class="row">
+<div class="col-sm-5">
 	   <div class="form-group">
         <label>姓名：</label>
-        <input type="text" name="realname"  class="form-control" placeholder="{$v.realname}">
+        <input type="text" name="realname"  class="form-control" value="{$v.realname}">
 	   </div>
 	   <div class="form-group">
         <label>QQ号：</label>
-        <input type="text" name="qqnumber"  class="form-control" placeholder="{$v.idcode}">
+        <input type="text" name="qqnumber"  class="form-control" value="{$v.qqnumber}">
 	   </div>
-	   <div class="form-group">
-        <label>邮编：</label>
-        <input type="text" name="zipcode" class="form-control" placeholder="{$v.zipcode}">
-	   </div>
-	   <div class="form-group">
-        <label>住址：</label>
-        <input type="text" name="location" class="form-control" placeholder="{$v.address}">
-	   </div>
+</div>
+<div class="col-sm-5">
 	   <div class="form-group">
         <label>电话：</label>
-        <input type="text" name="tel"  class="form-control" placeholder="{$v.tel}">
+        <input type="text" name="tel"  class="form-control" value="{$v.tel}">
 	  </div>
+	  <div class="form-group">
+        <label>邮编：</label>
+        <input type="text" name="zipcode" class="form-control" value="{$v.zipcode}">
+	   </div>
+</div>
+<div class="col-sm-10">
 	  <div class="form-group">
         <label>个人网站：</label>
-        <input type="text" name="website"  class="form-control" placeholder="{$v.tel}">
+        <input type="text" name="website"  class="form-control" value="{$v.website}">
 	  </div>
 	  <div class="form-group">
-        <label>个人简介：</label>
-        <textarea type="text" name="description"  class="form-control" placeholder="{$v.tel}"></textarea>
+        <label>研究团队：</label>
+        <input type="text" name="team"  class="form-control" value="{$v.team}">
 	  </div>
+	  <div class="form-group">
+        <label>住址：</label>
+        <input type="text" name="address" class="form-control" value="{$v.address}">
+	   </div>
+	  <div class="form-group">
+        <label>个人简介：</label>
+        <textarea type="text" name="description"  class="form-control" value="{$v.description}"></textarea>
+	  </div>
+</div>
+</div>
       <button type="submit" class="btn btn-success">提交</button>
    </div>
 </div>
@@ -67,16 +84,17 @@
 	<div class="card-block" style="">
 	   <div class="form-group">
         <label>身份证号：</label>
-        <input type="text" name="realname"  class="form-control" placeholder="{$v.idcode}">
+        <input type="text" name="idcode"  class="form-control" value="{$v.idcode}">
 	   </div>
 	   <div class="form-group">
 			<label>银行卡号：</label>
-			<input type="text" name="alipay"  class="form-control" placeholder="{$v.bankcode}">
+			<input type="text" name="bankcode"  class="form-control" value="{$v.bankcode}">
 	   </div>
 	   <div class="form-group">
         <label>支付宝账号：</label>
-        <input type="text" name="alipay"  class="form-control" placeholder="{$v.alipay}">
+        <input type="text" name="alipay"  class="form-control" value="{$v.alipay}">
 	   </div>
+	    <input type="hidden" name="token"  class="form-control" value="{:session('token')}">
 		<button type="submit" class="btn btn-success">提交</button>
 	 </div>
      </div>

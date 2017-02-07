@@ -52,9 +52,11 @@ class LoginController extends Controller {
 		$username = I('username','','htmlspecialchars');
         $password = I('password');
         $user = $member->where(array('username'=>$username))->find();
-        if($user['password'] != md5(md5(md5($user['salt']).md5($password)."SR")."CMS")) {
+        
+		if($user['password'] != md5(md5(md5($user['salt']).md5($password)."SR")."CMS")) {
             $this->error('账号或密码错误 :(') ;
         }
+		
         if($user['status'] == 0){
             $this->error('账号被禁用，请联系管理员 :(') ;
         }

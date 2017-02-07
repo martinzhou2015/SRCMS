@@ -65,13 +65,13 @@
         <label>支付宝账号：</label>
         <input type="text" name="alipay"  class="form-control" value="{$info.alipay}">
 	   </div>
-
+	   <input type="hidden" name="token"  class="form-control" value="{:session('token')}">
 </div>
 </div>
 
 <div class="row">
 <div class="col-xs-12">
-<button type="submit" class="btn btn-primary pull-right" onclick="javascript:return del('您真的确定要兑换吗？兑换操作不可撤销！');">提交订单</button>
+<button type="submit" class="btn btn-primary pull-right" onclick="return del('您真的确定要兑换吗？兑换操作不可撤销！');">提交订单</button>
 <a href="{:U('gift/index')}" class="btn btn-default" ui-sref="app.commerce.products">返回</a>
 </div>
 </div>

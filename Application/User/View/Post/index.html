@@ -34,16 +34,17 @@
     <table class="table m-b-0">
         <thead>
             <tr>
+			    <th>提交时间</th>
                 <th>报告标题</th>
                 <th>报告状态</th>
-                <th>提交时间</th>
-                <th>漏洞危害</th>
+                <th>危害评级</th>
                 <th>漏洞类型</th>
             </tr>
         </thead>
         <tbody>
         <foreach name="model" item="v">
             <tr>
+			    <td data-title="提交时间">{$v.time|date="Y/m/d H:i:s",###}</td>
                 <td data-title="报告标题"><a href="{:U('post/view?rid=')}{$v.id}">{$v.title}</a></td>
                 <td data-title="报告状态">
                     <if condition="$v.type eq 1"><span class="label label-info">审核中</span>
@@ -52,8 +53,11 @@
                     <elseif condition="$v.type eq 4" /><span class="label label-success">已修复</span>
                     </if>
                 </td>
-                <td data-title="提交时间">{$v.time|date="Y/m/d H:i:s",###}</td>
-                <td data-title="漏洞危害">{$v.username}</td>
+                <td data-title="危害评级"><if condition="$v.rank eq 1"><span class="label label-default">无影响</span>
+                    <elseif condition="$v.rank eq 2" /><span class="label label-info">低危</span>
+                    <elseif condition="$v.rank eq 3" /><span class="label label-warning">中危</span>
+                    <elseif condition="$v.rank eq 4" /><span class="label label-success">高危</span>
+                    </if></td>
                 <td data-title="漏洞类型">{$v.category_title}</td>
             </tr>
         </foreach>

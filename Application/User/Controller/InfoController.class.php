@@ -17,10 +17,8 @@ class InfoController extends BaseController{
      */
 	public function index()
     {
-		$tmodel= M('setting');
-		$title = $tmodel->where('id=1')->select();
-	    $this->assign('title', $title);
 		$id = session('userId');
+		
         if (!IS_POST) {
             $info = M('member')->where(array('id'=>$id))->select();
             $this->assign('info',$info);
@@ -29,10 +27,17 @@ class InfoController extends BaseController{
         if (IS_POST) {
             $model = M("member");
 		    $data = I();
-            if ($model->where(array('id'=>$id))->field('realname,zipcode,address,tel,alipay,bankcode,idcode,qqnumber,website,description,qqnumber')->save($data)) {
+			$token = $data['token'];
+			$user = $model->where(array('id'=>$id))->find();
+			
+	        if($token != $user['token']){
+				$this->error("非法请求");
+			}
+			
+            if ($model->where(array('id'=>$id))->field('realname,zipcode,address,tel,alipay,bankcode,idcode,qqnumber,website,description,qqnumber,idcode,team')->save($data)) {
                     $this->success("联系方式更新成功", U('info/index'));
                 } else {
-                    $this->error("联系方式更新失败");
+                    $this->error("联系方式更新失败", U('info/index'));
             }
         }
     }

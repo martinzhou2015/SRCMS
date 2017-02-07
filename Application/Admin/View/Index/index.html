@@ -61,7 +61,7 @@
 		<foreach name="detail" item="v">
 		 <tr>
                 <td data-title="报告标题"><a href="{:U('page/update?id=')}{$v.id}">{$v.title}</a></td>
-                <td data-title="报告时间">{$v.time|date="Y/m/d",###}</td>
+                <td data-title="报告时间">{$v.update_time|date="Y/m/d",###}</td>
         </tr>
 		</foreach>
         </tbody>

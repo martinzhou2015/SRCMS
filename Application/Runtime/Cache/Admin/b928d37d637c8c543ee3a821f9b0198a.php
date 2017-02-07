@@ -1,0 +1,94 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html class=" js no-touch csstransforms csstransforms3d svg" lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>SRCMS - 企业安全应急响应与缺陷管理中心</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<script type="text/javascript" async="" src="/temp/dev/Public/Admin/ga.js.下载"></script>
+<link rel="stylesheet" href="/temp/dev/Public/Admin/app.min.css">
+<style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style></head>
+<body class="page-loaded" style="font-family:微软雅黑;">
+ 
+<div class="pageload" style="display: none;">
+<div class="pageload-inner">
+<div class="sk-rotating-plane"></div>
+</div>
+</div>
+ 
+ 
+<div class="app forgot-password usersession">
+<div class="session-wrapper">
+<div class="page-height row-equal align-middle">
+<div class="column">
+<div class="card bg-white no-border">
+<div class="card-block">
+<form role="form" class="form-layout" action="<?php echo U('login/valid?email='); echo ($email); ?>" method="post">
+<div class="text-center m-b">
+<h4 class="text-uppercase">登录安全验证</h4>
+</div>
+<div class="form-inputs">
+<label class="text-uppercase">验证码</label>
+<div>
+	<div style="float:left;width:65%">
+	<input type="text"  name="verify" class="form-control input-lg" id="exampleInputCode" placeholder="验证码">
+	</div>
+	<div style="float:right;">
+	<a href="javascript:void(0)"><img class="verify" src="<?php echo U('login/verify');?>" alt="点击刷新"/></a>
+	</div>
+</div>
+</div>
+<button class="btn btn-primary btn-lg btn-block" type="submit">立即验证</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div> 
+</div>
+
+<footer class="session-footer">
+<nav class="footer-right">
+<ul class="nav">
+<li>
+<a href="javascript:;">建议反馈</a>
+</li>
+<li>
+<a href="javascript:;" class="scroll-up">
+<i class="fa fa-angle-up"></i>
+</a>
+</li>
+</ul>
+</nav>
+<nav class="footer-left hidden-xs">
+<ul class="nav">
+<li>
+<a href="javascript:;"><span>关于</span> SRCMS</a>
+</li>
+<li>
+<a href="javascript:;">隐私政策</a>
+</li>
+<li>
+<a href="javascript:;">使用条款</a>
+</li>
+<li>
+<a href="javascript:;">使用帮助</a>
+</li>
+</ul>
+</nav>
+</footer>
+
+<script src="/temp/dev/Public/Admin/app.min.js.下载"></script><div class="bg-default"></div><div class="bg-primary"></div><div class="bg-success"></div><div class="bg-warning"></div><div class="bg-danger"></div><div class="bg-info"></div><div class="bg-white"></div><div class="bg-dark"></div>
+
+</body>
+<script src="/temp/dev/Public/Static//js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $(".verify").click(function(){
+            var src = "<?php echo U('login/verify');?>";
+            var random = Math.floor(Math.random()*(1000+1));
+            $(this).attr("src",src+"&random="+random);
+
+        });
+    })
+</script>
+</html>

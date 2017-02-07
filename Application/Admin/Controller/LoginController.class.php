@@ -77,17 +77,11 @@ class LoginController extends Controller {
         if($member->save($data)){
 			//发送验证码邮件
 			session('token',$token);
-			require "./././././ThinkPHP/Library/Org/Net/Mail.class.php";
-			$ip = get_client_ip();
-			$time = date("Y-m-d h:i:sa");
-            $con='您好,您的后台管理账户 '.$username.' 于 '.$time.' 被尝试登录，登录IP地址为 '.$ip.' 如果该操作非您本人操作，可能帐号信息已经被泄露，请您及时修改密码。 ';  
-            SendMail($user['email'],'应急响应中心后台登录提示',$con,'应急响应中心');
             $this->success("请先完成验证",U('Login/svalid?email=').$user['email']);
         }
-        //定向之后台主页
         
-
     }
+	
     //验证码
     public function verify(){
 		ob_clean();

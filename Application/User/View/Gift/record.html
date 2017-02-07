@@ -1,0 +1,34 @@
+<include file="Public/header" title="积分记录 - 企业安全应急响应与缺陷管理中心" gifts_status="open" record_color="#6164C1;"/>
+
+<div class="main-content">
+<div class="page-title">
+<div class="title">礼品中心</div>
+<div class="sub-title">积分记录</div>
+</div>
+<div class="col-sm-12">
+ <div class="no-more-tables">
+    <table class="table m-b-0">
+        <thead>
+            <tr>
+                <th>变动时间</th>
+                <th>变动详情</th>
+				<th>操作人</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="record" item="v">
+            <tr>
+				<td data-title="变动时间">{$v.time|date="Y/m/d",###}</td>
+				<td data-title="变动详情">{$v.content}</td>
+				<td data-title="操作人">{$v.operator}</td> 
+            </tr>
+        </foreach>
+        </tbody>
+	</table>
+  </div>
+</div>
+<div class="col-sm-12">
+	{$page}
+</div>	
+</div>
+<include file="Public/footer" />

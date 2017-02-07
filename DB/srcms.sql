@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?02 �?02 �?18:50
+-- 生成日期: 2017 �?02 �?04 �?14:35
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.5.17
 
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `manager` (
 --
 
 INSERT INTO `manager` (`id`, `username`, `email`, `password`, `token`, `login_ip`, `create_at`, `update_at`) VALUES
-(1, 'admin', '100946575@qq.com', '21232f297a57a5a743894a0e4a801fc3', 'eb3c9e4769f1b4aa5f95df502e40bbc9', '0.0.0.0', '1453778451', '1486030409');
+(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', '52eddf7a5b1f0aee17bbec4e3dda5958', '0.0.0.0', '1453778451', '1486188871');
 
 -- --------------------------------------------------------
 
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `member` (
 --
 
 INSERT INTO `member` (`id`, `pid`, `username`, `realname`, `team`, `email`, `salt`, `password`, `token`, `avatar`, `address`, `description`, `bankcode`, `idcode`, `zipcode`, `alipay`, `tel`, `website`, `qqnumber`, `create_at`, `update_at`, `login_ip`, `status`, `type`, `jifen`, `jinbi`) VALUES
-(1, '07754918066538062635831023008085', 'user', '暂无', '暂无', '2@qq.com', '2hRpA6V3', 'e25dbd55b6be9cddfc963c5c30f6c662', '929ffe6693a0a1c25b7b6f91ffa953d5', NULL, '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '', '1485868122', '1486031709', '0.0.0.0', 1, 1, 0, '100');
+(1, '07754918066538062635831023008085', 'user', 'aaaaa', '暂无', '2@qq.com', '2hRpA6V3', 'e25dbd55b6be9cddfc963c5c30f6c662', 'ed2091693b99e6feaf977a980fa8b92f', NULL, 'aaa', 'aaa', '', '', 'aaa', '', 'aaa', 'aaa', 'aa', '1485868122', '1486183509', '0.0.0.0', 1, 1, 200, '1200');
 
 -- --------------------------------------------------------
 
@@ -279,6 +279,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `tel` int(15) NOT NULL COMMENT '电话',
   `alipay` varchar(50) NOT NULL COMMENT '支付宝',
   `gid` varchar(100) NOT NULL COMMENT '礼品名称',
+  `price` varchar(255) NOT NULL DEFAULT '0' COMMENT '订单金额',
   `update_time` varchar(255) NOT NULL COMMENT '订单时间',
   `finish` int(2) NOT NULL COMMENT '1. 完成 2.未完成',
   PRIMARY KEY (`id`)
@@ -288,8 +289,8 @@ CREATE TABLE IF NOT EXISTS `order` (
 -- 转存表中的数据 `order`
 --
 
-INSERT INTO `order` (`id`, `userid`, `username`, `realname`, `zipcode`, `address`, `tel`, `alipay`, `gid`, `update_time`, `finish`) VALUES
-(1, '1', 'user', '暂无', '暂无', '暂无', 0, '暂无', '有机坚果套装', '1485950755', 1);
+INSERT INTO `order` (`id`, `userid`, `username`, `realname`, `zipcode`, `address`, `tel`, `alipay`, `gid`, `price`, `update_time`, `finish`) VALUES
+(1, '1', 'user', '暂无', '暂无', '暂无', 0, '暂无', '定制饮品', '100', '1486179341', 0);
 
 -- --------------------------------------------------------
 
@@ -345,7 +346,7 @@ CREATE TABLE IF NOT EXISTS `post` (
 --
 
 INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`, `cate_id`, `user_id`, `rank`, `bounty`, `type`, `visible`) VALUES
-(1, '', '测试报告', '&lt;p&gt;测试报告&lt;/p&gt;', '', '1485861037', 0, 2, 1, 1, '0', 1, 0);
+(1, '', '测试工单', '&lt;p&gt;测试工单&lt;/p&gt;', '', '1486183605', 0, 2, 1, 1, '+积分:100 +安全币:100', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -360,17 +361,19 @@ CREATE TABLE IF NOT EXISTS `record` (
   `content` varchar(255) NOT NULL COMMENT '操作内容',
   `time` varchar(255) NOT NULL COMMENT '操作时间',
   `user` varchar(255) NOT NULL COMMENT '变动用户',
+  `userid` int(10) NOT NULL DEFAULT '0' COMMENT '变动用户ID',
   `operator` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '操作人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='操作记录' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='操作记录' AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `record`
 --
 
-INSERT INTO `record` (`id`, `type`, `name`, `content`, `time`, `user`, `operator`) VALUES
-(1, 1, '增加积分/安全币', '+积分:1 +安全币:1', '1485824751', 'user', 'admin'),
-(2, 1, '兑换有机坚果套装', '-安全币:200', '1485950755', 'user', 'user');
+INSERT INTO `record` (`id`, `type`, `name`, `content`, `time`, `user`, `userid`, `operator`) VALUES
+(1, 1, '兑换定制饮品', '-安全币:100', '1486179341', 'user', 1, 'user'),
+(2, 1, '增加积分/安全币', '+积分:100 +安全币:200', '1486188291', 'user', 0, 'admin'),
+(3, 1, '增加积分/安全币', '+积分:100 +安全币:100', '1486188711', 'user', 0, 'admin');
 
 -- --------------------------------------------------------
 

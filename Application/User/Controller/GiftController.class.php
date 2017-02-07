@@ -34,6 +34,16 @@ class GiftController extends BaseController{
         $this->display();
     }
 	
+	
+    public function record(){
+		$id = session('userId');
+		$username = session('username');
+		$record = M('record')->where(array('user'=>$username,'userid'=>$id))->select();
+		$this->assign('record',$record);
+        $this->display();
+    }
+	
+	
 	public function add()
     {
 		$id = session('userId');
@@ -56,6 +66,7 @@ class GiftController extends BaseController{
 			}
 			$data = I();
 			$data['gid'] = $gift['title']; 
+			$data['price'] = $gift['price']; 
 			$data['username'] = session('username');
 			$data['userid'] = session('userId');
 			$data['update_time'] = time();
@@ -66,19 +77,23 @@ class GiftController extends BaseController{
 			$rdata['content'] = '-安全币:'.$gift['price'];
 			$rdata['time'] = time();
 			$rdata['user'] = session('username');
+			$rdata['userid'] = session('userId');
 			$rdata['operator'] = session('username');
 			$record_result = $record -> add($rdata);
 			
+			$token = $data['token'];
+			if($token != $user['token']){$this->error("非法请求");}
+			
 			$result = M('member')->where('id='.$id)->setDec('jinbi',$gift['price']);
-            if ($model->field('userid,username,gid,tel,alipay,realname,address,zipcode,update_time')->add($data)) {
+            if ($model->field('userid,username,gid,tel,alipay,realname,address,zipcode,price,update_time')->add($data)) {
 				if($result){
-                    $this->success("兑换成功", U('gift/index'));
+                    $this->success("兑换成功", U('gift/order'));
 					}
 				else{
-					$this->error("兑换失败");
+					$this->error("兑换失败", U('gift/index'));
 				}
                 } else {
-                    $this->error("兑换失败");
+                    $this->error("兑换失败", U('gift/index'));
                 }
 		}
 	}

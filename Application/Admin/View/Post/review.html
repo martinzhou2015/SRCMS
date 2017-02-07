@@ -1,33 +1,54 @@
 <include file="Public/header" title="报告审核 - {$post.title|htmlspecialchars_decode|waf}" report_status="open" review_report_color="#6164C1;"/>
 <div class="main-content">
 <div class="page-title">
-<div class="pull-right">
+<!--<div class="pull-right">
 <button type="button" class="btn btn-info no-print"><i class="icon-printer m-r"></i>导出PDF</button>
-</div>
+</div>-->
 <ol class="breadcrumb no-bg pl0">
 <li>
 <i class="icon-layers"></i> <a href="{:U('post/index')}">漏洞列表</a>
 </li>
 <li>
-<a href="javascript:;">ESRCMS-01</a>
+<a href="javascript:;">审核报告</a>
 </li>
 </ol>
-<h4 style="font-family:微软雅黑;">{$post.title|htmlspecialchars_decode|waf}</h4>
+<h4 style="font-family:微软雅黑;">[SRC-{$post.time|date="Y",###}-{$post.id}] {$post.title|htmlspecialchars_decode|waf}</h4>
 </div>
 </div>
 
-<div class="col-sm-9">
+<div class="col-sm-12">
 <!--分割线-->
 <div class="card bg-white">
 <div class="card-header bg-default">
 <div class="pull-left">报告详情</div>
 <div class="pull-right"><a href="{:U('post/update?id=')}{$post.id}"><i class="fa fa-pencil" aria-label="编辑报告"></i></a></div>
 </div>
-<div class="card-block" style="">
-
+<div class="card-block">
+<div class="row">
+<div class="col-lg-6">
+		            <p><span><b>报告奖励：</b>{$post.bounty}</span></p>
+		            <p><span><b>报告时间：</b>{$post.time|date="Y-m-d H:i:s",###}</span></p>          
+</div>
+<div class="col-lg-6">
+					<p><span><b>报告状态：</b></span><if condition="$post.type eq 1"><span class="label label-info">审核中</span>
+                    <elseif condition="$post.type eq 2" /><span class="label label-default">已忽略</span>
+                    <elseif condition="$post.type eq 3" /><span class="label label-warning">已确认</span>
+                    <elseif condition="$post.type eq 4" /><span class="label label-success">已修复</span>
+                    </if> </p> 
+					<p><span><b>漏洞危害：</b></span><if condition="$post.rank eq 1"><span class="label label-info">无影响</span>
+                    <elseif condition="$post.rank eq 2" /><span class="label label-default">低危</span>
+                    <elseif condition="$post.rank eq 3" /><span class="label label-warning">中危</span>
+                    <elseif condition="$post.rank eq 4" /><span class="label label-success">高危</span>
+                    </if></p>
+</div>
+<div class="col-lg-12">
+<hr/>
+<p><b>报告内容：</b></p>
 <p>
 {$post.content|htmlspecialchars_decode|waf}
 </p>
+</div>
+</div>
 <code>来源:外部报告</code>
 </div>
 </div>
@@ -36,6 +57,11 @@
 <div class="card bg-white">
 <div class="card-header bg-default">
 <div class="pull-left">审核报告</div>
+<div class="card-controls">
+<a href="javascript:;" class="card-collapse" data-toggle="card-collapse">
+<i class="card-icon-collapse"></i>
+</a>
+</div>
 </div>
 <div class="card-block" style="">
 <form method="post" action="{:U('post/review?id=')}{$post.id}">
@@ -92,6 +118,44 @@
 </div>
 </div>
 <!--时间线主要内容-->
+<!--报告奖励-->
+<div class='card bg-white'>
+<div class="card-header bg-default">
+<div class="pull-left">报告奖励</div>
+<div class="card-controls">
+<a href="javascript:;" class="card-collapse" data-toggle="card-collapse">
+<i class="card-icon-collapse"></i>
+</a>
+</div>
+</div>
+<div class="card-block" style="">
+<!--评级内容框-->
+<form method="post" action="{:U('post/jifen?uid=')}{$post.user_id}">
+<div class="row">
+<div class="col-sm-5">
+		<div class="form-group">
+        <label>奖励积分：</label>
+			<input  class="form-control" name="jifen" type="text" placeholder="请输入奖励积分...">
+		</div>
+</div>		
+<div class="col-sm-5">
+		<div class="form-group">
+        <label>奖励金币：</label>
+			<input class="form-control" name="jinbi" type="text" placeholder="请输入奖励金币...">
+		</div>
+</div>
+</div>
+		<input type="hidden" name="pid" value="{$post.id}">
+		<input type="hidden" name="token" value="{:session('token')}">
+		<button type="submit" class="btn btn-info btn-sm btn-icon loading-demo mr5">		
+			<i class="icon-cursor mr5"></i>
+		    <span>提交</span>
+		</button>
+	</form>
+<!--评级内容框-->
+</div>
+</div>
+<!--报告奖励-->
 <!--工单评论信息-->
 <div class="card bg-white">
 <div class="card-header bg-default">
@@ -131,87 +195,7 @@
 <!--分割线-->
 </div>
 <!--分割线-->
-<div class="col-sm-3">
-<!--工单状态-->
-<div class="card bg-white">
-<div class="card-header bg-default">
-<div class="pull-left">报告人</div>
-<div class="card-controls">
-<a href="javascript:;" class="card-collapse" data-toggle="card-collapse">
-<i class="card-icon-collapse"></i>
-</a>
-<a href="javascript:;" class="card-remove" data-toggle="card-remove">
-<i class="card-icon-remove"></i>
-</a>
-</div>
-</div>
-<div class="card-block  text-center">
-<span class="h4 bold">Martin</span>
-<p>核心白帽子</p>
-<div class="w150 center-block mt10">
-<button class="btn btn-danger btn-block btn-sm">
-<span>发起QQ会话</span>
-</button>
-</div>
-</div>
-</div>
-<!--工单状态-->
-<!--工单评级-->
-<div class="card bg-white">
-<div class="card-header bg-default">
-<div class="pull-left">报告奖励</div>
-<div class="card-controls">
-<a href="javascript:;" class="card-collapse" data-toggle="card-collapse">
-<i class="card-icon-collapse"></i>
-</a>
-<a href="javascript:;" class="card-remove" data-toggle="card-remove">
-<i class="card-icon-remove"></i>
-</a>
-</div>
-</div>
-<div class="card-block" style="">
-<!--评级内容框-->
-<form method="post" action="{:U('post/jifen?uid=')}{$post.user_id}">
-		<span class="input input--info m-b-md">
-			<input class="input__field" name="jifen" type="text">
-			<label class="input__label">
-			<span class="input__label-content">请输入奖励积分数值</span>
-			</label>
-		</span>
-		<span class="input input--info m-b-md">
-			<input class="input__field" name="jinbi" type="text">
-			<label class="input__label">
-			<span class="input__label-content">请输入奖励安全币数</span>
-			</label>
-		</span>
-		<button type="submit" class="btn btn-info btn-sm btn-icon loading-demo mr5">		
-			<i class="icon-cursor mr5"></i>
-		    <span>提交</span>
-		</button>
-	</form>
-<!--评级内容框-->
-</div>
-</div>
-<!--工单评级-->
-<div class="card bg-white no-border">
-<div class="card-block">
-<div class="profile-reccomendations">
-<small class="bold">评分标准</small>
-<ul class="user-meta">
-<li>
-<span class="bold">高危漏洞：</span><span>500-1000积分</span>
-</li>
-<li>
-<span class="bold">中危漏洞：</span><span>100-500积分</span>
-</li>
-<li>
-<span class="bold">低危漏洞：</span><span>10-100积分</span>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+
 </div>
 
 <!-- 配置文件 -->
