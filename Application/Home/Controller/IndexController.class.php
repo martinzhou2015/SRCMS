@@ -21,9 +21,11 @@ class IndexController extends Controller{
 		$title = $tmodel->where('id=1')->select();
 		$hall = $model->order('id DESC')->select();
 		$advisories = $amodel -> select();
+		$settings = $tmodel -> where('id=1') -> select();
         $this->assign('model', $hall);
 		$this->assign('title', $title);
 		$this->assign('advisories', $advisories);
+		$this->assign('settings', $settings);
         $this->display();
     }
 }

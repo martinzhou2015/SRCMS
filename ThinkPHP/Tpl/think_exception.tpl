@@ -1369,7 +1369,7 @@ h1{ font-size: 32px; line-height: 48px; }
 		<p>版本：v2.0.0-alpha.1. Code licensed MIT</a>.</p>
 	</div>
 	<div style="float:right">
-	  <img src="http://115.159.58.203/logo.png" style="float:right;"></img>
+	  <img src="././././logo.png" style="float:right;"></img>
 	</div>
   </div>
 </footer>

@@ -49,7 +49,7 @@ class PostController extends BaseController
         if (IS_POST) {
             //如果用户提交数据
             $model = D("Post");
-            $model->time = time();
+            $model->create_time = time();
 			$data = I();
             if (!$model->field('title,user_id,cate_id,content')->create()) {
                 // 如果创建失败 表示验证没有通过 输出错误提示信息

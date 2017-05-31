@@ -17,8 +17,8 @@ class GiftController extends Controller{
     public function index(){
 		$gift = M('links')->select();
 		$tmodel= M('setting');
-		$title = $tmodel->where('id=1')->select();
-        $this->assign('title', $title);
+		$settings = $tmodel -> where('id=1') -> select();
+        $this->assign('settings', $settings);
         $this->assign('gift',$gift);
         $this->display();
     }

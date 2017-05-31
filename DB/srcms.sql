@@ -1,23 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version phpStudy 2014
+-- version 4.4.11
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2017 �?02 �?04 �?14:35
--- 服务器版本: 5.5.40
--- PHP 版本: 5.5.17
+-- Host: localhost
+-- Generation Time: 2017-05-31 22:47:33
+-- 服务器版本： 5.5.40
+-- PHP Version: 5.5.17
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库: `srcms`
+-- Database: `srcms`
 --
 
 -- --------------------------------------------------------
@@ -27,13 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `blog` (
-  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '博客ID',
-  `title` varchar(100) NOT NULL COMMENT '博客标题',
-  `name` varchar(100) NOT NULL COMMENT '博客分类',
+  `id` int(10) NOT NULL COMMENT '博客ID',
+  `title` varchar(100) NOT NULL DEFAULT '暂无' COMMENT '博客标题',
+  `name` varchar(100) NOT NULL DEFAULT '默认分类' COMMENT '博客分类',
   `content` text NOT NULL COMMENT '博客内容',
-  `update_time` varchar(255) NOT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `update_time` varchar(255) NOT NULL COMMENT '创建时间'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `blog`
@@ -49,14 +48,13 @@ INSERT INTO `blog` (`id`, `title`, `name`, `content`, `update_time`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `pid` int(11) DEFAULT NULL COMMENT '父分类ID',
   `name` varchar(20) DEFAULT NULL COMMENT '分类别名',
   `title` varchar(100) DEFAULT NULL COMMENT '分类标题',
   `keywords` varchar(255) DEFAULT NULL COMMENT '分类关键词',
-  `description` varchar(255) DEFAULT NULL COMMENT '分类描述',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+  `description` varchar(255) DEFAULT NULL COMMENT '分类描述'
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `category`
@@ -86,13 +84,12 @@ INSERT INTO `category` (`id`, `pid`, `name`, `title`, `keywords`, `description`)
 --
 
 CREATE TABLE IF NOT EXISTS `comment` (
-  `id` int(255) NOT NULL AUTO_INCREMENT COMMENT '评论编号',
+  `id` int(255) NOT NULL COMMENT '评论编号',
   `user_id` varchar(255) NOT NULL COMMENT '评论用户',
   `post_id` int(255) NOT NULL COMMENT '评论报告',
   `content` varchar(255) NOT NULL COMMENT '评论内容',
-  `update_time` varchar(255) NOT NULL COMMENT '评论时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='报告评论' AUTO_INCREMENT=2 ;
+  `update_time` varchar(255) NOT NULL COMMENT '评论时间'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='报告评论';
 
 --
 -- 转存表中的数据 `comment`
@@ -112,8 +109,7 @@ CREATE TABLE IF NOT EXISTS `hall` (
   `name` varchar(255) NOT NULL COMMENT '名人堂昵称',
   `team` varchar(255) NOT NULL DEFAULT 'Unknown' COMMENT '团队名称',
   `url` varchar(100) NOT NULL COMMENT '名人堂头像URL',
-  `des` varchar(100) NOT NULL COMMENT '名人堂介绍',
-  PRIMARY KEY (`id`)
+  `des` varchar(100) NOT NULL COMMENT '名人堂介绍'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='名人堂';
 
 --
@@ -138,8 +134,7 @@ CREATE TABLE IF NOT EXISTS `info` (
   `location` varchar(50) NOT NULL,
   `tel` varchar(11) NOT NULL,
   `zipcode` varchar(6) NOT NULL,
-  `alipay` varchar(20) NOT NULL,
-  PRIMARY KEY (`user_id`)
+  `alipay` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -156,13 +151,12 @@ INSERT INTO `info` (`user_id`, `username`, `realname`, `location`, `tel`, `zipco
 --
 
 CREATE TABLE IF NOT EXISTS `links` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '奖品ID',
+  `id` int(11) unsigned NOT NULL COMMENT '奖品ID',
   `title` varchar(100) NOT NULL COMMENT '奖品名称',
   `url` varchar(100) NOT NULL COMMENT '奖品图片',
   `price` varchar(255) NOT NULL COMMENT '奖品价格',
-  `sort` varchar(255) NOT NULL DEFAULT 'graphic' COMMENT '奖品类型',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+  `sort` varchar(255) NOT NULL DEFAULT 'graphic' COMMENT '奖品类型'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `links`
@@ -184,23 +178,22 @@ INSERT INTO `links` (`id`, `title`, `url`, `price`, `sort`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `manager` (
-  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `id` int(2) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `token` varchar(255) NOT NULL COMMENT 'token',
-  `login_ip` varchar(20) NOT NULL,
-  `create_at` varchar(11) NOT NULL,
-  `update_at` varchar(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `email` varchar(100) NOT NULL DEFAULT '暂无',
+  `password` varchar(32) NOT NULL DEFAULT '暂无',
+  `token` varchar(255) NOT NULL DEFAULT '暂无' COMMENT 'token',
+  `login_ip` varchar(20) NOT NULL DEFAULT '暂无',
+  `create_at` varchar(11) NOT NULL DEFAULT '暂无',
+  `update_at` varchar(11) NOT NULL DEFAULT '暂无'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `manager`
 --
 
 INSERT INTO `manager` (`id`, `username`, `email`, `password`, `token`, `login_ip`, `create_at`, `update_at`) VALUES
-(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', '52eddf7a5b1f0aee17bbec4e3dda5958', '0.0.0.0', '1453778451', '1486188871');
+(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', '214b679679a56701df24aeaabb2c952b', '0.0.0.0', '1453778451', '1496241923');
 
 -- --------------------------------------------------------
 
@@ -209,16 +202,16 @@ INSERT INTO `manager` (`id`, `username`, `email`, `password`, `token`, `login_ip
 --
 
 CREATE TABLE IF NOT EXISTS `member` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `pid` varchar(255) NOT NULL COMMENT '个人资料ID',
-  `username` varchar(20) DEFAULT NULL COMMENT '用户昵称',
+  `id` int(11) NOT NULL COMMENT '用户ID',
+  `pid` varchar(255) NOT NULL DEFAULT '0' COMMENT '个人资料ID',
+  `username` varchar(20) DEFAULT '路人甲' COMMENT '用户昵称',
   `realname` varchar(100) NOT NULL DEFAULT '暂无' COMMENT '真实姓名',
   `team` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '团队名称',
-  `email` varchar(100) DEFAULT NULL COMMENT '用户邮箱',
-  `salt` varchar(9) NOT NULL COMMENT '加密salt',
+  `email` varchar(100) DEFAULT '暂无' COMMENT '用户邮箱',
+  `salt` varchar(9) NOT NULL DEFAULT '暂无' COMMENT '加密salt',
   `password` varchar(32) DEFAULT NULL COMMENT '用户密码',
   `token` varchar(255) NOT NULL DEFAULT '0' COMMENT '防护token',
-  `avatar` varchar(255) DEFAULT NULL COMMENT '用户头像',
+  `avatar` varchar(255) DEFAULT '暂无' COMMENT '用户头像',
   `address` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '用户住址',
   `description` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '个人简介',
   `bankcode` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '银行账号',
@@ -230,22 +223,12 @@ CREATE TABLE IF NOT EXISTS `member` (
   `qqnumber` varchar(255) NOT NULL DEFAULT '0' COMMENT 'QQ号',
   `create_at` varchar(11) DEFAULT '0' COMMENT '创建时间',
   `update_at` varchar(11) DEFAULT '0' COMMENT '更新时间',
-  `login_ip` varchar(20) DEFAULT NULL COMMENT '登录IP',
+  `login_ip` varchar(20) DEFAULT '0' COMMENT '登录IP',
   `status` tinyint(1) DEFAULT '1' COMMENT '0:禁止登陆 1:正常',
   `type` tinyint(1) DEFAULT '1' COMMENT '1:前台用户 2:管理员 ',
   `jifen` int(10) NOT NULL DEFAULT '0' COMMENT '用户积分',
-  `jinbi` varchar(255) NOT NULL DEFAULT '0' COMMENT '安全币',
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`) USING BTREE,
-  KEY `password` (`password`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `member`
---
-
-INSERT INTO `member` (`id`, `pid`, `username`, `realname`, `team`, `email`, `salt`, `password`, `token`, `avatar`, `address`, `description`, `bankcode`, `idcode`, `zipcode`, `alipay`, `tel`, `website`, `qqnumber`, `create_at`, `update_at`, `login_ip`, `status`, `type`, `jifen`, `jinbi`) VALUES
-(1, '07754918066538062635831023008085', 'user', 'aaaaa', '暂无', '2@qq.com', '2hRpA6V3', 'e25dbd55b6be9cddfc963c5c30f6c662', 'ed2091693b99e6feaf977a980fa8b92f', NULL, 'aaa', 'aaa', '', '', 'aaa', '', 'aaa', 'aaa', 'aa', '1485868122', '1486183509', '0.0.0.0', 1, 1, 200, '1200');
+  `jinbi` varchar(255) NOT NULL DEFAULT '0' COMMENT '安全币'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -254,14 +237,13 @@ INSERT INTO `member` (`id`, `pid`, `username`, `realname`, `team`, `email`, `sal
 --
 
 CREATE TABLE IF NOT EXISTS `notes` (
-  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '特殊页面ID',
+  `id` int(100) NOT NULL COMMENT '特殊页面ID',
   `title` varchar(255) NOT NULL COMMENT '特殊页面标题',
   `content` varchar(255) NOT NULL COMMENT '特殊页面内容',
   `author` varchar(255) NOT NULL COMMENT '页面作者',
   `time` varchar(255) NOT NULL COMMENT '页面创建时间',
-  `name` varchar(255) NOT NULL COMMENT '页面别名',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='特殊页面' AUTO_INCREMENT=1 ;
+  `name` varchar(255) NOT NULL COMMENT '页面别名'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='特殊页面';
 
 -- --------------------------------------------------------
 
@@ -270,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `notes` (
 --
 
 CREATE TABLE IF NOT EXISTS `order` (
-  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '订单编号',
+  `id` int(10) NOT NULL COMMENT '订单编号',
   `userid` varchar(255) NOT NULL COMMENT '用户ID',
   `username` varchar(50) NOT NULL COMMENT '兑换用户',
   `realname` varchar(50) NOT NULL COMMENT '真实姓名',
@@ -281,9 +263,8 @@ CREATE TABLE IF NOT EXISTS `order` (
   `gid` varchar(100) NOT NULL COMMENT '礼品名称',
   `price` varchar(255) NOT NULL DEFAULT '0' COMMENT '订单金额',
   `update_time` varchar(255) NOT NULL COMMENT '订单时间',
-  `finish` int(2) NOT NULL COMMENT '1. 完成 2.未完成',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `finish` int(2) NOT NULL COMMENT '1. 完成 2.未完成'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `order`
@@ -299,14 +280,13 @@ INSERT INTO `order` (`id`, `userid`, `username`, `realname`, `zipcode`, `address
 --
 
 CREATE TABLE IF NOT EXISTS `page` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '公告ID',
+  `id` int(11) NOT NULL COMMENT '公告ID',
   `title` varchar(100) NOT NULL COMMENT '公告标题',
   `name` varchar(100) NOT NULL COMMENT '公告名称',
   `author` varchar(100) NOT NULL COMMENT '公告作者',
   `content` text NOT NULL COMMENT '公告内容',
-  `update_time` varchar(255) NOT NULL COMMENT '发布日期',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `update_time` varchar(255) NOT NULL COMMENT '发布日期'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `page`
@@ -323,7 +303,7 @@ INSERT INTO `page` (`id`, `title`, `name`, `author`, `content`, `update_time`) V
 --
 
 CREATE TABLE IF NOT EXISTS `post` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `session` varchar(255) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content` text,
@@ -335,11 +315,8 @@ CREATE TABLE IF NOT EXISTS `post` (
   `rank` tinyint(1) NOT NULL DEFAULT '1' COMMENT '漏洞等级',
   `bounty` varchar(255) NOT NULL DEFAULT '0' COMMENT '漏洞报告奖励',
   `type` tinyint(1) DEFAULT '1' COMMENT '1:审核中,2:已忽略,3:已确认,4:已修复',
-  `visible` int(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `cate_id` (`cate_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `visible` int(2) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `post`
@@ -355,16 +332,15 @@ INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`
 --
 
 CREATE TABLE IF NOT EXISTS `record` (
-  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '操作ID',
+  `id` int(100) NOT NULL COMMENT '操作ID',
   `type` int(10) NOT NULL COMMENT '操作类型',
   `name` varchar(255) NOT NULL COMMENT '操作名称',
   `content` varchar(255) NOT NULL COMMENT '操作内容',
   `time` varchar(255) NOT NULL COMMENT '操作时间',
   `user` varchar(255) NOT NULL COMMENT '变动用户',
   `userid` int(10) NOT NULL DEFAULT '0' COMMENT '变动用户ID',
-  `operator` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '操作人',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='操作记录' AUTO_INCREMENT=4 ;
+  `operator` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '操作人'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='操作记录';
 
 --
 -- 转存表中的数据 `record`
@@ -382,17 +358,15 @@ INSERT INTO `record` (`id`, `type`, `name`, `content`, `time`, `user`, `userid`,
 --
 
 CREATE TABLE IF NOT EXISTS `setting` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '配置编号',
+  `id` int(11) unsigned NOT NULL COMMENT '配置编号',
   `value` varchar(255) NOT NULL COMMENT '配置内容',
   `key1` varchar(255) NOT NULL COMMENT '配置数据',
   `key2` varchar(255) NOT NULL COMMENT '配置数据',
   `key3` varchar(255) NOT NULL COMMENT '配置数据',
   `key4` varchar(255) NOT NULL COMMENT '配置数据',
   `key5` varchar(255) NOT NULL COMMENT '配置数据',
-  `key6` varchar(255) NOT NULL COMMENT '配置数据',
-  PRIMARY KEY (`id`),
-  KEY `key` (`key2`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `key6` varchar(255) NOT NULL COMMENT '配置数据'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `setting`
@@ -401,31 +375,163 @@ CREATE TABLE IF NOT EXISTS `setting` (
 INSERT INTO `setting` (`id`, `value`, `key1`, `key2`, `key3`, `key4`, `key5`, `key6`) VALUES
 (1, 'basic', '1009465756', 'Google Inc.', 'Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。', '&lt;script&gt;百度统计&lt;/script&gt;', '1009465756', '© Google 2017-2018 Powered by: SRCMS');
 
--- --------------------------------------------------------
-
 --
--- 表的结构 `wflow`
+-- Indexes for dumped tables
 --
 
-CREATE TABLE IF NOT EXISTS `wflow` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `session` varchar(255) CHARACTER SET gbk NOT NULL,
-  `type` varchar(255) CHARACTER SET gbk NOT NULL,
-  `content` varchar(255) CHARACTER SET gbk NOT NULL,
-  `time` varchar(255) CHARACTER SET gbk NOT NULL,
-  `rank` int(11) NOT NULL,
-  `userid` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+--
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
 
 --
--- 转存表中的数据 `wflow`
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hall`
+--
+ALTER TABLE `hall`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `info`
+--
+ALTER TABLE `info`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `links`
+--
+ALTER TABLE `links`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `manager`
+--
+ALTER TABLE `manager`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`) USING BTREE,
+  ADD KEY `password` (`password`) USING BTREE;
+
+--
+-- Indexes for table `notes`
+--
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cate_id` (`cate_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `record`
+--
+ALTER TABLE `record`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `key` (`key2`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
-INSERT INTO `wflow` (`id`, `session`, `type`, `content`, `time`, `rank`, `userid`) VALUES
-(1, '07508969891827228279', '1', '&lt;p&gt;已经处理！请重新查看&lt;/p&gt;', '2016-12-30 17:45:25', 0, 'Lua');
-
+--
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '博客ID',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT COMMENT '评论编号',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `links`
+--
+ALTER TABLE `links`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '奖品ID',AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `manager`
+--
+ALTER TABLE `manager`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID';
+--
+-- AUTO_INCREMENT for table `notes`
+--
+ALTER TABLE `notes`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '特殊页面ID';
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '订单编号',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '公告ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `record`
+--
+ALTER TABLE `record`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '操作ID',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '配置编号',AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

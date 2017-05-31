@@ -19,8 +19,8 @@ class PageController extends Controller{
         $model = M('page');
 		$tmodel= M('setting');		
 		$pages = $model->limit(15)->select();
-		$title = $tmodel->where('id=1')->select();
-        $this->assign('title', $title);
+		$settings = $tmodel -> where('id=1') -> select();
+        $this->assign('settings', $settings);
         $this->assign('model', $pages);
         $this->display();     
     }

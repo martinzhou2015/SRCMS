@@ -18,9 +18,9 @@ class BlogController extends Controller{
         $model = M('blog');
 		$tmodel= M('setting');
 		$pages = $model->limit(15)->select();
-		$title = $tmodel->where('id=1')->select();
-        $this->assign('title', $title);
+		$settings = $tmodel -> where('id=1') -> select();
         $this->assign('model', $pages);
+		$this->assign('settings', $settings);
         $this->display();     
     }
 

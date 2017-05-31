@@ -9,12 +9,4 @@ return array(
 //'DB_PREFIX'             =>  'wx_',    // 数据库表前缀
 'DB_FIELDS_CACHE'       =>  true,        // 启用字段缓存
 'DB_CHARSET'            =>  'utf8',      // 数据库编码默认采用utf8
-'DB_CONFIG1' => array(
-    'db_type'  => 'mysql',
-    'db_user'  => 'root',
-    'db_pwd'   => 'root',
-    'db_host'  => 'localhost',
-    'db_port'  => '3306',
-    'db_name'  => 'srflow'
-),
 );

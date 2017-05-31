@@ -18,7 +18,10 @@ class HallController extends Controller{
     {
         $xuhao = 1;
         $model = M('member');
-        $user = $model->order('jifen ASC')->where('jifen>0')->select();  
+		$tmodel= M('setting');
+		$settings = $tmodel -> where('id=1') -> select();
+        $user = $model->order('jifen DESC')->where('jifen>0')->select();  
+		$this->assign('settings', $settings);
 		$this ->assign('xuhao',$xuhao);
         $this->assign('user',$user);
         $this->display();   

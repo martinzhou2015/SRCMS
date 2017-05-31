@@ -6,7 +6,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Google Inc.安全应急响应中心</title>
+        <title><foreach name="settings" item="s"> {$s.key2} </foreach>安全应急响应中心</title>
         <meta name="keywords" content="Google Inc.安全应急响应中心" />
         <meta name="description" content="Google Inc.安全应急响应中心">
         <meta name="author" content="srcms.xyz">
@@ -47,7 +47,7 @@
             <span class="yahei icon-bar"></span>
             <span class="yaheiicon-bar"></span>
           </button>
-          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong>Google Inc.</strong>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="settings" item="s"> {$s.key2} </foreach></strong>
           <span class="yahei" style=" font-size: 12px;padding: 2px 6px;border: 1px solid;border-radius: 4px;vertical-align: 4px; ">安全应急响应中心</span>
           </a>
         </div>
@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="g-margin-b-50--xs">
-                                    <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white" style="font-family:微软雅黑;">Google INC.<br/>安全应急响应中心</h1>
+                                    <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white" style="font-family:微软雅黑;"><foreach name="settings" item="s"> {$s.key2} </foreach><br/>安全应急响应中心</h1>
                                     <p class="g-font-size-18--xs g-font-size-22--sm g-color--white-opacity">诚邀广大安全专家共建安全生态</p>
                                 </div>
                                 <a href="__ROOT__/user.php" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-padding-x-50--xs">提交漏洞</a>
@@ -90,7 +90,7 @@
                         <div class="row">
                             <div class="col-md-7 col-md-offset-5">
                                 <div class="g-margin-b-50--xs">
-                                    <h2 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white" style="font-family:微软雅黑;">Google INC.<br/>安全应急响应中心</h2>
+                                    <h2 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white" style="font-family:微软雅黑;"><foreach name="settings" item="s"> {$s.key2} </foreach><br/>安全应急响应中心</h2>
                                     <p class="g-font-size-18--xs g-font-size-22--sm g-color--white-opacity">诚邀广大安全专家共建安全生态</p>
                                 </div>
                                 <a href="__ROOT__/user.php" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-padding-x-50--xs">提交情报</a>
@@ -289,7 +289,7 @@
                         </div>
                         <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
                             <!--<h3 class="g-font-size-18--xs g-color--white">Google Inc.</h3>-->
-                            <p class="g-color--white-opacity">Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。</p>
+                            <p class="g-color--white-opacity"><foreach name="settings" item="s"> {$s.key3} </foreach></p>
                         </div>
                     </div>
                 </div>
@@ -305,7 +305,7 @@
                         </a>
                     </div>
                     <div class="col-xs-6 g-text-right--xs">
-                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">&copy; Google 2017-2018 Powered by: SRCMS</p>
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><foreach name="settings" item="s"> {$s.key6} </foreach></p>
                     </div>
                 </div>
             </div>
