@@ -32,6 +32,9 @@ class HallController extends Controller{
 		$pid = I('get.pid',0,'number_int');
 		$model = M('member');
 		$report = M('post');
+		$tmodel= M('setting');
+		$settings = $tmodel -> where('id=1') -> select();
+		$this->assign('settings', $settings);
 		$user = $model -> where(array('pid'=>$pid)) -> select();
 		$uid = $user[0]['id'];
 		if ($uid != null){

@@ -178,23 +178,63 @@ class PostController extends BaseController
 	
 	/**
      * 生成session key
+	**/ 
 
-	    public function session(){
-		$id = I('get.id',0,'intval');
-		$str = '1234567890';
-        $session = $str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)].$str[rand(0,10)];
+    public function session(){
+		$id = I('get.id');
+		$str = '1234567890abcdefg';
+        $session = $str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)].$str[rand(0,17)];
 		$visible = 1;
         $model = M('post');
         $model->session = $session;
 		$model->visible = $visible;
-		$result = $model->where('id='.$id)->save();
+		$result = $model->where(array('id'=>$id))->save();
 		if($result){
-            $this->success("授权成功", U('Check/view?session_id='.$session));
+            $this->success("授权成功", U('post/index'));
         }else{
             $this->error("授权失败");
         }
 	   }
-	        */
+	   
+	   
+	/**
+	* 取消导出
+	**/ 
+	   
+	 public function cancel(){
+		$id = I('get.id');
+		$visible = 0;
+        $model = M('post');
+		$model->visible = $visible;
+		$result = $model->where(array('id'=>$id))->save();
+		if($result){
+            $this->success("取消成功", U('post/index'));
+        }else{
+            $this->error("取消失败");
+        }
+	   }
+			
+	
+    /**
+	* 导出全部
+	**/ 
+	
+	public function portall(){
+			$model = M('post')->field('id,title,content,advise,time,day,bounty')->limit(100)->select();
+			set_time_limit(0);  
+			ini_set('memory_limit', '512M');  
+			$output = fopen('php://output', 'w') or die("can't open php://output");  
+			$filename = "安全应急响应中心外部漏洞报告统计表" . date('Y-m-d', time());  
+			header("Content-Type: application/csv");  
+			header("Content-Disposition: attachment; filename=$filename.csv");  
+			$table_head = array('报告编号','报告名称','报告内容', '修复建议','提交时间','修补期限','漏洞奖励');  
+			fputcsv($output, $table_head);  
+			foreach ($model as $e) {  
+				fputcsv($output, array_values($e));  
+			}  
+			fclose($output) or die("can't close php://output");  
+			exit;  
+    }		
 
     /**
 	添加报告评论

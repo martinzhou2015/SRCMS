@@ -1,5 +1,5 @@
 #
-# robots.txt for SRCMS V2 Community Version
+# robots.txt for SRCMS V2.2 Community Version
 #
 
 User-agent: *

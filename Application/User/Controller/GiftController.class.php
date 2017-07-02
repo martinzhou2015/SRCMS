@@ -82,7 +82,10 @@ class GiftController extends BaseController{
 			$record_result = $record -> add($rdata);
 			
 			$token = $data['token'];
-			if($token != $user['token']){$this->error("非法请求");}
+			if($token != $user['token']){
+				$this->error("非法请求");
+			}
+
 			
 			$result = M('member')->where('id='.$id)->setDec('jinbi',$gift['price']);
             if ($model->field('userid,username,gid,tel,alipay,realname,address,zipcode,price,update_time')->add($data)) {

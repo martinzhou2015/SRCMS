@@ -115,13 +115,21 @@ class MemberController extends BaseController
     }
     /**
      * 删除用户
-	 * @param  [type] $id [管理员ID]
      */
     public function delete()
     {
 		$id = I('get.id',0,'intval'); 
         $model = M('member');
-		if($model->where('id='.$id)->delete()){
+		$data['username'] = '[已删除]';
+		$data['realname'] = '[已删除]';
+		$data['email'] = '0';
+		$data['salt'] = '0';
+		$data['passwd'] = '0';
+		$data['team'] = '[已删除]';
+		$data['description'] = '[已删除]';
+		$data['website'] = '[已删除]';
+		$data['status'] = 1;
+		if($model->where('id='.$id)->save($data)){
             $this->success("用户删除成功", U('member/index'));
         }else{
             $this->error("用户删除失败");

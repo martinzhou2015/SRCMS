@@ -16,6 +16,16 @@
 				<li><a href="{:U('post/index?key=4')}">已修复</a></li>
 			</ul>
 </div>
+<div class="btn-group">
+			<button type="button" class="btn btn-primary" style="margin : 2px 0px 5px 0px;">高级功能</button>
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="margin : 2px 0px 5px 0px;">
+				<span class="caret"></span>
+				<span class="sr-only">切换下拉菜单</span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="{:U('post/portall')}">导出全部</a></li>
+			</ul>
+</div>
     </ul>
         </div>
         <div class="col-md-6">
@@ -57,7 +67,7 @@
                 <td data-title="提交时间">{$v.time|date="Y/m/d",###}</td>
                 <td data-title="提交者">{$v.username}</td>
                 <td data-title="分类">{$v.category_title}</td>
-                <td data-title="操作"><a href="{:U('post/review?id=')}{$v.id}">审核</a> | <a href="{:U('post/update?id=')}{$v.id}">编辑</a> <!--| <if condition="$v.visible eq 0"><a href="{:U('post/session?id=')}{$v.id}" target="_Blank">生成工单</a>  <elseif condition="$v.visible eq 1" /><a href="{:U('check/view?session_id=')}{$v.session}" target="_Blank">查看工单</a></if>--> | <a href="{:U('post/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+                <td data-title="操作"><a href="{:U('post/review?id=')}{$v.id}">审核</a> | <a href="{:U('post/update?id=')}{$v.id}">编辑</a> | <if condition="$v.visible eq 0"><a href="{:U('post/session?id=')}{$v.id}" target="_Blank">导出工单</a>  <elseif condition="$v.visible eq 1" /><a href="{:U('check/view?session_id=')}{$v.session}" target="_Blank">查看工单</a> |  <a href="{:U('post/cancel?id=')}{$v.id}" target="_Blank">取消导出</a> </if> | <a href="{:U('post/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
             </tr>
         </foreach>
         </tbody>

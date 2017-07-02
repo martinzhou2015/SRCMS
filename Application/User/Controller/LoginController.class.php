@@ -66,7 +66,7 @@ class LoginController extends Controller {
             'id' => $user['id'],
             'update_at' => time(),
             'login_ip' => get_client_ip(),
-			'token' => $token,
+			'token' => $token //2017-07-02 fix bug: token can't be inserted into databease.
         );
         //登陆成功
         if($member->save($data)){

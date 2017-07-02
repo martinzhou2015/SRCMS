@@ -6,7 +6,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{$model.title} - <foreach name="settings" item="s"> {$s.key2} </foreach>安全应急响应中心</title>
+        <title>{$model.title} - <foreach name="title" item="s"> {$s.key2} </foreach>安全应急响应中心</title>
 		<meta name="keywords" content="<foreach name='settings' item='s'> {$s.key2} </foreach>安全应急响应中心" />
         <meta name="description" content="<foreach name='settings' item='s'> {$s.key2} </foreach>安全应急响应中心">
         <meta name="author" content="srcms.xyz">
@@ -43,7 +43,7 @@
             <span class="yahei icon-bar"></span>
             <span class="yaheiicon-bar"></span>
           </button>
-          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="settings" item="s"> {$s.key2} </foreach></strong>
+          <a class="yahei navbar-brand" href="{:U('index/index')}"><strong><foreach name="title" item="s"> {$s.key2} </foreach></strong>
           <span class="yahei" style=" font-size: 12px;padding: 2px 6px;border: 1px solid;border-radius: 4px;vertical-align: 4px; ">安全应急响应中心</span>
           </a>
         </div>

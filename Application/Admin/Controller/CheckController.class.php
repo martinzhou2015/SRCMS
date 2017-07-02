@@ -12,9 +12,24 @@ use Think\Controller;
  
 class CheckController extends Controller
 {
+	/**
+     * 导出漏洞报告
+	*/	 
+	 public function view(){
+		$id = I('get.session_id');
+        $model = M('post')->where('visible=1')->where(array('session'=>$id))->find();
+		$arr['id']= $model['id'];
+		$arr['title']= $model['title'];
+		$arr['content']= $model['content'];
+		$arr['advise']= $model['advise'];
+		$arr['time']= $model['time'];
+		$arr['type']= $model['type'];
+		$this->ajaxReturn ($arr,'JSON');
+    }
+	
     /**
      * 临时查看漏洞报告
-     */
+    
        public function view(){
 		$id = I('get.session_id',0,'number_int'); //seesion token防注入
         $model = M('post')->where('session='.$id)->find();
@@ -23,9 +38,12 @@ class CheckController extends Controller
         $this->assign('model',$model);
 		$this->display();
     }
+	 */
+	
+	
+	
     /**
      * 添加漏洞处理进展
-     */
     public function add()
     {
         //默认显示添加表单
@@ -46,4 +64,5 @@ class CheckController extends Controller
             }
         }
     }
+	 */
 }
