@@ -50,7 +50,7 @@
                     <elseif condition="$v.finish eq 1" /><span class="label label-success">已发货</span>
 					<elseif condition="$v.finish eq 2" /><span class="label label-default">已关闭</span>
                     </if></td>
-				<td><a href="{:U('order/update',array('id'=>$v['id'],'username'=>$v['username']))}" target="_Blank">查看</a> | <a href="{:U('order/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
+				<td><!--<a href="{:U('order/update',array('id'=>$v['id'],'userid'=>$v['userid']))}" target="_Blank">查看</a>--><a href="{:U('order/update',array('id'=>$v['id']))}" target="_Blank">查看</a> | <a href="{:U('order/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
             </tr>
         </foreach>
         </tbody>

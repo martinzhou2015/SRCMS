@@ -39,14 +39,13 @@ class OrderController extends BaseController
 	
     public function update()
     {
-	  $id = I('get.id',0,'intval');
-	  $user_id = I('get.username',0,'intval');
         if (!IS_POST) {
-            $model = M('order')->where(array('id='=>$id))->find();
+            $id = I('get.id',0,'intval');
+            //$user_id = I('get.userid',0,'intval');
+            $model = M('order')->where(array('id'=>$id))->find();
             $this->assign('model',$model);
-		    $model = M('member');
-	        $info = $model->where(array('id'=>$user_id))-> select();
-			$this->assign('userM', $info);
+	        //$info =  M('member')->where(array('id'=>$user_id))-> select();
+		    //$this->assign('userM', $info);
             $this->display();
         }
         if (IS_POST) {

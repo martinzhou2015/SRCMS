@@ -33,11 +33,12 @@ switch ($action) {
         $result = include("action_list.php");
         break;
 
-    /* 抓取远程文件 */
+    /* 抓取远程文件 
     case 'catchimage':
         $result = include("action_crawler.php");
         break;
-
+   */
+   
     default:
         $result = json_encode(array(
             'state'=> '请求地址出错'

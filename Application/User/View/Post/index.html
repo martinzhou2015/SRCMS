@@ -39,6 +39,7 @@
                 <th>报告状态</th>
                 <th>危害评级</th>
                 <th>漏洞类型</th>
+                <!--<th>操作</th>-->
             </tr>
         </thead>
         <tbody>
@@ -59,6 +60,11 @@
                     <elseif condition="$v.rank eq 4" /><span class="label label-success">高危</span>
                     </if></td>
                 <td data-title="漏洞类型">{$v.category_title}</td>
+                <!--<td data-title="操作"><if condition="$v.type eq 1"><a href="">编辑</span>
+                    <elseif condition="$v.type eq 2" /><a href="{:U('post/view?rid=')}{$v.id}">查看</a>
+                    <elseif condition="$v.type eq 3" /><a href="{:U('post/view?rid=')}{$v.id}">查看</a>
+                    <elseif condition="$v.type eq 4" /><a href="{:U('post/view?rid=')}{$v.id}">查看</a>
+                    </if></td>-->
             </tr>
         </foreach>
         </tbody>

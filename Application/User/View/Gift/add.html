@@ -1,5 +1,17 @@
 <include file="Public/header" title="订单确认 - 企业安全应急响应与缺陷管理中心" gifts_status="open" gifts_color="#6164C1;"/>
+<script>
+function numplus(){
+var goodsnum = document.getElementById("redeemgoods"); 
+var resultnum = parseInt(goodsnum.value) + 1
+goodsnum.value = resultnum;
+}
 
+function numminus(){
+var goodsnum = document.getElementById("redeemgoods"); 
+var resultnum = parseInt(goodsnum.value) - 1
+goodsnum.value = resultnum;
+}
+</script>
 <div class="main-content">
 <div class="page-title">
 <div class="title">礼品中心</div>
@@ -26,11 +38,12 @@
 </thead>
 <tbody>
 <tr>
+<form method="post" action="{:U('gift/add?gid=')}{$gift.id}">
 <td class="text-capitalize">{$gift.title}</td>
 <td>
-<a class="math-actions minus">&nbsp;</a>
-<span class="cart-quantity">1</span>
-<a class="math-actions">&nbsp;</a>
+<a class="math-actions minus" onclick="numminus();">&nbsp;</a>
+<span class="cart-quantity"><input id="redeemgoods" class="input__field" name="num" type="text" value="1"></span>
+<a class="math-actions" onclick="numplus();">&nbsp;</a>
 </td>
 <td>{$gift.price}</td>
 </tr>
@@ -44,7 +57,6 @@
 <div class="card bg-white m-b">
 <div class="card-header">个人信息</div>
 <div class="card-block">
-<form method="post" action="{:U('gift/add?gid=')}{$gift.id}">
 	   <div class="form-group">
         <label>姓名：</label>
         <input type="text" name="realname"  class="form-control" value="{$info.realname}">
@@ -76,12 +88,5 @@
 </div>
 </div>
 </form>
-
-
-
-
-
-		
-	
 </div>
 <include file="Public/footer" />

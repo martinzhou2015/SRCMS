@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2017-05-31 22:47:33
+-- Generation Time: 2017-09-09 11:45:11
 -- 服务器版本： 5.5.40
 -- PHP Version: 5.5.17
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `srcms`
 --
-CREATE DATABASE `srcms` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE srcms;
 
 -- --------------------------------------------------------
 
@@ -121,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `hall` (
 INSERT INTO `hall` (`id`, `name`, `team`, `url`, `des`) VALUES
 (0, 'Nancy Rich', 'Google (Porject Zero)', './PUBLIC/Index/img/400x400/04.jpg', '来自Google Project Zero的Nancy，第一季度帮助我们发现20个涉及Andriod、Google Chrome等核心产品的严重漏洞。对Google安全生态的建设起到了极大的帮助 '),
 (1, 'Anna Kusaikina', 'Apple Security Team', './Public/Index/img/400x400/06.jpg', '来自Apple Security Team的Anna，第三季度帮助我们发现5个涉及Google Chrome的高危漏洞，对Chrome的稳定性和安全性的提升贡献非凡。'),
-(2, 'Lucas Richardson', 'Microsoft Security Response Center', './Public/Index/img/400x400/05.jpg', '帮助我们发现了一枚严重级别的远程代码执行漏洞，并及时通知我们进行修复，保护了亿万用户的安全，特此表示衷心的感谢。');
+(2, 'Microsoft Security Center', 'Microsoft Security Response Center', './Public/Index/img/400x400/05.jpg', '帮助我们发现了一枚严重级别的远程代码执行漏洞，并及时通知我们进行修复，保护了亿万用户的安全，特此表示衷心的感谢。');
 
 -- --------------------------------------------------------
 
@@ -195,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `manager` (
 --
 
 INSERT INTO `manager` (`id`, `username`, `email`, `password`, `token`, `login_ip`, `create_at`, `update_at`) VALUES
-(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', '214b679679a56701df24aeaabb2c952b', '0.0.0.0', '1453778451', '1496241923');
+(1, 'admin', '1009465756@qq.com', '21232f297a57a5a743894a0e4a801fc3', 'f25370eb70f3d5b5e2990304fbad1311', '0.0.0.0', '1453778451', '1504796246');
 
 -- --------------------------------------------------------
 
@@ -230,7 +228,16 @@ CREATE TABLE IF NOT EXISTS `member` (
   `type` tinyint(1) DEFAULT '1' COMMENT '1:前台用户 2:管理员 ',
   `jifen` int(10) NOT NULL DEFAULT '0' COMMENT '用户积分',
   `jinbi` varchar(255) NOT NULL DEFAULT '0' COMMENT '安全币'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `member`
+--
+
+INSERT INTO `member` (`id`, `pid`, `username`, `realname`, `team`, `email`, `salt`, `password`, `token`, `avatar`, `address`, `description`, `bankcode`, `idcode`, `zipcode`, `alipay`, `tel`, `website`, `qqnumber`, `create_at`, `update_at`, `login_ip`, `status`, `type`, `jifen`, `jinbi`) VALUES
+(1, '0', 'user', '暂无', '暂无', 'user@qq.com', '暂无', '5cc32e366c87c4cb49e4309b75f57d64', '0', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '0', '1497262271', '0', '0.0.0.0', 1, 1, 0, '0'),
+(2, '40490179412345254132823132685141', '[已删除]', '[已删除]', '[已删除]', '0', '0', '905ee8f75384669deca8b221fa28eda4', '0', '暂无', '暂无', '[已删除]', '暂无', '暂无', '暂无', '暂无', '暂无', '[已删除]', '0', '1497262735', '1497262736', '0.0.0.0', 1, 1, 200, '200'),
+(3, '23655135121160235158753959640175', 'user2', '暂无', '暂无', 'user2@qq.com', 'ZvWtKuAr', 'a42001f146d8351d83bd50613708d0c6', '6cd213daa5e168af1e3c19748824a3f5', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '暂无', '0', '1498998699', '1504923888', '0.0.0.0', 1, 1, 100, '70');
 
 -- --------------------------------------------------------
 
@@ -264,16 +271,10 @@ CREATE TABLE IF NOT EXISTS `order` (
   `alipay` varchar(50) NOT NULL COMMENT '支付宝',
   `gid` varchar(100) NOT NULL COMMENT '礼品名称',
   `price` varchar(255) NOT NULL DEFAULT '0' COMMENT '订单金额',
+  `num` int(10) NOT NULL DEFAULT '1' COMMENT '兑换数量',
   `update_time` varchar(255) NOT NULL COMMENT '订单时间',
   `finish` int(2) NOT NULL COMMENT '1. 完成 2.未完成'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `order`
---
-
-INSERT INTO `order` (`id`, `userid`, `username`, `realname`, `zipcode`, `address`, `tel`, `alipay`, `gid`, `price`, `update_time`, `finish`) VALUES
-(1, '1', 'user', '暂无', '暂无', '暂无', 0, '暂无', '定制饮品', '100', '1486179341', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -318,14 +319,17 @@ CREATE TABLE IF NOT EXISTS `post` (
   `bounty` varchar(255) NOT NULL DEFAULT '0' COMMENT '漏洞报告奖励',
   `type` tinyint(1) DEFAULT '1' COMMENT '1:审核中,2:已忽略,3:已确认,4:已修复',
   `visible` int(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `post`
 --
 
 INSERT INTO `post` (`id`, `session`, `title`, `content`, `advise`, `time`, `day`, `cate_id`, `user_id`, `rank`, `bounty`, `type`, `visible`) VALUES
-(1, '', '测试工单', '&lt;p&gt;测试工单&lt;/p&gt;', '', '1486183605', 0, 2, 1, 1, '+积分:100 +安全币:100', 1, 0);
+(1, 'f07081e7fggb08e3743e8f095a84633', '测试工单', '&lt;p&gt;测试工单&lt;/p&gt;', '', '1486183605', 0, 2, 1, 1, '+积分:100 +安全币:100', 1, 1),
+(2, '10df72172234g01a8agf316091a1975', 'admin', '&lt;p&gt;admin&lt;/p&gt;', '', '1497262222', 0, 6, 1, 1, '0', 1, 0),
+(3, '3fg628ab50cba75997dac3d1129e3c', 'admin', '&lt;p&gt;admin&lt;/p&gt;', '', '1497262751', 2, 6, 2, 2, '+积分:100 +安全币:100', 2, 0),
+(4, '', '测试报告', '', '', '1504796958', 0, 1, 3, 1, '0', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -342,16 +346,7 @@ CREATE TABLE IF NOT EXISTS `record` (
   `user` varchar(255) NOT NULL COMMENT '变动用户',
   `userid` int(10) NOT NULL DEFAULT '0' COMMENT '变动用户ID',
   `operator` varchar(255) NOT NULL DEFAULT '暂无' COMMENT '操作人'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='操作记录';
-
---
--- 转存表中的数据 `record`
---
-
-INSERT INTO `record` (`id`, `type`, `name`, `content`, `time`, `user`, `userid`, `operator`) VALUES
-(1, 1, '兑换定制饮品', '-安全币:100', '1486179341', 'user', 1, 'user'),
-(2, 1, '增加积分/安全币', '+积分:100 +安全币:200', '1486188291', 'user', 0, 'admin'),
-(3, 1, '增加积分/安全币', '+积分:100 +安全币:100', '1486188711', 'user', 0, 'admin');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='操作记录';
 
 -- --------------------------------------------------------
 
@@ -375,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
 --
 
 INSERT INTO `setting` (`id`, `value`, `key1`, `key2`, `key3`, `key4`, `key5`, `key6`) VALUES
-(1, 'basic', '1009465756', 'Google Inc.', 'Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。', '&lt;script&gt;百度统计&lt;/script&gt;', '1009465756', '© Google 2017-2018 Powered by: SRCMS');
+(1, 'basic', '1009465750', 'Google Inc.', 'Google Inc. 是一家位于美国的跨国科技企业，业务包括Google搜索、Google Chrome、Andriod等。Google非常重视安全生态的建设，希望通过建立安全应急响应中心邀请安全专家完善生态。', '&lt;script&gt;百度统计&lt;/script&gt;', '1009465752', '© Google 2017-2018 Powered by: SRCMS');
 
 --
 -- Indexes for dumped tables
@@ -503,7 +498,7 @@ ALTER TABLE `manager`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `notes`
 --
@@ -513,7 +508,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '订单编号',AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '订单编号';
 --
 -- AUTO_INCREMENT for table `page`
 --
@@ -523,12 +518,12 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `record`
 --
 ALTER TABLE `record`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '操作ID',AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '操作ID';
 --
 -- AUTO_INCREMENT for table `setting`
 --

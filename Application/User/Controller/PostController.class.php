@@ -68,7 +68,39 @@ class PostController extends BaseController
             }
         }
     }
-	
+    
+	public function edit()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+			$tmodel= M('setting');
+		    $title = $tmodel->where('id=1')->select();
+		    $this->assign('title', $title);
+        	$this->assign("category",getSortedCategory(M('category')->select()));
+            $this->display();
+        }
+        if (IS_POST) {
+            //如果用户提交数据
+            $model = D("Post");
+            $model->create_time = time();
+			$data = I();
+            if (!$model->field('title,user_id,cate_id,content')->create()) {
+                // 如果创建失败 表示验证没有通过 输出错误提示信息
+                $this->error($model->getError());
+                exit();
+            } else {
+                if ($model->add()) {
+					require "./././././ThinkPHP/Library/Org/Net/Mail.class.php";
+					$time = date("Y-m-d h:i:sa");
+					$con='您好,安全应急响应中心新增一份漏洞报告《 '.$data['title'].'》。请您及时登陆后台查看。';  
+					SendMail('1009465756@qq.com','新增漏洞报告提示',$con,'安全应急响应中心');
+                    $this->success("报告成功", U('post/index'));
+                } else {
+                    $this->error("报告失败");
+                }
+            }
+        }
+    }
 	public function view(){
 	    $rid = I('get.rid',0,'intval');
 		$model = M("Post");

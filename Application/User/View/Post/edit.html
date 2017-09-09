@@ -1,0 +1,53 @@
+<include file="Public/header" title="编辑报告 - 企业安全应急响应与缺陷管理中心 | Powered By SRCMS" report_status="open" add_report_color="#6164C1;"/>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+<script type="text/javascript">
+    var ue = UE.getEditor('post-content',{
+        toolbars: [
+            ['source', '|','simpleupload','emotion','link','unlink', '|', 'selectall', 'cleardoc'],
+        ],
+        initialFrameHeight:500,
+        zIndex:100
+    });
+</script>
+<div class="main-content">
+<div class="page-title">
+	<ol class="breadcrumb no-bg pl0">
+	<li>
+	<i class="icon-users"></i> <a href="{:U('post/index')}">报告列表</a>
+	</li>
+	<li>
+	<a href="javascript:;">提交漏洞</a>
+	</li>
+	</ol>
+</div> 
+<div class="row">
+        <div class="col-lg-13">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>感谢您向我们报告漏洞，您的每一份报告我们都会有专人跟进，请您耐心等待审核！</p>
+				<div class="clearfix"></div>
+            </div>
+        </div>
+</div>
+<form method="post" action="{:U('post/add')}">
+        <div class="form-group">
+            <label for="post-title">报告标题</label>
+            <input type="text" name="title" class="form-control" id="post-title" placeholder="输入文章标题">
+        </div>
+        <div class="form-group">
+            <label for="post-cate">漏洞类型</label>
+            <select name="cate_id" id="post-cate" class="form-control" style="width:100%">
+                <foreach name="category" item="v">
+                    <option value="{$v.id}">{$v.html} {$v.title}</option>
+                </foreach>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="post-content">漏洞内容</label>
+            <script id="post-content" name="content" type="text/plain" style="width:100%"></script>
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+</form>
+</div>
+<include file="Public/footer" />

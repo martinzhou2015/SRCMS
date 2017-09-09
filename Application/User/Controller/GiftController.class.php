@@ -56,6 +56,7 @@ class GiftController extends BaseController{
             $this->display();
         }
         if (IS_POST) {
+            $id = session('userId');
             $model = M("order");
 			$record = M('record');
 			$user = M('member')->where('id='.$id)->find();
@@ -64,7 +65,12 @@ class GiftController extends BaseController{
 				$this->error("安全币余额不足!", U('gift/index'));
 				exit();
 			}
-			$data = I();
+            $data = I();
+            if($data['num']<0){
+                $this->error("兑换数量非法！", U('gift/index'));
+				exit();
+            }
+            $price = $gift['price'] * $data['num'];
 			$data['gid'] = $gift['title']; 
 			$data['price'] = $gift['price']; 
 			$data['username'] = session('username');
@@ -74,7 +80,8 @@ class GiftController extends BaseController{
 			//记录兑换安全币变动日志
 			$rdata['type'] = 1;
 			$rdata['name'] = '兑换'.$gift['title'];
-			$rdata['content'] = '-安全币:'.$gift['price'];
+            $rdata['num'] = '数量:'.$gift['num'];
+			$rdata['content'] = '-安全币:'.$price;
 			$rdata['time'] = time();
 			$rdata['user'] = session('username');
 			$rdata['userid'] = session('userId');
@@ -85,10 +92,15 @@ class GiftController extends BaseController{
 			if($token != $user['token']){
 				$this->error("非法请求");
 			}
-
-			
-			$result = M('member')->where('id='.$id)->setDec('jinbi',$gift['price']);
-            if ($model->field('userid,username,gid,tel,alipay,realname,address,zipcode,price,update_time')->add($data)) {
+		    if($user['jinbi']<$price){
+				$this->error("安全币余额不足!", U('gift/index'));
+				exit();
+			}
+			$result = M('member')->where('id='.$id)->setDec('jinbi',$price);
+            if (!$result){
+               $this->error("兑换失败", U('gift/index'));
+			}
+            if ($model->field('userid,username,gid,tel,alipay,realname,address,zipcode,price,update_time,num')->add($data)) {
 				if($result){
                     $this->success("兑换成功", U('gift/order'));
 					}
