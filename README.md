@@ -66,4 +66,5 @@ https://github.com/martinzhou2015/SRCMS/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%9
 * Ivan
 * 藏形匿影(挖财网)
 
-&copy;<a href="https://github.com/sixtant" target="_blank">Sixtant Lab</a> 2016 - 2017
+## 公众号
+![欢迎关注我的微信公众号](https://s1.ax1x.com/2018/12/26/F2p2yF.jpg)
