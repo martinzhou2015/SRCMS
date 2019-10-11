@@ -5,7 +5,7 @@
 > * **项目开发/维护**： Martin Zhou
 
 ## 重要提示
-SRCMS已合入腾讯xSRC（开源版）维护，推荐您及时切换更新，获得最新特性及安全支持。
+**SRCMS已合入腾讯xSRC（开源版）维护，推荐您及时切换更新，获得最新特性及安全支持。**
 <br/>下载地址：https://security.tencent.com/opensource/detail/19
 
 ## BUG提交说明
