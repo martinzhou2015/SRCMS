@@ -14,6 +14,7 @@
 ## 致谢
 在开发过程中，SRCMS得益于广大开源项目和开发者们的帮助和支持,在此向下面的开发者们致谢：
 * [ThinkPHP](http://www.thinkphp.cn/)
+* 奇安信CodeSafe（https://www.codesafe.cn/#/home）
 * mramydnei
 * Del技术菜鸟
 * Blast
